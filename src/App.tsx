@@ -4,7 +4,7 @@ import {Guide} from './pages/guide/Guide';
 
 export function App() {
   return (
-    <div className="App">
+    <div className="wrapper">
     <BrowserRouter>
       <Route path="/guide" component={Guide}/>
     </BrowserRouter>
