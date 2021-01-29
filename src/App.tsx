@@ -8,7 +8,6 @@ export const App: React.FC = () => {
     <div className={s.wrapper}>
     <BrowserRouter>
     <Switch>
-      <Route exact path="/" />
       <Route path="/guide" component={Guide}/>
       </Switch>
     </BrowserRouter>
