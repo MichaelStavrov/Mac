@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./productCard.module.css";
+import { ProgressLine } from "./ProgressLine/ProgressLine";
 
 export const Releases = () => {
   return (
@@ -9,12 +10,10 @@ export const Releases = () => {
         <div className={s.rightPart}>
           <div className={s.releaseProgressWrapper}>
             <div className={s.date}></div>
-            {/* <ProgressLine/> */}
+            <ProgressLine/>
           </div>
           <div className={s.days}></div>
-            
         </div>
-
       </div>
     </section>
   )
