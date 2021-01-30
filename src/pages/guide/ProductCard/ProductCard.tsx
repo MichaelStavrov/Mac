@@ -1,9 +1,9 @@
 import React from "react";
-import s from "./releaseCard.module.css";
+import s from "./productCard.module.css";
 import { Product } from "./Product/Product";
 
 
-export const ReleaseCard = () => {
+export const ProductCard = () => {
   return (
     <section className={s.releaseCard}>
       <Product/>
