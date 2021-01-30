@@ -1,9 +1,13 @@
 .releaseProgressWrapper {
-  margin-right: 15px;
   display: flex;
-  flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px solid #d0eae9;
 }
 
 .date {
   font-size: 12px;
+}
+
+.days {
+  font-size: 30px;
 }

@@ -2,13 +2,21 @@ import React from "react";
 import s from "./releaseProgressWrapper.module.css"
 import { ProgressLine } from "../ProgressLine/ProgressLine";
 
-const date = "Nov 2020"
+type ReleaseProgressWrapperProps = {
+  date: string
+}
 
-export const ReleaseProgressWrapper = () => {
+export const ReleaseProgressWrapper = ({date}: ReleaseProgressWrapperProps) => {
   return (
     <div className={s.releaseProgressWrapper}>
-      <div className={s.date}>{date}</div>
-      <ProgressLine/>
+      <div className={s.left}>
+        <div className={s.date}>{date}</div>
+        <ProgressLine/>
+      </div>
+      <div className={s.right}>
+        <div className={s.days}>81</div>
+      </div>
+      
     </div>
   )
 }
