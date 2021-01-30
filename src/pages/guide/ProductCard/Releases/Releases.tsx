@@ -3,8 +3,19 @@ import s from "./productCard.module.css";
 
 export const Releases = () => {
   return (
-    <section>
-      
+    <section className={s.releases}>
+      <div className={s.lastRelease}>
+        <div className={s.leftPart}>Days since last release</div>
+        <div className={s.rightPart}>
+          <div className={s.releaseProgressWrapper}>
+            <div className={s.date}></div>
+            {/* <ProgressLine/> */}
+          </div>
+          <div className={s.days}></div>
+            
+        </div>
+
+      </div>
     </section>
   )
 }
