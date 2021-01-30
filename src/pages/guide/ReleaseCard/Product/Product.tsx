@@ -12,7 +12,7 @@ export const Product = () => {
   return (
     <section className={s.product}>
         <div className={s.productImage}>
-          <img src={image} className={s.image}/>
+          <img src={image} className={s.image} alt={image}/>
         </div>
         <div className={s.productInfo}>
           <Link to="/" className={s.title}>{title}</Link>
