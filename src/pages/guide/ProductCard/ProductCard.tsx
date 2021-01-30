@@ -6,7 +6,7 @@ import { Releases } from "./Releases/Releases";
 
 export const ProductCard = () => {
   return (
-    <section className={s.releaseCard}>
+    <section className={s.productCard}>
       <Product/>
       <Releases/>
     </section>

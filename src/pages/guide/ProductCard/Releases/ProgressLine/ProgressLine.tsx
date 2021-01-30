@@ -1,9 +1,11 @@
 import React from "react";
-import s from "./productCard.module.css";
+import s from "./progressLine.module.css";
 
 
 export const ProgressLine = () => {
   return (
-    <div></div>
+    <div className={s.progressLine}>
+      <div className={s.progressInner}></div>
+    </div>
   )
 }

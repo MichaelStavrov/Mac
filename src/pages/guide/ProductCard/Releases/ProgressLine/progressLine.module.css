@@ -1,0 +1,17 @@
+.progressLine {
+  width: 215px;
+  height: 10px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #edf2f7;
+}
+
+.progressInner {
+  width: 20%;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  background-color: #66bc00;
+}
