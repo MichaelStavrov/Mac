@@ -29,15 +29,9 @@ h3 {
   align-items: center;
 }
 
-.releaseProgressWrapper {
-  margin-right: 15px;
-  display: flex;
-  flex-direction: column;
-}
 
-.date {
-  font-size: 12px;
-}
+
+
 
 .days {
   font-size: 2.5rem;
