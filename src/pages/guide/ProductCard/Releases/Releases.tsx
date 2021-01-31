@@ -21,9 +21,9 @@ function getDateDiff(arrayDates: string[]) {
 
 function createArrayDateWithDiff(dates: string[], days: number[]) {
   const result = [];
-  const datesSlice = dates.slice(1)
-  for (let i = 0; i < datesSlice.length; i++) {
-    result.push({date: datesSlice[i], days: days[i]})
+  const datesWithoutFirstDate = dates.slice(1)
+  for (let i = 0; i < datesWithoutFirstDate.length; i++) {
+    result.push({date: datesWithoutFirstDate[i], days: days[i]})
   }
   return result;
 }
