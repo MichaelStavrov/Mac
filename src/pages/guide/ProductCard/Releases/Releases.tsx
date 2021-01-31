@@ -4,38 +4,38 @@ import { ReleaseProgressWrapper } from "../ReleaseProgressWrapper/ReleaseProgres
 
 const dates = ["10.11.2020", "18.03.2020", "09.07.2019", "30.10.2018", "05.06.2017", "09.03.2015", "29.04.2014"]
 
-function parseDate(str: any): any {
-  const mdy = str.split('.');  
+function parseDate(date: any): any {
+  const mdy = date.split('.');  
   return new Date(mdy[2], mdy[1] - 1, mdy[0]);
 }
 
 function getDiff(arrayDates: string[]) {
-  const days = []
+  const arrayOfDiffs = []
   for (let i = 0; i < arrayDates.length - 1; i++) {
     let diff = Math.round((parseDate(arrayDates[i]) - parseDate(arrayDates[i + 1])) / (1000*60*60*24));
-    days.push(diff)
+    arrayOfDiffs.push(diff)
   }
-  return days;
+  return arrayOfDiffs;
 }
 
-const arrayOfdays = getDiff(dates)
+const arrayOfDiffs = getDiff(dates)
 
-function createArrayDateWithDiff(dates: string[], days: number[]) {
+function createArrayDateWithDiff(dates: string[], arrayOfDiffs: number[]) {
   const result = [];
   const datesWithoutFirstDate = dates.slice(1)
   for (let i = 0; i < datesWithoutFirstDate.length; i++) {
-    result.push({date: datesWithoutFirstDate[i], days: days[i]})
+    result.push({date: datesWithoutFirstDate[i], diff: arrayOfDiffs[i]})
   }
   return result;
 }
 
-const datesWithDiff = createArrayDateWithDiff(dates, arrayOfdays);
+const datesWithDiff = createArrayDateWithDiff(dates, arrayOfDiffs);
 
-function getAverage(days: number[]): number {
-  return Math.round(days.reduce((acc, num) => acc + num) / days.length);
+function getAverage(arrayOfDiffs: number[]): number {
+  return Math.round(arrayOfDiffs.reduce((acc, num) => acc + num) / arrayOfDiffs.length);
 }
 
-const average = getAverage(arrayOfdays.slice(0, 6));
+const average = getAverage(arrayOfDiffs.slice(0, 6));
 
 function getDaysSinceLastRelease(): number {
   const currentDate: any = new Date()
@@ -44,7 +44,7 @@ function getDaysSinceLastRelease(): number {
 
 const daysSinceLastRelease = getDaysSinceLastRelease();
 
-const max: number = Math.max(...arrayOfdays.slice(0, 6)) 
+const max: number = Math.max(...arrayOfDiffs.slice(0, 6)) 
 
 export const Releases = () => {
   return (
@@ -72,7 +72,7 @@ export const Releases = () => {
         <div className={s.rightPart}>
           <ul>
             {datesWithDiff.slice(0, 6).map(obj =>
-              <ReleaseProgressWrapper date={obj.date} days={obj.days} max={max} key={Math.random()}/>
+              <ReleaseProgressWrapper date={obj.date} days={obj.diff} max={max} key={Math.random()}/>
             )}
           </ul>
           
