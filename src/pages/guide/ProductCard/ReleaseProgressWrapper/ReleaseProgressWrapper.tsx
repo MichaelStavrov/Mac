@@ -58,9 +58,6 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
         {date && <Link to="/" className={s.date}>{months[month]} {year}</Link>}
         <ProgressLine 
           daysSinceLastRelease={daysSinceLastRelease}
-          max={max} 
-          average={average} 
-          days={days} 
           width={width}/>
       </div>
       <div className={s.right}>
