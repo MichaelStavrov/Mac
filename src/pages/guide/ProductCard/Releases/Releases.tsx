@@ -13,18 +13,18 @@ function getDiff(arrayDates: string[]) {
   const arrayOfDiffs = []
   for (let i = 0; i < arrayDates.length - 1; i++) {
     let diff = Math.round((parseDate(arrayDates[i]) - parseDate(arrayDates[i + 1])) / (1000*60*60*24));
-    arrayOfDiffs.push(diff)
+    arrayOfDiffs.push(diff);
   }
   return arrayOfDiffs;
 }
 
-const arrayOfDiffs = getDiff(dates)
+const arrayOfDiffs = getDiff(dates);
 
 function createArrayDateWithDiff(dates: string[], arrayOfDiffs: number[]) {
   const result = [];
-  const datesWithoutFirstDate = dates.slice(1)
+  const datesWithoutFirstDate = dates.slice(1);
   for (let i = 0; i < datesWithoutFirstDate.length; i++) {
-    result.push({date: datesWithoutFirstDate[i], diff: arrayOfDiffs[i]})
+    result.push({date: datesWithoutFirstDate[i], diff: arrayOfDiffs[i]});
   }
   return result;
 }
@@ -37,14 +37,10 @@ function getAverage(arrayOfDiffs: number[]): number {
 
 const average = getAverage(arrayOfDiffs.slice(0, 6));
 
-function getDaysSinceLastRelease(): number {
-  const currentDate: any = new Date()
-  return Math.round((currentDate - parseDate(dates[0])) / (1000*60*60*24))
-}
+const currentDate: any = new Date();
+const daysSinceLastRelease = Math.round((currentDate - parseDate(dates[0])) / (1000*60*60*24));
 
-const daysSinceLastRelease = getDaysSinceLastRelease();
-
-const max: number = Math.max(...arrayOfDiffs.slice(0, 6)) 
+const max: number = Math.max(...arrayOfDiffs.slice(0, 6));
 
 export const Releases = () => {
   return (
