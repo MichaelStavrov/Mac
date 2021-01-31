@@ -5,7 +5,7 @@ import { ProgressLine } from "../ProgressLine/ProgressLine";
 
 import {ReleaseProgressWrapperProps } from "../Releases/Releases"
 
-export const ReleaseProgressWrapper = ({date, days, average}: ReleaseProgressWrapperProps) => {
+export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastRelease}: ReleaseProgressWrapperProps) => {
 
   const months: any = {
     "01": "Jan",
@@ -38,6 +38,7 @@ export const ReleaseProgressWrapper = ({date, days, average}: ReleaseProgressWra
         <ProgressLine/>
       </div>
       <div className={s.right}>
+        {daysSinceLastRelease && <div className={s.daysSinceLastRelease}>{daysSinceLastRelease}</div>}
         {days && <div className={s.days}>{days}</div>}
         {average && <div className={s.days}>{average}</div>}
       </div>

@@ -6,12 +6,13 @@ export type ReleaseProgressWrapperProps = {
   date?: string
   days?: number
   average?: number
+  daysSinceLastRelease?: number
 }
 
 const dates = ["10.11.2020", "18.03.2020", "09.07.2019", "30.10.2018", "05.06.2017", "09.03.2015", "29.04.2014"]
 
 function parseDate(str: any): any {
-  const mdy = str.split('.'); 
+  const mdy = str.split('.');  
   return new Date(mdy[2], mdy[1] - 1, mdy[0]);
 }
 
@@ -44,12 +45,25 @@ function getAverage(days: number[]): number {
 
 const average = getAverage(days);
 
+function getDaysSinceLastRelease(): number {
+  const currentDate: any = new Date()
+  return Math.round((currentDate - parseDate(dates[0])) / (1000*60*60*24))
+}
 
+const daysSinceLastRelease = getDaysSinceLastRelease();
 
 export const Releases = () => {
   return (
     <section className={s.releases}>
-       <div className={s.row}>
+      <div className={s.row}>
+        <div className={s.leftPart}>
+          <h3 className={s.title}>Days since last release</h3>
+        </div>
+        <div className={s.rightPart}>
+          <ReleaseProgressWrapper daysSinceLastRelease={daysSinceLastRelease}/>
+        </div>
+      </div>
+      <div className={s.row}>
         <div className={s.leftPart}>
           <h3 className={s.title}>Average</h3>
         </div>

@@ -16,3 +16,8 @@
 .days {
   font-size: 26px;
 }
+
+.daysSinceLastRelease {
+  font-size: 39px;
+  color: #66bc00;
+}
