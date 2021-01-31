@@ -1,14 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import s from "./releaseProgressWrapper.module.css"
 import { ProgressLine } from "../ProgressLine/ProgressLine";
 
-type ReleaseProgressWrapperProps = {
-  date: string
-  days: number
-}
+import {ReleaseProgressWrapperProps } from "../Releases/Releases"
 
-export const ReleaseProgressWrapper = ({date, days}: ReleaseProgressWrapperProps) => {
-
+export const ReleaseProgressWrapper = ({date, days, average}: ReleaseProgressWrapperProps) => {
 
   const months: any = {
     "01": "Jan",
@@ -24,21 +21,27 @@ export const ReleaseProgressWrapper = ({date, days}: ReleaseProgressWrapperProps
     "11": "Nov",
     "12": "Dec" 
   }
-  const year: string = date.slice(date.length - 4)
-  const month: string = date.slice(date.length - 7, date.length - 5)
 
+  let year: string = "";
+  let month: string = "";
 
+  if (date && days) {
+    year = date!.slice(date!.length - 4)
+    month = date!.slice(date!.length - 7, date!.length - 5)
+  }
+  
 
   return (
-    <div className={s.releaseProgressWrapper}>
+    <li className={s.releaseProgressWrapper}>
       <div className={s.left}>
-        <div className={s.date}>{months[month]} {year}</div>
+        {date && <Link to="/" className={s.date}>{months[month]} {year}</Link>}
         <ProgressLine/>
       </div>
       <div className={s.right}>
-        <div className={s.days}>{days}</div>
+        {days && <div className={s.days}>{days}</div>}
+        {average && <div className={s.days}>{average}</div>}
       </div>
       
-    </div>
+    </li>
   )
 }

@@ -3,6 +3,15 @@ h3 {
   font-weight: 400;
 }
 
+li {
+  list-style-type: none; 
+ }
+
+ ul {
+  margin: 0; 
+  padding: 0; 
+ }
+
 .releases {
   display: flex;
   flex-direction: column;
@@ -12,7 +21,7 @@ h3 {
 
 .row {
   width: 100%;
-  padding: 20px 0;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -21,6 +30,14 @@ h3 {
 
 .title {
   font-size: 22px;
+}
+
+li:last-child {
+  border: none;
+}
+
+li:first-child {
+  padding-top: 0;
 }
 
 
