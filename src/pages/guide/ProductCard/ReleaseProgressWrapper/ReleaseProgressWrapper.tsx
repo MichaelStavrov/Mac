@@ -8,7 +8,7 @@ type ReleaseProgressWrapperProps = {
   days?: number
   average?: number
   daysSinceLastRelease?: number
-  max?: any
+  max?: number
 }
 
 export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastRelease, max}: ReleaseProgressWrapperProps) => {
@@ -32,11 +32,11 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
   let month: string = "";
 
   if (date && days) {
-    year = date!.slice(date!.length - 4)
-    month = date!.slice(date!.length - 7, date!.length - 5)
+    year = date.slice(date.length - 4)
+    month = date.slice(date.length - 7, date.length - 5)
   }
  
-  let width = (daysSinceLastRelease! * 100 / max) || (average! * 100 / max) || (days! * 100 / max)
+  let width = (daysSinceLastRelease! * 100 / max!) || (average! * 100 / max!) || (days! * 100 / max!)
   if (width > 100) {
     width = 100;
   }
@@ -45,7 +45,7 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
   if (daysSinceLastRelease) {
     if (width <= 40) {
       color = "green"
-    } else if (width > 40 && width <= 80) {
+    } else if (width > 40 && width < 80) {
       color =  "#dddd20"
     } else {
       color = "red"
@@ -58,7 +58,8 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
         {date && <Link to="/" className={s.date}>{months[month]} {year}</Link>}
         <ProgressLine 
           daysSinceLastRelease={daysSinceLastRelease}
-          max={max} average={average} 
+          max={max} 
+          average={average} 
           days={days} 
           width={width}/>
       </div>
@@ -66,9 +67,7 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
         {daysSinceLastRelease && <div className={s.daysSinceLastRelease} style={{color}}>{daysSinceLastRelease}</div>}
         {average && <div className={s.days}>{average}</div>}
         {days && <div className={s.days}>{days}</div>}
-        
       </div>
-      
     </li>
   )
 }
