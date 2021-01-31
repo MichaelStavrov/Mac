@@ -36,7 +36,10 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
     month = date!.slice(date!.length - 7, date!.length - 5)
   }
  
-  const width = (daysSinceLastRelease! * 100 / max) || (average! * 100 / max) || (days! * 100 / max)
+  let width = (daysSinceLastRelease! * 100 / max) || (average! * 100 / max) || (days! * 100 / max)
+  if (width > 100) {
+    width = 100;
+  }
   
   let color = "#426694"
   if (daysSinceLastRelease) {
