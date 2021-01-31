@@ -2,13 +2,6 @@ import React from "react";
 import s from "./releases.module.css";
 import { ReleaseProgressWrapper } from "../ReleaseProgressWrapper/ReleaseProgressWrapper";
 
-export type ReleaseProgressWrapperProps = {
-  date?: string
-  days?: number
-  average?: number
-  daysSinceLastRelease?: number
-}
-
 const dates = ["10.11.2020", "18.03.2020", "09.07.2019", "30.10.2018", "05.06.2017", "09.03.2015", "29.04.2014"]
 
 function parseDate(str: any): any {
@@ -25,8 +18,7 @@ function getDiff(arrayDates: string[]) {
   return days;
 }
 
-const days = getDiff(dates)
-
+const arrayOfdays = getDiff(dates)
 
 function createArrayDateWithDiff(dates: string[], days: number[]) {
   const result = [];
@@ -37,13 +29,13 @@ function createArrayDateWithDiff(dates: string[], days: number[]) {
   return result;
 }
 
-const datesWithDiff = createArrayDateWithDiff(dates, days);
+const datesWithDiff = createArrayDateWithDiff(dates, arrayOfdays);
 
 function getAverage(days: number[]): number {
   return Math.round(days.reduce((acc, num) => acc + num) / days.length);
 }
 
-const average = getAverage(days);
+const average = getAverage(arrayOfdays.slice(0, 6));
 
 function getDaysSinceLastRelease(): number {
   const currentDate: any = new Date()
@@ -51,6 +43,8 @@ function getDaysSinceLastRelease(): number {
 }
 
 const daysSinceLastRelease = getDaysSinceLastRelease();
+
+const max: number = Math.max(...arrayOfdays.slice(0, 6)) 
 
 export const Releases = () => {
   return (
@@ -60,7 +54,7 @@ export const Releases = () => {
           <h3 className={s.title}>Days since last release</h3>
         </div>
         <div className={s.rightPart}>
-          <ReleaseProgressWrapper daysSinceLastRelease={daysSinceLastRelease}/>
+          <ReleaseProgressWrapper daysSinceLastRelease={daysSinceLastRelease} max={max}/>
         </div>
       </div>
       <div className={s.row}>
@@ -68,7 +62,7 @@ export const Releases = () => {
           <h3 className={s.title}>Average</h3>
         </div>
         <div className={s.rightPart}>
-          <ReleaseProgressWrapper average={average}/>
+          <ReleaseProgressWrapper average={average} max={max}/>
         </div>
       </div>
       <div className={s.row}>
@@ -77,12 +71,13 @@ export const Releases = () => {
         </div>
         <div className={s.rightPart}>
           <ul>
-            {datesWithDiff.slice(0, 6).map(obj => <ReleaseProgressWrapper date={obj.date} days={obj.days} key={Math.random()}/>)}
+            {datesWithDiff.slice(0, 6).map(obj =>
+              <ReleaseProgressWrapper date={obj.date} days={obj.days} max={max} key={Math.random()}/>
+            )}
           </ul>
           
         </div>
       </div>
-     
     </section>
   )
 }

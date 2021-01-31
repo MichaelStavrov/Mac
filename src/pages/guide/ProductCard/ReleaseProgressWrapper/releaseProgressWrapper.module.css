@@ -1,9 +1,15 @@
 .releaseProgressWrapper {
+  min-width: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 14px 0;
   border-bottom: 1px solid #d0eae9;
+}
+
+.left {
+  width: 100%;
+  margin-right: 15px;
 }
 
 .date {

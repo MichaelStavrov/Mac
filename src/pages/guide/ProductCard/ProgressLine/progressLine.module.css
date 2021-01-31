@@ -1,5 +1,5 @@
 .progressLine {
-  width: 215px;
+  width: 100%;
   height: 10px;
   margin-right: 15px;
   position: relative;
@@ -16,3 +16,4 @@
   border-radius: 10px;
   background-color: #426694;
 }
+
