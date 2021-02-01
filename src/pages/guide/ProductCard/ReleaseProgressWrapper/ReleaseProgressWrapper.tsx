@@ -15,23 +15,21 @@ type ReleaseProgressWrapperProps = {
 export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastRelease, max, getMonthAndYear}: ReleaseProgressWrapperProps) => {
 
   // const monthAndYear: string = getMonthAndYear!(date!) почему не работает?
- 
-
+  
   let width = (daysSinceLastRelease! * 100 / max!) || (average! * 100 / max!) || (days! * 100 / max!)
   if (width > 100) {
     width = 100;
   }
   
   let color = "#426694"
-  if (daysSinceLastRelease) {
-    if (width <= 40) {
-      color = "#66bc00"
-    } else if (width > 40 && width < 80) {
-      color =  "#dddd20"
-    } else {
-      color = "red"
-    }
+  if (width <= 40) {
+    color = "#66bc00"
+  } else if (width > 40 && width < 80) {
+    color =  "#dddd20"
+  } else {
+    color = "#aa0d23"
   }
+  
 
   return (
     <li className={s.releaseProgressWrapper}>
@@ -39,10 +37,14 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
         {date && <Link to="/" className={s.date}>{getMonthAndYear!(date)}</Link>}
         <ProgressLine 
           daysSinceLastRelease={daysSinceLastRelease}
-          width={width}/>
+          width={width}
+          backgroundColor={color}
+        />
       </div>
       <div className={s.right}>
-        {daysSinceLastRelease && <div className={s.daysSinceLastRelease} style={{color}}>{daysSinceLastRelease}</div>}
+        {daysSinceLastRelease && 
+          <div className={s.daysSinceLastRelease} style={{color}}>{daysSinceLastRelease}</div>
+        }
         {average && <div className={s.days}>{average}</div>}
         {days && <div className={s.days}>{days}</div>}
       </div>
