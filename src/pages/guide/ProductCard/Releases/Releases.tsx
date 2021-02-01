@@ -12,6 +12,8 @@ function parseDate(date: any): any {
 const currentDate: any = new Date();
 const daysSinceLastRelease = Math.round((currentDate - parseDate(dates[0])) / (1000*60*60*24));
 
+
+
 function getDiff(arrayDates: string[]) {
   const arrayOfDiffs = [daysSinceLastRelease]
   for (let i = 0; i < arrayDates.length - 1; i++) {
@@ -39,9 +41,16 @@ function getAverage(arrayOfDiffs: number[]): number {
 
 const average = getAverage(arrayOfDiffs.slice(1, 7));
 
-
-
 const max: number = Math.max(...arrayOfDiffs.slice(0, 6));
+
+function getMonthAndYear(date: string): string {
+  const months: string[] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+  const year = date.slice(date.length - 4);
+  let month = date.slice(date.length - 7, date.length - 5);
+  month = months.find((_, i) => parseInt(month) === i + 1)!
+  return `${month} ${year}`
+}
+
 
 export const Releases = () => {
   return (
@@ -51,7 +60,7 @@ export const Releases = () => {
           <h3 className={s.title}>Days since last release</h3>
         </div>
         <div className={s.rightPart}>
-          <ReleaseProgressWrapper daysSinceLastRelease={daysSinceLastRelease} max={max}/>
+          <ReleaseProgressWrapper date={dates[0]} getMonthAndYear={getMonthAndYear} daysSinceLastRelease={daysSinceLastRelease} max={max}/>
         </div>
       </div>
       <div className={s.row}>
@@ -69,7 +78,7 @@ export const Releases = () => {
         <div className={s.rightPart}>
           <ul>
             {datesWithDiff.slice(1, 7).map(obj =>
-              <ReleaseProgressWrapper date={obj.date} days={obj.diff} max={max} key={Math.random()}/>
+              <ReleaseProgressWrapper getMonthAndYear={getMonthAndYear} date={obj.date} days={obj.diff} max={max} key={Math.random()}/>
             )}
           </ul>
           
