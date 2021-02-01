@@ -11,7 +11,7 @@ export const ProgressLine = ({daysSinceLastRelease, width}: ProgressLineProps) =
   let backgroundColor = "#426694"
   if (daysSinceLastRelease) {
     if (width <= 40) {
-      backgroundColor = "green"
+      backgroundColor = "#66bc00"
     } else if (width > 40 && width < 80) {
       backgroundColor =  "#dddd20"
     } else {

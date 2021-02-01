@@ -44,7 +44,7 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
   let color = "#426694"
   if (daysSinceLastRelease) {
     if (width <= 40) {
-      color = "green"
+      color = "#66bc00"
     } else if (width > 40 && width < 80) {
       color =  "#dddd20"
     } else {
