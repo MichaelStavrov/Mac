@@ -17,9 +17,7 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
   // const monthAndYear: string = getMonthAndYear!(date!) почему не работает?
   
   let width = (daysSinceLastRelease! * 100 / max!) || (average! * 100 / max!) || (days! * 100 / max!)
-  if (width > 100) {
-    width = 100;
-  }
+
   
   let color = "#426694"
   if (width <= 40) {
