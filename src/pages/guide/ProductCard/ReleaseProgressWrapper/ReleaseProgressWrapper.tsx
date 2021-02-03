@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import cn from "classnames"
 import s from "./releaseProgressWrapper.module.css"
 import { ProgressLine } from "../ProgressLine/ProgressLine";
 
@@ -18,16 +20,6 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
   const width = (daysSinceLastRelease! * 100 / max!) || (average! * 100 / max!) || (days! * 100 / max!)
 
   
-  let color = "#426694"
-  if (width <= 40) {
-    color = "#66bc00"
-  } else if (width > 40 && width < 80) {
-    color =  "#dddd20"
-  } else {
-    color = "#aa0d23"
-  }
-  
-
   return (
     <li className={s.releaseProgressWrapper}>
       <div className={s.left}>
@@ -35,12 +27,16 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
         <ProgressLine 
           daysSinceLastRelease={daysSinceLastRelease}
           width={width}
-          backgroundColor={color}
         />
       </div>
       <div className={s.right}>
         {daysSinceLastRelease && 
-          <div className={s.daysSinceLastRelease} style={{color}}>{daysSinceLastRelease}</div>
+          <div className={cn({
+            [s.daysSinceLastRelease]: true,
+            [s.green]: width <= 40,
+            [s.yellow]: width > 40 && width < 80,
+            [s.red]: width > 80
+          })}>{daysSinceLastRelease}</div>
         }
         {average && <div className={s.days}>{average}</div>}
         {days && <div className={s.days}>{days}</div>}

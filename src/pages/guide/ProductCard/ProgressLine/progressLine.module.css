@@ -8,7 +8,7 @@
 }
 
 .progressInner {
-  max-width: 100%;
+  width: 100%;
   height: 10px;
   position: absolute;
   left: 0;
@@ -17,3 +17,14 @@
   background-color: #426694;
 }
 
+.green {
+  background-color: #66bc00;
+}
+
+.yellow {
+  background-color:#dddd20;
+}
+
+.red {
+  background-color: #aa0d23;
+}
