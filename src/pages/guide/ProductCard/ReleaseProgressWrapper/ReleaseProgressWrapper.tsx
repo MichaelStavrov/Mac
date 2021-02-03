@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import s from "./releaseProgressWrapper.module.css"
 import { ProgressLine } from "../ProgressLine/ProgressLine";
 
@@ -16,7 +15,7 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
 
   // const monthAndYear: string = getMonthAndYear!(date!) почему не работает?
   
-  let width = (daysSinceLastRelease! * 100 / max!) || (average! * 100 / max!) || (days! * 100 / max!)
+  const width = (daysSinceLastRelease! * 100 / max!) || (average! * 100 / max!) || (days! * 100 / max!)
 
   
   let color = "#426694"
