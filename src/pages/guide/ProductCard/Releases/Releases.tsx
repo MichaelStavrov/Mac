@@ -44,9 +44,9 @@ const max: number = Math.max(...arrayOfDiffs.slice(1, 7));
 function getMonthAndYear(date: string): string {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
   const year = date.slice(date.length - 4);
-  let month = date.slice(date.length - 7, date.length - 5);
-  month = months.find((_, i) => parseInt(month) === i + 1)!
-  return `${month} ${year}`
+  const month = date.slice(date.length - 7, date.length - 5);
+  const monthToString = months.find((_, i) => parseInt(month) === i + 1)!;
+  return `${monthToString} ${year}`
 }
 
 
