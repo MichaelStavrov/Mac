@@ -17,7 +17,7 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
 
   // const monthAndYear: string = getMonthAndYear!(date!) почему не работает?
   
-  const width = (daysSinceLastRelease! * 100 / max!) || (average! * 100 / max!) || (days! * 100 / max!)
+  const width = (daysSinceLastRelease! || average! || days!) * 100 / max!
 
   
   return (
