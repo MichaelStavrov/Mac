@@ -5,7 +5,7 @@ import { releasesDateInfo } from "../utils/releasesDateInfo"
 import { getDatesMeta } from "../utils/getDatesMeta"
 import { getDaysSinceLastRelease } from "../utils/getDaysSinceLastRelease"
 import { parseDate } from "../utils/parseDate"
-import { getStringDateAndMonth}  from "../utils/getStringDateAndMonth"
+import { getMonthAndYearOfRelease}  from "../utils/getMonthAndYearOfRelease"
 
 const dates = ["10.11.2020", "18.03.2020", "09.07.2019", "30.10.2018", "05.06.2017", "09.03.2015", "29.04.2014"]
 
@@ -23,7 +23,7 @@ export const Releases = () => {
         <div className={s.rightPart}>
           <ReleaseProgressWrapper 
             date={parseDate(dates[0])} 
-            getStringDateAndMonth={getStringDateAndMonth} 
+            getMonthAndYearOfRelease={getMonthAndYearOfRelease} 
             daysSinceLastRelease={daysSinceLastRelease} 
             max={max}/>
         </div>
@@ -44,7 +44,7 @@ export const Releases = () => {
           <ul>
             {arrayDatesWithDiff.map(obj =>
               <ReleaseProgressWrapper
-              getStringDateAndMonth={getStringDateAndMonth} 
+              getMonthAndYearOfRelease={getMonthAndYearOfRelease} 
                 date={obj.date} days={obj.diff} 
                 max={max} 
                 key={Math.random()}/>

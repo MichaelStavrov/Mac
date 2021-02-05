@@ -10,20 +10,27 @@ type ReleaseProgressWrapperProps = {
   average?: number
   daysSinceLastRelease?: number
   max?: number
-  getStringDateAndMonth?: (date: Date) => string
+  getMonthAndYearOfRelease?: (date: Date) => string
 }
 
-export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastRelease, max, getStringDateAndMonth}: ReleaseProgressWrapperProps) => {
-
-  // const monthAndYear: string = getMonthAndYear!(date!) почему не работает?
+export const ReleaseProgressWrapper = ({
+  date, 
+  days, 
+  average, 
+  daysSinceLastRelease, 
+  max, 
+  getMonthAndYearOfRelease
+}: ReleaseProgressWrapperProps) => {
   
   const width = (daysSinceLastRelease! || average! || days!) * 100 / max!
 
+  // Почему не работает?
+  // const dateRelease = getMonthAndYearOfRelease!(date!) 
   
   return (
     <li className={s.releaseProgressWrapper}>
       <div className={s.left}>
-        {date && <Link to="/" className={s.date}>{getStringDateAndMonth!(date)}</Link>}
+        {date && <Link to="/" className={s.date}>{getMonthAndYearOfRelease!(date!)}</Link>}
         <ProgressLine 
           daysSinceLastRelease={daysSinceLastRelease}
           width={width}
