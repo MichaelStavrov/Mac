@@ -1,54 +1,17 @@
 import React from "react";
 import s from "./releases.module.css";
 import { ReleaseProgressWrapper } from "../ReleaseProgressWrapper/ReleaseProgressWrapper";
+import { releasesDateInfo } from "../utils/releasesDateInfo"
+import { getDatesMeta } from "../utils/getDatesMeta"
+import { getDaysSinceLastRelease } from "../utils/getDaysSinceLastRelease"
+import { parseDate } from "../utils/parseDate"
+import { getStringDateAndMonth}  from "../utils/getStringDateAndMonth"
 
 const dates = ["10.11.2020", "18.03.2020", "09.07.2019", "30.10.2018", "05.06.2017", "09.03.2015", "29.04.2014"]
 
-function parseDate(date: any): any {
-  const mdy = date.split('.');  
-  return new Date(mdy[2], mdy[1] - 1, mdy[0]);
-}
-
-const currentDate: any = new Date();
-const daysSinceLastRelease = Math.round((currentDate - parseDate(dates[0])) / (1000*60*60*24));
-
-function getDiff(arrayDates: string[]): number[] {
-  const arrayOfDiffs = [daysSinceLastRelease]
-  for (let i = 0; i < arrayDates.length - 1; i++) {
-    const diff = Math.round((parseDate(arrayDates[i]) - parseDate(arrayDates[i + 1])) / (1000*60*60*24));
-    arrayOfDiffs.push(diff);
-  }
-  return arrayOfDiffs;
-}
-
-const arrayOfDiffs = getDiff(dates);
-
-function createArrayDateWithDiff(dates: string[], arrayOfDiffs: number[]) {
-  const result = [];
-  for (let i = 0; i < dates.length; i++) {
-    result.push({date: dates[i], diff: arrayOfDiffs[i]});
-  }  
-  return result;
-}
-
-const arrayDatesWithDiff = createArrayDateWithDiff(dates, arrayOfDiffs);
-
-function getAverage(arrayOfDiffs: number[]): number {
-  return Math.round(arrayOfDiffs.reduce((acc, num) => acc + num) / arrayOfDiffs.length);
-}
-
-const average: number = getAverage(arrayOfDiffs.slice(1, 7));
-
-const max: number = Math.max(...arrayOfDiffs.slice(1, 7));
-
-function getMonthAndYear(date: string): string {
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-  const year = date.slice(date.length - 4);
-  const month = date.slice(date.length - 7, date.length - 5);
-  const monthToString = months.find((_, i) => parseInt(month) === i + 1)!;
-  return `${monthToString} ${year}`
-}
-
+const daysSinceLastRelease = getDaysSinceLastRelease(dates[0]);
+const arrayDatesWithDiff = releasesDateInfo(dates);
+const { average, max } = getDatesMeta(arrayDatesWithDiff);
 
 export const Releases = () => {
   return (
@@ -59,8 +22,8 @@ export const Releases = () => {
         </div>
         <div className={s.rightPart}>
           <ReleaseProgressWrapper 
-            date={dates[0]} 
-            getMonthAndYear={getMonthAndYear} 
+            date={parseDate(dates[0])} 
+            getStringDateAndMonth={getStringDateAndMonth} 
             daysSinceLastRelease={daysSinceLastRelease} 
             max={max}/>
         </div>
@@ -79,12 +42,12 @@ export const Releases = () => {
         </div>
         <div className={s.rightPart}>
           <ul>
-            {arrayDatesWithDiff.slice(1, 7).map(obj =>
+            {arrayDatesWithDiff.map(obj =>
               <ReleaseProgressWrapper
-                getMonthAndYear={getMonthAndYear} 
+              getStringDateAndMonth={getStringDateAndMonth} 
                 date={obj.date} days={obj.diff} 
                 max={max} 
-                key={obj.date}/>
+                key={Math.random()}/>
             )}
           </ul>
         </div>

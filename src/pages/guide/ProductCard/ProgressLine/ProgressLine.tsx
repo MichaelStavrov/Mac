@@ -6,7 +6,7 @@ type ProgressLineProps = {
   width: number
 }
 
-export const ProgressLine = ({daysSinceLastRelease, width, }: ProgressLineProps) => {
+export const ProgressLine = ({ daysSinceLastRelease, width }: ProgressLineProps) => {
 
   let backgroundColor = "#426694"
     if (width <= 40) {

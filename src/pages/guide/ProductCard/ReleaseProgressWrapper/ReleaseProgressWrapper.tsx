@@ -5,15 +5,15 @@ import s from "./releaseProgressWrapper.module.css"
 import { ProgressLine } from "../ProgressLine/ProgressLine";
 
 type ReleaseProgressWrapperProps = {
-  date?: string
+  date?: Date
   days?: number
   average?: number
   daysSinceLastRelease?: number
   max?: number
-  getMonthAndYear?: (date: string) => string
+  getStringDateAndMonth?: (date: Date) => string
 }
 
-export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastRelease, max, getMonthAndYear}: ReleaseProgressWrapperProps) => {
+export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastRelease, max, getStringDateAndMonth}: ReleaseProgressWrapperProps) => {
 
   // const monthAndYear: string = getMonthAndYear!(date!) почему не работает?
   
@@ -23,7 +23,7 @@ export const ReleaseProgressWrapper = ({date, days, average, daysSinceLastReleas
   return (
     <li className={s.releaseProgressWrapper}>
       <div className={s.left}>
-        {date && <Link to="/" className={s.date}>{getMonthAndYear!(date)}</Link>}
+        {date && <Link to="/" className={s.date}>{getStringDateAndMonth!(date)}</Link>}
         <ProgressLine 
           daysSinceLastRelease={daysSinceLastRelease}
           width={width}
