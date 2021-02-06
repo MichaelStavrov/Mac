@@ -13,6 +13,7 @@ type ReleaseProgressWrapperProps = {
   getMonthAndYearOfRelease?: (date: Date) => string
 }
 
+
 export const ReleaseProgressWrapper = ({
   date, 
   days, 
