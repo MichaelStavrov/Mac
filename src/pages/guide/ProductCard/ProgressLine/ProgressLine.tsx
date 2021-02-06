@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./progressLine.module.css";
+import cn from "classnames"
 
 type ProgressLineProps = {
   daysSinceLastRelease?: number
@@ -8,21 +9,15 @@ type ProgressLineProps = {
 
 export const ProgressLine = ({ daysSinceLastRelease, width }: ProgressLineProps) => {
 
-  let backgroundColor = "#426694"
-    if (width <= 40) {
-      backgroundColor = "#66bc00"
-    } else if (width > 40 && width < 80) {
-      backgroundColor =  "#dddd20"
-    } else {
-      backgroundColor = "#aa0d23"
+  const backgroundColor = {
+    [s.green]: width <= 40,
+    [s.yellow]: width > 40 && width < 80,
+    [s.red]: width > 80
   }
 
-  const style = daysSinceLastRelease ? {width: width + "%", backgroundColor} : {width: width + "%"}
-
-  
   return (
     <div className={s.progressLine}>
-      <div className={s.progressInner} style={style}></div>
+      <div className={cn(s.progressInner, daysSinceLastRelease && backgroundColor)} style={{width: width + "%"}}></div>
     </div>
   )
 }

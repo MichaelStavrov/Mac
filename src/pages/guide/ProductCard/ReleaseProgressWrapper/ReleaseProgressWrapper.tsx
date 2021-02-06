@@ -22,7 +22,7 @@ export const ReleaseProgressWrapper = ({
   getMonthAndYearOfRelease
 }: ReleaseProgressWrapperProps) => {
   
-  const width = (daysSinceLastRelease! || average! || days!) * 100 / max!
+  const width = (daysSinceLastRelease || average || days!) * 100 / max!
 
   // Почему не работает?
   // const dateRelease = getMonthAndYearOfRelease!(date!) 
@@ -38,12 +38,13 @@ export const ReleaseProgressWrapper = ({
       </div>
       <div className={s.right}>
         {daysSinceLastRelease && 
-          <div className={cn({
-            [s.daysSinceLastRelease]: true,
-            [s.green]: width <= 40,
-            [s.yellow]: width > 40 && width < 80,
-            [s.red]: width > 80
-          })}>{daysSinceLastRelease}</div>
+          <div className={cn(
+            s.daysSinceLastRelease,
+            {
+              [s.green]: width <= 40,
+              [s.yellow]: width > 40 && width < 80,
+              [s.red]: width > 80
+            })}>{daysSinceLastRelease}</div>
         }
         {average && <div className={s.days}>{average}</div>}
         {days && <div className={s.days}>{days}</div>}
