@@ -11,3 +11,9 @@ describe("getDaysSinceLastRelease", () => {
 })
 
 
+var MockDate = require('mockdate');
+// // I use a timestamp to make sure the date stays fixed to the ms
+// MockDate.set(1434319925275);
+// // test code here
+// // reset to native Date()
+// MockDate.reset();
