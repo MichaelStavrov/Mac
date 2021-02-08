@@ -15,7 +15,7 @@ const arrayDatesWithDiff = releasesDateInfo(dates);
 
 const { average, max } = getDatesMeta(arrayDatesWithDiff);
 
-export const Releases = () => {
+export const Releases: React.FC = () => {
   return (
     <section className={s.releases}>
       <div className={s.row}>
@@ -49,7 +49,7 @@ export const Releases = () => {
                 getMonthAndYearOfRelease={getMonthAndYearOfRelease} 
                 date={obj.date} days={obj.diff} 
                 max={max} 
-                key={`key is ${obj.date}`}/>
+                key={+obj.date}/>
             )}
           </ul>
         </div>
