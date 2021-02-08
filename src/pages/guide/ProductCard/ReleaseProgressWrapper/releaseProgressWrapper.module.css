@@ -25,7 +25,10 @@
 
 .daysSinceLastRelease {
   font-size: 39px;
-  color: #66bc00;
+}
+
+.p0 {
+  padding: 0;
 }
 
 .green {

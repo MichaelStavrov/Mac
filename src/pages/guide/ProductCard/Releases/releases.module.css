@@ -7,6 +7,14 @@ li {
   list-style-type: none; 
  }
 
+ li:first-child {
+  padding-top: 0;
+}
+
+li:last-child {
+  border: none;
+}
+
  ul {
   margin: 0; 
   padding: 0; 
@@ -21,24 +29,26 @@ li {
 
 .row {
   width: 100%;
-  padding-top: 20px;
+  padding: 15px 0;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   border-bottom: 1px solid #d0eae9;
+}
+
+.row:last-child {
+  align-items: flex-start;
+  border: none;
+  padding-bottom: 0;
 }
 
 .title {
   font-size: 22px;
 }
 
-li:last-child {
-  border: none;
-}
 
-li:first-child {
-  padding-top: 0;
-}
+
+
 
 
 
