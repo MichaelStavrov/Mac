@@ -13,7 +13,6 @@ type ReleaseProgressWrapperProps = {
   getMonthAndYearOfRelease?: (date: Date) => string
 }
 
-
 export const ReleaseProgressWrapper = ({
   date,
   days,
@@ -23,17 +22,19 @@ export const ReleaseProgressWrapper = ({
   getMonthAndYearOfRelease
 }: ReleaseProgressWrapperProps) => {
 
-  let width = (daysSinceLastRelease || average || days!) * 100 / max!
-  if (daysSinceLastRelease === 0) {
-    width = 0;
+  let width = 0;
+  if (daysSinceLastRelease!) {
+    width = Math.round((daysSinceLastRelease!) * 100 / max!);
+  } else if (average) {
+    width = Math.round((average!) * 100 / max!);
+  } else if (days) {
+    width = Math.round((days!) * 100 / max!);
   }
-
+  
   // when array "dates" size 1
   if (max === 0) {
     width = 100;
   }
-
- console.log(average);
  
 
   // Почему не работает?
