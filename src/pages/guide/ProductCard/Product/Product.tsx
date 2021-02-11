@@ -8,14 +8,19 @@ const productBuyStatus="Buy Now"
 const statusCell="Just Updated" 
 const descripton="The MacBook Air was updated on November 10, 2020, with a new M1 chip from Apple, integrating the CPU and graphics with a Neural Engine for machine learning capabilities all on a single chip."
 
-export const Product = () => {
+type ProductProps = {
+  macFamily: string
+  img: string
+}
+
+export const Product = ({ macFamily, img }: ProductProps) => {
   return (
     <section className={s.product}>
         <div className={s.productImage}>
-          <img src={image} className={s.image} alt={image}/>
+          <img src={img} className={s.image} alt={image}/>
         </div>
         <div className={s.productInfo}>
-          <Link to="/" className={s.title}>{title}</Link>
+          <Link to="/" className={s.title}>{macFamily}</Link>
           <div className={s.status}>
             <div className={s.productBuyStatus}>{productBuyStatus}</div>
             <div className={s.statusCell}>{statusCell}</div>
@@ -23,7 +28,7 @@ export const Product = () => {
           <p className={s.descripton}>{descripton}</p>
 
           {/* как поставить src атрибут у ссылки? */}
-          <Link to="/" className={s.linkMore}>MacBook Air Roundup</Link>
+          <Link to="/" className={s.linkMore}>{macFamily} Roundup</Link>
         </div>
       </section>
   )
