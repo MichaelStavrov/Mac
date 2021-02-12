@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import s from "./product.module.css";
+import { IMacFamily } from "../../../../types/macs";
 
-import image from "./img/macbook-air-470.png"
-const title="MacBook Air" 
 const productBuyStatus="Buy Now" 
 const statusCell="Just Updated" 
 const descripton="The MacBook Air was updated on November 10, 2020, with a new M1 chip from Apple, integrating the CPU and graphics with a Neural Engine for machine learning capabilities all on a single chip."
 
 type ProductProps = {
-  macFamily: string
+  macFamily: IMacFamily
   img: string
 }
 
@@ -17,7 +16,7 @@ export const Product = ({ macFamily, img }: ProductProps) => {
   return (
     <section className={s.product}>
         <div className={s.productImage}>
-          <img src={img} className={s.image} alt={image}/>
+          <img src={img} className={s.image} alt={img}/>
         </div>
         <div className={s.productInfo}>
           <Link to="/" className={s.title}>{macFamily}</Link>

@@ -4,27 +4,20 @@ import { ReleaseProgressWrapper } from "../ReleaseProgressWrapper/ReleaseProgres
 import { releasesDateInfo } from "../utils/releasesDateInfo"
 import { getDatesMeta } from "../utils/getDatesMeta"
 import { getDaysSinceLastRelease } from "../utils/getDaysSinceLastRelease"
-import { parseDate } from "../utils/parseDate"
 import { getMonthAndYearOfRelease }  from "../utils/getMonthAndYearOfRelease"
 
 // const dates = ["10.11.2020", "18.03.2020", "09.07.2019", "30.10.2018", "05.06.2017", "09.03.2015", "29.04.2014"]
 // const dates = ["08.02.2021", "18.03.2020", "09.07.2019", "30.10.2018", "05.06.2017", "09.03.2015", "29.04.2014"]
 // const dates = ["08.02.2021"]
 
-
-
-
-
 type ReleasesProps = {
   dates: Date[]
 }
 
 export const Releases = ({ dates }: ReleasesProps) => {
-  // const dateOfLastRelease = parseDate(dates[0]);
   const daysSinceLastRelease = getDaysSinceLastRelease(dates[0]);
   const arrayDatesWithDiff = releasesDateInfo(dates);
-  const { average, max } = getDatesMeta(arrayDatesWithDiff);  
-  // console.log(arrayDatesWithDiff);
+  const { average, max } = getDatesMeta(arrayDatesWithDiff);
   
   return (
     <section className={s.releases}>
@@ -59,8 +52,7 @@ export const Releases = ({ dates }: ReleasesProps) => {
                 getMonthAndYearOfRelease={getMonthAndYearOfRelease} 
                 date={obj.date} days={obj.diff} 
                 max={max} 
-                // исправить значение key
-                key={Math.random()}/>
+                key={+obj.date}/>
             )}
           </ul>
         </div>

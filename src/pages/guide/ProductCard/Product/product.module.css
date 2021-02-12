@@ -8,10 +8,16 @@
   border-bottom: 1px solid #d0eae9;
 }
 
-.image {
-  max-width: 200px;
-  height: 120px;
+.productImage {
+  margin-right: 30px;
+  max-width: 230px;
+  max-height: 230px;
   margin-right: 25px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
 }
 
 .productInfo {
