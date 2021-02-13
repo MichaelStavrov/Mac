@@ -14,7 +14,7 @@ describe("getDaysSinceLastRelease", () => {
     //   .mockImplementation(() => mockDate as any)
       // .mockReturnValue(mockDate as any)
     MockDate.set("2021-02-03")
-    expect(getDaysSinceLastRelease("10.11.2020")).toBe(85);
+    expect(getDaysSinceLastRelease(new Date(2020, 10, 10))).toBe(85);
   })
 })
 MockDate.reset() 

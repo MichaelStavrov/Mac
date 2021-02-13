@@ -11,6 +11,7 @@ type ReleaseProgressWrapperProps = {
   daysSinceLastRelease?: number
   max?: number
   getMonthAndYearOfRelease?: (date: Date) => string
+  width: number
 }
 
 export const ReleaseProgressWrapper = ({
@@ -19,34 +20,22 @@ export const ReleaseProgressWrapper = ({
   average,
   daysSinceLastRelease,
   max,
-  getMonthAndYearOfRelease
+  getMonthAndYearOfRelease,
+  width
 }: ReleaseProgressWrapperProps) => {
 
-  let width = 0;
-  if (daysSinceLastRelease!) {
-    width = Math.round((daysSinceLastRelease!) * 100 / max!);
-  } else if (average) {
-    width = Math.round((average!) * 100 / max!);
-  } else if (days) {
-    width = Math.round((days!) * 100 / max!);
-  }
-  
-  // when array "dates" size 1
-  if (max === 0) {
-    width = 100;
-  }
- 
+
 
   // Почему не работает?
-  // const dateRelease = getMonthAndYearOfRelease!(date!) 
+  // const dateRelease = getMonthAndYearOfRelease!(date) 
 
   return (
     <li className={cn({
-      [s.releaseProgressWrapper]: true, 
+      [s.releaseProgressWrapper]: true,
       [s.p0]: average! >= 0 || daysSinceLastRelease! >= 0
-      })}>
+    })}>
       <div className={s.left}>
-        {date && <Link to="/" className={s.date}>{getMonthAndYearOfRelease!(date!)}</Link>}
+        {date && <Link to="/" className={s.date}>{getMonthAndYearOfRelease!(date)}</Link>}
         <ProgressLine
           daysSinceLastRelease={daysSinceLastRelease}
           width={width}

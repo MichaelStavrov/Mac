@@ -6,11 +6,11 @@ describe("releasesDateInfo", () => {
   })
 
   it("should return empty array when passed array with length equals 1", () => {    
-    expect(releasesDateInfo(["30.01.2020"])).toHaveLength(0);
+    expect(releasesDateInfo([new Date(2020, 0, 30)])).toHaveLength(0);
   })
 
   it("should return correct array with non empty array with size 2", () => {
-    const dates = ["30.01.2020", "20.01.2020"];
+    const dates = [new Date(2020, 0, 30), new Date(2020, 0, 20)];
     const result = releasesDateInfo(dates);
     
     expect(result).toHaveLength(1);
@@ -20,7 +20,7 @@ describe("releasesDateInfo", () => {
   })
 
   it("should return correct array with non empty array with size 3", () => {
-    const dates = ["30.01.2020", "20.01.2020", "05.01.2020"];
+    const dates = [new Date(2020, 0, 30), new Date(2020, 0, 20), new Date(2020, 0, 5)];
     const result = releasesDateInfo(dates);
     
     expect(result).toHaveLength(2);
