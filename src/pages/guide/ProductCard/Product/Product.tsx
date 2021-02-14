@@ -25,8 +25,6 @@ export const Product = ({ macFamily, img }: ProductProps) => {
             <div className={s.statusCell}>{statusCell}</div>
           </div>
           <p className={s.descripton}>{descripton}</p>
-
-          {/* как поставить src атрибут у ссылки? */}
           <Link to="/" className={s.linkMore}>{macFamily} Roundup</Link>
         </div>
       </section>

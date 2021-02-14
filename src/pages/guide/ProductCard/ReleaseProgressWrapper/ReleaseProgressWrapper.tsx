@@ -3,59 +3,42 @@ import { Link } from "react-router-dom";
 import cn from "classnames"
 import s from "./releaseProgressWrapper.module.css"
 import { ProgressLine } from "../ProgressLine/ProgressLine";
+import { ProductStatus, ProductColorStatus } from "../../../../types/macs"
+import { getMonthAndYearOfRelease } from "../utils/getMonthAndYearOfRelease"
 
 type ReleaseProgressWrapperProps = {
   date?: Date
-  days?: number
-  average?: number
-  daysSinceLastRelease?: number
-  max?: number
-  getMonthAndYearOfRelease?: (date: Date) => string
-  width: number
+  days: number
+  max: number
+  status: ProductStatus
 }
 
 export const ReleaseProgressWrapper = ({
   date,
   days,
-  average,
-  daysSinceLastRelease,
   max,
-  getMonthAndYearOfRelease,
-  width
+  status
 }: ReleaseProgressWrapperProps) => {
 
-
-
-  // Почему не работает?
-  // const dateRelease = getMonthAndYearOfRelease!(date) 
+  const color = ProductColorStatus[status];
 
   return (
     <li className={cn({
       [s.releaseProgressWrapper]: true,
-      [s.p0]: average! >= 0 || daysSinceLastRelease! >= 0
+      [s.p0]: days >= 0
     })}>
       <div className={s.left}>
-        {date && <Link to="/" className={s.date}>{getMonthAndYearOfRelease!(date)}</Link>}
+        {date && <Link to="/" className={s.date}>{getMonthAndYearOfRelease(date)}</Link>}
         <ProgressLine
-          daysSinceLastRelease={daysSinceLastRelease}
-          width={width}
+          days={days}
           max={max}
+          status={status}
         />
       </div>
       <div className={s.right}>
-        {daysSinceLastRelease! >= 0 &&
-          <div className={cn(
-            s.daysSinceLastRelease,
-            max !== 0 && {
-              [s.green]: width <= 40,
-              [s.yellow]: width > 40 && width < 80,
-              [s.red]: width > 80
-            })}>
-            {daysSinceLastRelease}
-          </div>
-        }
-        {average! > 0 && <div className={s.days}>{average}</div>}
-        {days && <div className={s.days}>{days}</div>}
+        <div className={s.daysSinceLastRelease} style={{color}}>
+          {days}
+        </div>
       </div>
     </li>
   )

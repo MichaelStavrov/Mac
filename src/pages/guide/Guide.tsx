@@ -12,6 +12,8 @@ export const Guide: React.FC = () => {
 
   const macModelDict: IMacModelDict = macsArrayToDict(macs);
   // console.log(macs.find(mac => mac.model === "A1932 (EMC 3184)"));
+  // console.log(macModelDict);
+  
 
   const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, macFamily);  
   const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);  

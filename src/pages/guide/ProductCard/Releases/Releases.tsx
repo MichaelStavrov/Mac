@@ -4,8 +4,8 @@ import { ReleaseProgressWrapper } from "../ReleaseProgressWrapper/ReleaseProgres
 import { releasesDateInfo } from "../utils/releasesDateInfo"
 import { getDatesMeta } from "../utils/getDatesMeta"
 import { getDaysSinceLastRelease } from "../utils/getDaysSinceLastRelease"
-import { getMonthAndYearOfRelease }  from "../utils/getMonthAndYearOfRelease"
-
+import { ProductStatus } from "../../../../types/macs"
+import { getStatus } from "../utils/getStatus"
 
 type ReleasesProps = {
   dates: Date[]
@@ -17,15 +17,7 @@ export const Releases = ({ dates }: ReleasesProps) => {
   const arrayDatesWithDiff = releasesDateInfo(dates);    
   const { average, max } = getDatesMeta(arrayDatesWithDiff);
   
-  function getWidthProgressLine(days: number, max: number): number {
-    if (max === 0) {
-      return 100;
-    }
-    return Math.round(days * 100 / max);
-  }
-
-  
-
+   
   return (
     <section className={s.releases}>
       <div className={s.row}>
@@ -35,29 +27,36 @@ export const Releases = ({ dates }: ReleasesProps) => {
         <div className={s.rightPart}>
           <ReleaseProgressWrapper 
             date={dates[0]} 
-            getMonthAndYearOfRelease={getMonthAndYearOfRelease} 
-            daysSinceLastRelease={daysSinceLastRelease} 
-            max={max}
-            width={getWidthProgressLine(daysSinceLastRelease, max)}
+            days={daysSinceLastRelease} 
+            max={arrayDatesWithDiff.length > 0 ? max : daysSinceLastRelease}
+            status={
+              arrayDatesWithDiff.length > 0 ?
+              getStatus(daysSinceLastRelease, max)
+              : ProductStatus.midCycle
+            }
+              
           />
         </div>
       </div>
-      <div className={s.row}>
+      {arrayDatesWithDiff.length > 0 && (
+        <React.Fragment>
+       <div className={s.row}>
         <div className={s.leftPart}>
           <h3 className={s.title}>Average</h3>
         </div>
         <div className={s.rightPart}>
           <ReleaseProgressWrapper 
-            average={average}
-            max={max} 
-            width={getWidthProgressLine(average, max)}/>
+            days={average}
+            max={max}
+            status={getStatus(average, max)}
+          />
         </div>
       </div>
       <div className={s.row}>
         <div className={s.leftPart}>
           <h3 className={s.title}>Recent releases</h3>
         </div>
-        <div className={s.rightPart}>
+        {/* <div className={s.rightPart}>
           <ul>
             {arrayDatesWithDiff.map(obj =>
               <ReleaseProgressWrapper
@@ -66,12 +65,13 @@ export const Releases = ({ dates }: ReleasesProps) => {
                 days={obj.diff} 
                 max={max} 
                 key={+obj.date}
-                width={getWidthProgressLine(obj.diff, max)}
               />
             )}
           </ul>
-        </div>
+        </div> */}
       </div>
+      </React.Fragment>
+    )}
     </section> 
   )
 }
