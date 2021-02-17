@@ -1,19 +1,18 @@
 import React from "react";
 import s from "./progressLine.module.css";
-import cn from "classnames"
-import { ProductStatus, ProductColorStatus } from "../../../../types/macs"
+import { ProductStatus, ProductColorStatus } from "../../../../types/productStatus"
 
 
 type ProgressLineProps = {
   days: number
   max: number
-  status: ProductStatus
+  status?: ProductStatus
 }
 
 export const ProgressLine = ({ days, max, status }: ProgressLineProps) => {
 
   const width = (days * 100 / max) + "%";
-  const background = ProductColorStatus[status];
+  const background = status ? ProductColorStatus[status] : ProductStatus.neutral;
 
   return (
     <div className={s.progressLine}>

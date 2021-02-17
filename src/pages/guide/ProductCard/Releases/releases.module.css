@@ -27,20 +27,22 @@ li:last-child {
   align-items: center;
 }
 
-.row {
+.row:last-child {
+  align-items: flex-start;
+  border: none;
+  padding-bottom: 0;
+}
+
+.row, .row:first-child {
   width: 100%;
-  padding: 15px 0;
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #d0eae9;
 }
 
-.row:last-child {
-  align-items: flex-start;
-  border: none;
-  padding-bottom: 0;
-}
+
 
 .title {
   font-size: 22px;

@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import cn from "classnames"
 import s from "./releaseProgressWrapper.module.css"
 import { ProgressLine } from "../ProgressLine/ProgressLine";
-import { ProductStatus, ProductColorStatus } from "../../../../types/macs"
+import { ProductStatus, ProductColorStatus } from "../../../../types/productStatus"
 import { getMonthAndYearOfRelease } from "../utils/getMonthAndYearOfRelease"
 
 type ReleaseProgressWrapperProps = {
   date?: Date
   days: number
   max: number
-  status: ProductStatus
+  status?: ProductStatus
 }
 
 export const ReleaseProgressWrapper = ({
@@ -20,13 +20,12 @@ export const ReleaseProgressWrapper = ({
   status
 }: ReleaseProgressWrapperProps) => {
 
-  const color = ProductColorStatus[status];
+  const color = status ? ProductColorStatus[status] : "inherit";
+
+  console.log(days, max);
 
   return (
-    <li className={cn({
-      [s.releaseProgressWrapper]: true,
-      [s.p0]: days >= 0
-    })}>
+    <li className={s.releaseProgressWrapper}>
       <div className={s.left}>
         {date && <Link to="/" className={s.date}>{getMonthAndYearOfRelease(date)}</Link>}
         <ProgressLine
@@ -36,7 +35,12 @@ export const ReleaseProgressWrapper = ({
         />
       </div>
       <div className={s.right}>
-        <div className={s.daysSinceLastRelease} style={{color}}>
+        <div
+          className={cn(
+            s.days, 
+            status && s.fz40
+          )}
+          style={{color}}>
           {days}
         </div>
       </div>

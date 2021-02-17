@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 14px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #d0eae9;
 }
 
@@ -20,25 +20,9 @@
 }
 
 .days {
-  font-size: 26px;
+  font-size: 30px;
 }
 
-.daysSinceLastRelease {
-  font-size: 39px;
-}
-
-.p0 {
-  padding: 0;
-}
-
-.green {
-  color: #66bc00;
-}
-
-.yellow {
-  color:#dddd20;
-}
-
-.red {
-  color: #aa0d23;
+.fz40 {
+  font-size: 40px;
 }

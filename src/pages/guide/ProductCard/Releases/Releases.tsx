@@ -4,7 +4,7 @@ import { ReleaseProgressWrapper } from "../ReleaseProgressWrapper/ReleaseProgres
 import { releasesDateInfo } from "../utils/releasesDateInfo"
 import { getDatesMeta } from "../utils/getDatesMeta"
 import { getDaysSinceLastRelease } from "../utils/getDaysSinceLastRelease"
-import { ProductStatus } from "../../../../types/macs"
+import { ProductStatus } from "../../../../types/productStatus"
 import { getStatus } from "../utils/getStatus"
 
 type ReleasesProps = {
@@ -32,45 +32,41 @@ export const Releases = ({ dates }: ReleasesProps) => {
             status={
               arrayDatesWithDiff.length > 0 ?
               getStatus(daysSinceLastRelease, max)
-              : ProductStatus.midCycle
-            }
-              
-          />
+              : ProductStatus.neutral
+            }/>
         </div>
       </div>
       {arrayDatesWithDiff.length > 0 && (
         <React.Fragment>
-       <div className={s.row}>
-        <div className={s.leftPart}>
-          <h3 className={s.title}>Average</h3>
-        </div>
-        <div className={s.rightPart}>
-          <ReleaseProgressWrapper 
-            days={average}
-            max={max}
-            status={getStatus(average, max)}
-          />
-        </div>
-      </div>
-      <div className={s.row}>
-        <div className={s.leftPart}>
-          <h3 className={s.title}>Recent releases</h3>
-        </div>
-        {/* <div className={s.rightPart}>
-          <ul>
-            {arrayDatesWithDiff.map(obj =>
-              <ReleaseProgressWrapper
-                getMonthAndYearOfRelease={getMonthAndYearOfRelease} 
-                date={obj.date} 
-                days={obj.diff} 
-                max={max} 
-                key={+obj.date}
+          <div className={s.row}>
+            <div className={s.leftPart}>
+              <h3 className={s.title}>Average</h3>
+            </div>
+            <div className={s.rightPart}>
+              <ReleaseProgressWrapper 
+                days={average}
+                max={max}
               />
-            )}
-          </ul>
-        </div> */}
-      </div>
-      </React.Fragment>
+            </div>
+          </div>
+          <div className={s.row}>
+            <div className={s.leftPart}>
+              <h3 className={s.title}>Recent releases</h3>
+            </div>
+            <div className={s.rightPart}>
+              <ul>
+                {arrayDatesWithDiff.map(obj =>
+                  <ReleaseProgressWrapper 
+                    key={+obj.date}
+                    date={obj.date} 
+                    days={obj.diff} 
+                    max={max} 
+                  />
+                )}
+              </ul>
+            </div>
+          </div>
+        </React.Fragment>
     )}
     </section> 
   )
