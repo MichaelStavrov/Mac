@@ -9,14 +9,13 @@ import { IMacFamily } from "../../../types/macs";
 type ProductCardProps = {
   dates: Date[]
   macFamily: IMacFamily
-  img: string
 }
 
-export const ProductCard = ({ dates, macFamily, img}: ProductCardProps) => {
+export const ProductCard = ({ dates, macFamily}: ProductCardProps) => {
 
   return (
     <section className={s.productCard}>
-      <Product macFamily={macFamily} img={img} dates={dates}/>
+      <Product macFamily={macFamily} dates={dates}/>
       <Releases dates={dates}/>
     </section>
       
