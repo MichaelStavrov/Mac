@@ -1,4 +1,4 @@
-import { configureStore, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { configureStore, createAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { fetchMacs } from './api'
 import { IMacModel } from './types/macs'
 
@@ -64,3 +64,5 @@ export const store = configureStore({
 store.dispatch(fetchMacsThunk());
 
 export type IRootState = ReturnType<typeof store.getState>
+
+

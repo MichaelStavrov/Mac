@@ -9,8 +9,6 @@ import {IRootState} from "../../store";
 export const Guide: React.FC = () => {
   const [macFamily, setMacFamily] = useState<IMacFamily>("MacBook Air")
   const status = useSelector((state: IRootState) => state.macs.loading);
-  
-  
 
 
   if (["loading", "idle"].includes(status)) {
