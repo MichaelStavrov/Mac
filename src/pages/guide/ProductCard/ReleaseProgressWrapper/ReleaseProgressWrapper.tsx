@@ -22,7 +22,7 @@ export const ReleaseProgressWrapper = ({
 
   const color = status ? ProductColorStatus[status] : "inherit";
 
-  console.log(days, max);
+  
 
   return (
     <li className={s.releaseProgressWrapper}>

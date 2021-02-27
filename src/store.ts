@@ -40,7 +40,6 @@ const macsSlice = createSlice({
     // @ts-ignore
     [fetchMacsThunk.fulfilled]: (state, action) => {
       // Add user to the state array
-      console.log({ state, action });
       state.loading = 'loaded';
       state.entities = action.payload;
     }
@@ -58,9 +57,9 @@ export const store = configureStore({
   }
 })
 
-store.subscribe(() => {
-  console.log(store.getState());
-})
+// store.subscribe(() => {
+//   console.log(store.getState());
+// })
 
 store.dispatch(fetchMacsThunk());
 

@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import s from "./product.module.css";
 import { IMacFamily } from "../../../../types/macs";
 
-
 //--------
-import { ProductColorStatus } from "../../../../types/productStatus"
+import { ProductColorStatus, ProductStatus } from "../../../../types/productStatus"
 import { releasesDateInfo } from "../utils/releasesDateInfo"
 import { getDatesMeta } from "../utils/getDatesMeta"
 import { getDaysSinceLastRelease } from "../utils/getDaysSinceLastRelease"
@@ -25,32 +24,23 @@ export const Product = ({ macFamily, dates }: ProductProps) => {
   const arrayDatesWithDiff = releasesDateInfo(dates);    
   const { max } = getDatesMeta(arrayDatesWithDiff);
   const img = getImg(imgs, macFamily)
-  const status = getStatus(daysSinceLastRelease, max);
-  const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : '#ffc125';
+  const status = arrayDatesWithDiff.length > 0 ? getStatus(daysSinceLastRelease, max) : ProductStatus.neutral;  
+  const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : ProductColorStatus[ProductStatus.midCycle];
   
   return (
     <section className={s.product}>
         <div className={s.productImage}>
-          <img src={img} className={s.image} alt={"icon-mac"}/>
+          <img src={img} className={s.image} alt={macFamily}/>
         </div>
         <div className={s.productInfo}>
           <Link to="/" className={s.title}>{macFamily}</Link>
           <div className={s.status} style={{border: `1px solid ${background}`}} >
             <div className={s.productBuyStatus} style={{background}} >
-              {
-                arrayDatesWithDiff.length > 0 ?
-                getTitleStatus(status)
-                : "Neutral"
-              }
+              {getTitleStatus(status)}
             </div>
             {arrayDatesWithDiff.length > 0 && 
               <div className={s.statusCell}>
                 {getStatusCell(status)}
-                {/* {
-                arrayDatesWithDiff.length > 0 ?
-                getStatusCell(status)
-                : "Mid-product Cycle"
-                } */}
               </div>
             }
           </div>

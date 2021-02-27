@@ -12,7 +12,7 @@ import { IMacFamily } from "../../../types/macs";
 
 export const imgs: { [key in string]: string } = { MacBook, iMac, MacBookAir, MacBookPro13, MacBookPro16, Macmini, iMacPro, MacPro } 
 
-console.log(iMac);
+
 
 export function getImg(imgs: { [key in string]: string }, macFamily: IMacFamily): string {  
   const key = macFamily.split("").filter(x => x !== " ").join('')

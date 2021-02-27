@@ -22,6 +22,9 @@ export function getTitleStatus(status: ProductStatus): string {
   if (status === "dontBuy") {
     return "Don't Buy"
   }
+  if (status === "neutral") {
+    return "Neutral"
+  }
   return "";
 }
 
