@@ -8,7 +8,7 @@ import { ProductColorStatus, ProductStatus } from "../../../../types/productStat
 import { releasesDateInfo } from "../utils/releasesDateInfo"
 import { getDatesMeta } from "../utils/getDatesMeta"
 import { getDaysSinceLastRelease } from "../utils/getDaysSinceLastRelease"
-import { getStatus, getTitleStatus, getStatusCell } from "../utils/getStatus"
+import { getStatus, getCurrentlyStatus } from "../utils/getStatus"
 import { getImg, imgs } from "../../utils/getImg"
 
 const description="The MacBook Air was updated on November 10, 2020, with a new M1 chip from Apple, integrating the CPU and graphics with a Neural Engine for machine learning capabilities all on a single chip."
@@ -26,7 +26,8 @@ export const Product = ({ macFamily, dates }: ProductProps) => {
   const img = getImg(imgs, macFamily)
   const status = arrayDatesWithDiff.length > 0 ? getStatus(daysSinceLastRelease, max) : ProductStatus.neutral;  
   const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : ProductColorStatus[ProductStatus.midCycle];
-  
+  const { productBuyStatus, updateStatus } = getCurrentlyStatus(status)
+
   return (
     <section className={s.product}>
         <div className={s.productImage}>
@@ -36,11 +37,11 @@ export const Product = ({ macFamily, dates }: ProductProps) => {
           <Link to="/" className={s.title}>{macFamily}</Link>
           <div className={s.status} style={{border: `1px solid ${background}`}} >
             <div className={s.productBuyStatus} style={{background}} >
-              {getTitleStatus(status)}
+              {productBuyStatus}
             </div>
             {arrayDatesWithDiff.length > 0 && 
               <div className={s.statusCell}>
-                {getStatusCell(status)}
+                {updateStatus}
               </div>
             }
           </div>

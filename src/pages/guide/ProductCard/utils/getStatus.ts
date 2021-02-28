@@ -12,31 +12,39 @@ export function getStatus(days: number, max: number): ProductStatus {
   return ProductStatus.dontBuy
 }
 
-export function getTitleStatus(status: ProductStatus): string {
-  if (status === "justUpdated") {
-    return  "Buy Now"
-  }
-  if (status === "midCycle") {
-    return "Neutral"
-  }
-  if (status === "dontBuy") {
-    return "Don't Buy"
-  }
-  if (status === "neutral") {
-    return "Neutral"
-  }
-  return "";
+export interface IProductStatus {
+  productBuyStatus: string
+  updateStatus: string
 }
 
-export function getStatusCell(status: ProductStatus): string {
+export function getCurrentlyStatus(status: ProductStatus): IProductStatus {
   if (status === "justUpdated") {
-    return  "Just Updated"
+    return {
+      productBuyStatus: "Buy Now",
+      updateStatus: "Just Updated"
+    }
   }
   if (status === "midCycle") {
-    return "Mid-product Cycle"
+    return {
+      productBuyStatus: "Neutral",
+      updateStatus: "Mid-product Cycle"
+    }
   }
   if (status === "dontBuy") {
-    return "Updates Soon"
+    return {
+      productBuyStatus: "Don't Buy",
+      updateStatus: "Updates Soon"
+    }
   }
-  return ""
+  if (status === "neutral") {
+    return {
+      productBuyStatus: "Neutral",
+      updateStatus: ""
+    }
+  }
+  return {
+    productBuyStatus: "",
+    updateStatus: ""
+  }
 }
+
