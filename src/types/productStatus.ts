@@ -1,10 +1,10 @@
 
 
 export enum ProductStatus {
-  justUpdated = "justUpdated",
-  midCycle = "midCycle",
-  dontBuy = "dontBuy",
-  neutral = "neutral"
+  justUpdated = "Just Updated",
+  midCycle = "Mid-product Cycle",
+  dontBuy = "Updates Soon",
+  neutral = "Neutral"
 }
 
 export const ProductColorStatus: { [key in ProductStatus]: string } = {
