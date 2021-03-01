@@ -23,8 +23,9 @@ export const Product = ({ macFamily, dates }: ProductProps) => {
   const daysSinceLastRelease = getDaysSinceLastRelease(dates[0]);
   const arrayDatesWithDiff = releasesDateInfo(dates);    
   const { max } = getDatesMeta(arrayDatesWithDiff);
-  const status = arrayDatesWithDiff.length > 0 ? getStatus(daysSinceLastRelease, max) : ProductStatus.neutral;  
-  const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : ProductColorStatus[ProductStatus.midCycle];
+  const { neutral } = ProductStatus;
+  const status = arrayDatesWithDiff.length > 0 ? getStatus(daysSinceLastRelease, max) : neutral;  
+  const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : ProductColorStatus[neutral];
   
 
   return (

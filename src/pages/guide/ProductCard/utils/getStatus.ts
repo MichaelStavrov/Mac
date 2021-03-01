@@ -12,18 +12,15 @@ export function getStatus(days: number, max: number): ProductStatus {
   return ProductStatus.dontBuy
 }
 
+type ProductBuyStatuses = "Buy Now" | "Neutral" | "Don't Buy";
 
-
-export function getProductBuyStatus(status: ProductStatus): string {
+export function getProductBuyStatus(status: ProductStatus): ProductBuyStatuses {
   if (status === "Just Updated") {
     return "Buy Now";
   }
   if (status === "Mid-product Cycle" || status === "Neutral") {
     return "Neutral";
   }
-  if (status === "Updates Soon") {
-    return "Don't Buy";
-  }
-  return "";
+  return "Don't Buy";
 }
 
