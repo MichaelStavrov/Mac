@@ -10,8 +10,8 @@ type ListOfDevicesProps = {
 export const ListOfDevices = ({ onChangeFamily }: ListOfDevicesProps) => {
   return (
     <ul className={s.listOfDevices}>
-      {MAC_FAMILIES.map(macFamily => 
-        <Device onChangeFamily={onChangeFamily} title={macFamily} id={macFamily} key={macFamily}/>
+      {MAC_FAMILIES.map(mac => 
+        <Device onChangeFamily={onChangeFamily} mac={mac} key={mac}/>
       )}
     </ul>
   )
