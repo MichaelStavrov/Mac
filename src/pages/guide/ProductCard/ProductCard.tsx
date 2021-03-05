@@ -8,17 +8,23 @@ import { macsArrayToDict } from "../utils/macsArrayToDict"
 import { getMacFamilyIds } from "../utils/getMacFamilyIds"
 import { getDates } from "../utils/getDates"
 import { IRootState } from "../../../store";
+import { macsModelSortByYear } from "../../MacsByYear/utils/macsModelSortByYear";
 
 type ProductCardProps = {
   macFamily: IMacFamily
 }
 
-export const ProductCard = ({ macFamily }: ProductCardProps) => {
-
+export const ProductCard = ({ macFamily }: ProductCardProps) => {  
   const macs = useSelector((state: IRootState) => state.macs.entities);
+  console.log(macs);
+  
   const macModelDict: IMacModelDict = macsArrayToDict(macs);
   const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, macFamily);  
   const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);
+
+  const years = macsModelSortByYear(macs)
+  console.log(years);
+  
 
   return (
     <section className={s.productCard}>

@@ -24,6 +24,9 @@ export interface IMacModel {
 export type IMacModelDict = { [key in IMacModelId]: IMacModel }
 
 
+export type IMacModelSortByYear = { [key in string]: IMacModel[] }
+
+
 
 
 
