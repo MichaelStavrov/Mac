@@ -13,9 +13,9 @@ export function MacsByYear() {
   
   return (
     <ul className={s.list}>
-      {Object.keys(macsByYear).map(year => 
-        <li className={s.item} onClick={() => setYear(year)}>
-          <Link to={`/${year}`}>
+      {Object.keys(macsByYear).reverse().map(year => 
+        <li className={s.item} onClick={() => setYear(year)} key={Math.random()}>
+          <Link to={`byYear/${year}`} >
             <img src={img} className={s.img}/>
             <div>{year}</div>
           </Link>

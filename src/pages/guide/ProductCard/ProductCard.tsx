@@ -16,14 +16,12 @@ type ProductCardProps = {
 
 export const ProductCard = ({ macFamily }: ProductCardProps) => {  
   const macs = useSelector((state: IRootState) => state.macs.entities);
-  console.log(macs);
   
   const macModelDict: IMacModelDict = macsArrayToDict(macs);
   const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, macFamily);  
   const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);
 
   const years = macsModelSortByYear(macs)
-  console.log(years);
   
 
   return (

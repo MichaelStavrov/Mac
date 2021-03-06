@@ -9,7 +9,7 @@ export function macsModelSortByYear(macs: IMacModel[]): IMacModelSortByYear {
     if (year in result) {
       result[year].push(mac);
     } else {
-      result[year] = [];
+      result[year] = [mac];
     }
   }
   return result

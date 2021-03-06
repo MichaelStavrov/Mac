@@ -5,6 +5,7 @@ import { store } from './store'
 import {Guide} from './pages/guide/Guide';
 import s from "./index.module.css";
 import { MacsByYear } from './pages/MacsByYear/MacsByYear';
+import { Macs } from './pages/MacsByYear/Macs/Macs';
 
 
 export const App: React.FC = () => {
@@ -22,7 +23,8 @@ export const App: React.FC = () => {
           }
         />
         <Route path="/guide" component={Guide}/>
-        <Route path="/byYear" component={MacsByYear}/>
+        <Route path="/byYear" exact component={MacsByYear}/>
+        <Route path="/byYear/:id" component={Macs}/>
       </BrowserRouter>
       </div>
     </Provider>
