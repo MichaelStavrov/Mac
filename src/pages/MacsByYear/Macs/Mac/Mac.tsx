@@ -14,9 +14,10 @@ export function Mac({ name, arrayMacsSameYear }: MacProps) {
 
   
 
-  const macName = name.replace(/&quot;/g, "");
+  const macName = name.replace(/&quot;/g, '"');
   const param = arrayMacsSameYear.filter((mac: any) => mac.titles.includes(name));
   const { intro, disc, model, family } = param[0];
+  const familyQuotes = family.replace(/&quot;/g, '"')
   const dateIntro = getMonthAndYearOfRelease(new Date(intro));
   const discDate = disc === 'N/A' ? disc :  getMonthAndYearOfRelease(new Date(disc));
   console.log();
@@ -39,7 +40,7 @@ export function Mac({ name, arrayMacsSameYear }: MacProps) {
             <li><span>Intro</span>{dateIntro}</li>
             <li><span>Disc</span>{discDate}</li>
             <li><span>Model</span>{model}</li>
-            <li><span>Family</span>{family}</li>
+            <li><span>Family</span>{familyQuotes}</li>
           </ul>
         </div>
       )}
