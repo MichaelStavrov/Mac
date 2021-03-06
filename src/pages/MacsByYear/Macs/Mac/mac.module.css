@@ -1,0 +1,47 @@
+
+.item {
+  position: relative;
+  margin-bottom: 10px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.arrowRight {
+  position: absolute;
+  left: -18px;
+  top: 8px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  margin-right: 7px;
+  transition: all .3s;
+}
+
+.arrowDown {
+  top: 6px;
+  transform: rotate(45deg);
+  transition: all .3s;
+}
+
+.img {
+  height: 70px;
+  margin-right: 30px;
+}
+
+.param {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.listParams li {
+  font-size: 14px;
+}
+
+li span {
+  font-weight: 700;
+  margin-right: 10px;
+}

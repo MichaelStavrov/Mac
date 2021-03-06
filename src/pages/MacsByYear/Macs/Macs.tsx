@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../store";
 import { macsModelSortByYear } from "../utils/macsModelSortByYear";
+import { Mac } from "./Mac/Mac";
 import s from "./macs.module.css";
 
 
@@ -9,28 +10,28 @@ export function Macs() {
   const year = "2020";
 
   const macs = useSelector((state: IRootState) => state.macs.entities);
-  const macsByYear = macsModelSortByYear(macs);
+  const macsByYears = macsModelSortByYear(macs);
 
   // FIX
-  const arrayMacsByYear = macsByYear[year] ?? [];
-
-  function getArrayOfMacsSameYear(arrayMacsByYear: any): any {
+  const arrayMacsSameYear = macsByYears[year] ?? [];
+  
+  function getArrayOfMacsSameYear(arrayMacsSameYear: any): any {
     const result: any = [];
-    for (const mac of arrayMacsByYear) {
+    for (const mac of arrayMacsSameYear) {
       result.push(...mac.titles);
     }
     return result;
   }
 
-  const arrayOfMacNames = getArrayOfMacsSameYear(arrayMacsByYear).map((name: any) => name.replace(/&quot;/g, ""));
+  const arrayOfMacNames = getArrayOfMacsSameYear(arrayMacsSameYear);
 
   return (
     <section className={s.main}>
       <h3 className={s.title}>Apple Mac</h3>
       <ul>
-        {arrayOfMacNames.map((name: any) => (
-          <li className={s.item} key={name}>{name}</li>
-        ))}
+        {arrayOfMacNames.map((name: any) => 
+          <Mac name={name} arrayMacsSameYear={arrayMacsSameYear} key={name}/>
+        )}
       </ul>
     </section>
   );
