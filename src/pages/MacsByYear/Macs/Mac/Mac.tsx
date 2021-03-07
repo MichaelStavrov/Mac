@@ -37,10 +37,10 @@ export function Mac({ name, arrayMacsSameYear }: MacProps) {
         <div className={s.param}>
           <img src={img} className={s.img}/>
           <ul className={s.listParams}>
-            <li><span>Intro</span>{dateIntro}</li>
-            <li><span>Disc</span>{discDate}</li>
-            <li><span>Model</span>{model}</li>
-            <li><span>Family</span>{familyQuotes}</li>
+            <li><span>Intro:</span>{dateIntro}</li>
+            <li><span>Disc:</span>{discDate}</li>
+            <li><span>Model:</span>{model}</li>
+            <li><span>Family:</span>{familyQuotes}</li>
           </ul>
         </div>
       )}

@@ -7,7 +7,7 @@ import s from "./macs.module.css";
 
 
 export function Macs() {
-  const year = "2020";
+  const year = "2018";
 
   const macs = useSelector((state: IRootState) => state.macs.entities);
   const macsByYears = macsModelSortByYear(macs);

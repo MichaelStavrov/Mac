@@ -46,6 +46,11 @@ const macsSlice = createSlice({
   }
 })
 
+
+
+
+
+
 // Later, dispatch the thunk as needed in the app
 // dispatch(fetchUserById(123))
 
@@ -57,9 +62,13 @@ export const store = configureStore({
   }
 })
 
+
+
 // store.subscribe(() => {
 //   console.log(store.getState());
 // })
+
+console.log(store.getState());
 
 store.dispatch(fetchMacsThunk());
 
