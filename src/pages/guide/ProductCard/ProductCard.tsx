@@ -21,7 +21,7 @@ export const ProductCard = ({ macFamily }: ProductCardProps) => {
   const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, macFamily);  
   const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);
 
-  const years = macsModelSortByYear(macs)
+ 
   
 
   return (

@@ -11,13 +11,17 @@ export function MacsByYear() {
   
   const [year, setYear] = useState<string>('')
   const macsByYear = macsModelSortByYear(macs);
-
+  
+  function handleClick(year: React.SetStateAction<string>) {    
+     // Почему не работает?
+    setYear(year)
+  }
   
   
   return (
     <ul className={s.list}>
       {Object.keys(macsByYear).reverse().map(year => 
-        <li className={s.item} onClick={() => setYear(year)} key={Math.random()}>
+        <li className={s.item} onClick={() => handleClick(year)} key={Math.random()}>
           <Link to={`byYear/${year}`} className={s.link} >
             <img src={img} className={s.img}/>
             <div>{year}</div>

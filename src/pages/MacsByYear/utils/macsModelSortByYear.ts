@@ -2,7 +2,7 @@ import { IMacModel, IMacModelSortByYear} from "../../../types/macs";
 
 
 export function macsModelSortByYear(macs: IMacModel[]): IMacModelSortByYear {
-  const result: IMacModelSortByYear = {}
+  const result: IMacModelSortByYear = {};
   for (const mac of macs) {
     // const year = new Date(mac.intro).getFullYear();
     const year = mac.intro.slice(0, 4);
