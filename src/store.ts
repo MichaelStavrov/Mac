@@ -15,18 +15,23 @@ interface IMacsState {
   entities: IMacModel[],
   loading: 'idle' | 'loading' | 'loaded',
   favorites: string[],
+  year: string
 }
 
 const initialState: IMacsState = {
   entities: [],
   loading: 'idle',
   favorites: [],
+  year: ''
 };
 
 const macsSlice = createSlice({
   name: 'macs',
   initialState,
   reducers: {
+    selectedYear(state, action) {
+      state.year = action.payload
+    }
     // standard reducer logic, with auto-generated action types per reducer
   },
   extraReducers: {
@@ -47,7 +52,8 @@ const macsSlice = createSlice({
 })
 
 
-
+const { actions } = macsSlice;
+export const { selectedYear } = actions;
 
 
 

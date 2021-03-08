@@ -8,9 +8,10 @@ import s from "./macs.module.css";
 
 
 export function Macs() {
-  const year = "2020";
+  // const year = "2020";
 
   const macs = useSelector((state: IRootState) => state.macs.entities);
+  const year = useSelector((state: IRootState) => state.macs.year)
   const macsByYears = macsModelSortByYear(macs);
 
   // FIX
