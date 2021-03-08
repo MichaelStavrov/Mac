@@ -1,6 +1,6 @@
 import { configureStore, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { fetchMacs } from './api'
-import { IMacModel } from './types/macs'
+import { IMacFamily, IMacModel } from './types/macs'
 
 const fetchMacsThunk = createAsyncThunk(
   'macs/fetch',
@@ -15,14 +15,16 @@ interface IMacsState {
   entities: IMacModel[],
   loading: 'idle' | 'loading' | 'loaded',
   favorites: string[],
-  year: string
+  year: string,
+  macFamily: IMacFamily
 }
 
 const initialState: IMacsState = {
   entities: [],
   loading: 'idle',
   favorites: [],
-  year: ''
+  year: '',
+  macFamily: "MacBook Air"
 };
 
 const macsSlice = createSlice({
@@ -31,6 +33,9 @@ const macsSlice = createSlice({
   reducers: {
     selectedYear(state, action) {
       state.year = action.payload
+    },
+    setMacFamily(state, action) {
+      state.macFamily = action.payload
     }
     // standard reducer logic, with auto-generated action types per reducer
   },
@@ -53,7 +58,7 @@ const macsSlice = createSlice({
 
 
 const { actions } = macsSlice;
-export const { selectedYear } = actions;
+export const { selectedYear, setMacFamily } = actions;
 
 
 

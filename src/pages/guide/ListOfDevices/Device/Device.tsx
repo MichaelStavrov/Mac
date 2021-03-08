@@ -2,8 +2,8 @@
 import s from './device.module.css';
 import { IMacFamily, IMacModelDict, IMacModelId } from "../../../../types/macs"
 import { imgs } from "../../utils/getImg";
-import { useSelector } from 'react-redux';
-import { IRootState } from '../../../../store';
+import { useDispatch, useSelector } from 'react-redux';
+import { IRootState, setMacFamily } from '../../../../store';
 import { ProductColorStatus, ProductStatus } from '../../../../types/productStatus';
 import { getDatesMeta } from '../../ProductCard/utils/getDatesMeta';
 import { getDaysSinceLastRelease } from '../../ProductCard/utils/getDaysSinceLastRelease';
@@ -13,17 +13,13 @@ import { getDates } from '../../utils/getDates';
 import { getMacFamilyIds } from '../../utils/getMacFamilyIds';
 import { macsArrayToDict } from '../../utils/macsArrayToDict';
 
-
 type DeviceProps = {
   mac: IMacFamily
-  onChangeFamily: (macFamily: IMacFamily) => void
 }
 
-// const productBuyStatus="Buy Now" 
-
-export const Device = ({ mac, onChangeFamily }: DeviceProps) => {
+export const Device = ({ mac }: DeviceProps) => {
   const macs = useSelector((state: IRootState) => state.macs.entities);
-  
+  const dispatch = useDispatch()
   const macModelDict: IMacModelDict = macsArrayToDict(macs);
   const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, mac);  
   const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);
@@ -33,9 +29,13 @@ export const Device = ({ mac, onChangeFamily }: DeviceProps) => {
   const status = arrayDatesWithDiff.length > 0 ? getStatus(daysSinceLastRelease, max) : ProductStatus.neutral;
   const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : ProductColorStatus[ProductStatus.neutral];
   
+  function handleClick() {
+    dispatch(setMacFamily(mac))
+  }
+
   return (
     <li className={s.device} >
-      <div className={s.link} onClick={() => onChangeFamily(mac)}>
+      <div className={s.link} onClick={handleClick}>
         <div className={s.wrapImg}>
           <img src={imgs[mac]} alt={imgs[mac]} className={s.img} />
         </div>

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import s from "./productCard.module.css";
 import { Product } from "./Product/Product";
 import { Releases } from "./Releases/Releases";
-import { IMacFamily, IMacModelId, IMacModelDict } from "../../../types/macs";
+import { IMacModelId, IMacModelDict } from "../../../types/macs";
 import { macsArrayToDict } from "../utils/macsArrayToDict"
 import { getMacFamilyIds } from "../utils/getMacFamilyIds"
 import { getDates } from "../utils/getDates"
@@ -14,13 +14,9 @@ import { getDaysSinceLastRelease } from "./utils/getDaysSinceLastRelease";
 import { getStatus } from "./utils/getStatus";
 import { releasesDateInfo } from "./utils/releasesDateInfo";
 
-type ProductCardProps = {
-  macFamily: IMacFamily
-}
-
-export const ProductCard = ({ macFamily }: ProductCardProps) => {  
+export const ProductCard = () => {  
   const macs = useSelector((state: IRootState) => state.macs.entities);
-  
+  const macFamily = useSelector((state: IRootState) => state.macs.macFamily);
   const macModelDict: IMacModelDict = macsArrayToDict(macs);
   const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, macFamily);  
   const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);
