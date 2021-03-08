@@ -8,6 +8,11 @@ import { macsArrayToDict } from "../utils/macsArrayToDict"
 import { getMacFamilyIds } from "../utils/getMacFamilyIds"
 import { getDates } from "../utils/getDates"
 import { IRootState } from "../../../store";
+import { ProductStatus } from "../../../types/productStatus";
+import { getDatesMeta } from "./utils/getDatesMeta";
+import { getDaysSinceLastRelease } from "./utils/getDaysSinceLastRelease";
+import { getStatus } from "./utils/getStatus";
+import { releasesDateInfo } from "./utils/releasesDateInfo";
 
 type ProductCardProps = {
   macFamily: IMacFamily
@@ -19,14 +24,16 @@ export const ProductCard = ({ macFamily }: ProductCardProps) => {
   const macModelDict: IMacModelDict = macsArrayToDict(macs);
   const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, macFamily);  
   const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);
-
- 
+  const daysSinceLastRelease = getDaysSinceLastRelease(dates[0]);
+  const arrayDatesWithDiff = releasesDateInfo(dates);
+  const { max } = getDatesMeta(arrayDatesWithDiff);
+  const status = arrayDatesWithDiff.length > 0 ? getStatus(daysSinceLastRelease, max) : ProductStatus.neutral;
   
 
   return (
     <section className={s.productCard}>
-      <Product macFamily={macFamily} dates={dates}/>
-      <Releases dates={dates}/>
+      <Product macFamily={macFamily} dates={dates} status={status}/>
+      <Releases dates={dates} status={status}/>
     </section>
       
   )

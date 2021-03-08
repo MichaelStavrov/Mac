@@ -2,13 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import s from "./product.module.css";
 import { IMacFamily } from "../../../../types/macs";
-
-//--------
 import { ProductColorStatus, ProductStatus } from "../../../../types/productStatus";
 import { releasesDateInfo } from "../utils/releasesDateInfo";
-import { getDatesMeta } from "../utils/getDatesMeta";
-import { getDaysSinceLastRelease } from "../utils/getDaysSinceLastRelease";
-import { getStatus, getProductBuyStatus } from "../utils/getStatus";
+import { getProductBuyStatus } from "../utils/getStatus";
 import { imgs } from "../../utils/getImg";
 
 const description =
@@ -17,21 +13,12 @@ const description =
 type ProductProps = {
   macFamily: IMacFamily;
   dates: Date[];
+  status: ProductStatus
 };
 
-export const Product = ({ macFamily, dates }: ProductProps) => {
-  const daysSinceLastRelease = getDaysSinceLastRelease(dates[0]);
+export const Product = ({ macFamily, dates, status }: ProductProps) => {
   const arrayDatesWithDiff = releasesDateInfo(dates);
-  const { max } = getDatesMeta(arrayDatesWithDiff);
-  const { neutral } = ProductStatus;
-  const status =
-    arrayDatesWithDiff.length > 0
-      ? getStatus(daysSinceLastRelease, max)
-      : neutral;
-  const background =
-    arrayDatesWithDiff.length > 0
-      ? ProductColorStatus[status]
-      : ProductColorStatus[neutral];
+  const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : ProductColorStatus[ProductStatus.neutral];
 
   return (
     <section className={s.product}>

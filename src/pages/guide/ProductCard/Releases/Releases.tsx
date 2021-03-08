@@ -5,13 +5,13 @@ import { releasesDateInfo } from "../utils/releasesDateInfo"
 import { getDatesMeta } from "../utils/getDatesMeta"
 import { getDaysSinceLastRelease } from "../utils/getDaysSinceLastRelease"
 import { ProductStatus } from "../../../../types/productStatus"
-import { getStatus } from "../utils/getStatus"
 
 type ReleasesProps = {
-  dates: Date[]
+  dates: Date[];
+  status: ProductStatus
 }
 
-export const Releases = ({ dates }: ReleasesProps) => {
+export const Releases = ({ dates, status }: ReleasesProps) => {
   
   const daysSinceLastRelease = getDaysSinceLastRelease(dates[0]);
   const arrayDatesWithDiff = releasesDateInfo(dates);    
@@ -29,11 +29,7 @@ export const Releases = ({ dates }: ReleasesProps) => {
             date={dates[0]} 
             days={daysSinceLastRelease} 
             max={arrayDatesWithDiff.length > 0 ? max : daysSinceLastRelease}
-            status={
-              arrayDatesWithDiff.length > 0 ?
-              getStatus(daysSinceLastRelease, max)
-              : ProductStatus.neutral
-            }/>
+            status={status}/>
         </div>
       </div>
       {arrayDatesWithDiff.length > 0 && (
