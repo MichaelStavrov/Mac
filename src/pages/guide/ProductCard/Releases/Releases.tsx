@@ -4,20 +4,27 @@ import { ReleaseProgressWrapper } from "../ReleaseProgressWrapper/ReleaseProgres
 import { releasesDateInfo } from "../utils/releasesDateInfo"
 import { getDatesMeta } from "../utils/getDatesMeta"
 import { getDaysSinceLastRelease } from "../utils/getDaysSinceLastRelease"
-import { ProductStatus } from "../../../../types/productStatus"
+import { useSelector } from "react-redux";
+import { IRootState } from "../../../../store";
+import { IMacModelDict, IMacModelId } from "../../../../types/macs";
+import { getDates } from "../../utils/getDates";
+import { getMacFamilyIds } from "../../utils/getMacFamilyIds";
+import { macsArrayToDict } from "../../utils/macsArrayToDict";
 
-type ReleasesProps = {
-  dates: Date[];
-  status: ProductStatus
-}
 
-export const Releases = ({ dates, status }: ReleasesProps) => {
+export const Releases = () => {
+  const status = useSelector((state: IRootState) => state.macs.status)
+
   
+  const macs = useSelector((state: IRootState) => state.macs.entities);
+  const macFamily = useSelector((state: IRootState) => state.macs.macFamily);
+  const macModelDict: IMacModelDict = macsArrayToDict(macs);
+  const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, macFamily);  
+  const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);
   const daysSinceLastRelease = getDaysSinceLastRelease(dates[0]);
   const arrayDatesWithDiff = releasesDateInfo(dates);    
   const { average, max } = getDatesMeta(arrayDatesWithDiff);
-  
-   
+
   return (
     <section className={s.releases}>
       <div className={s.row}>

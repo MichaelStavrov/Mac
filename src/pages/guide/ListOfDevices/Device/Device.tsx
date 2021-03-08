@@ -3,7 +3,7 @@ import s from './device.module.css';
 import { IMacFamily, IMacModelDict, IMacModelId } from "../../../../types/macs"
 import { imgs } from "../../utils/getImg";
 import { useDispatch, useSelector } from 'react-redux';
-import { IRootState, setMacFamily } from '../../../../store';
+import { IRootState, setMacFamily, setStatus } from '../../../../store';
 import { ProductColorStatus, ProductStatus } from '../../../../types/productStatus';
 import { getDatesMeta } from '../../ProductCard/utils/getDatesMeta';
 import { getDaysSinceLastRelease } from '../../ProductCard/utils/getDaysSinceLastRelease';
@@ -26,13 +26,16 @@ export const Device = ({ mac }: DeviceProps) => {
   const daysSinceLastRelease = getDaysSinceLastRelease(dates[0]);
   const arrayDatesWithDiff = releasesDateInfo(dates);
   const { max } = getDatesMeta(arrayDatesWithDiff);
+  
   const status = arrayDatesWithDiff.length > 0 ? getStatus(daysSinceLastRelease, max) : ProductStatus.neutral;
   const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : ProductColorStatus[ProductStatus.neutral];
   
   function handleClick() {
-    dispatch(setMacFamily(mac))
+    dispatch(setMacFamily(mac));
+    dispatch(setStatus(status))
   }
 
+ 
   return (
     <li className={s.device} >
       <div className={s.link} onClick={handleClick}>
