@@ -4,7 +4,7 @@ import { ProductStatus } from "../../../../types/productStatus"
 export function getStatus(days: number, max: number): ProductStatus {
   const percent = days / max;
   if (percent < .3) {
-    return ProductStatus.justUpdated;
+    return ProductStatus.buyNow;
   }
   if (percent < .6) {
     return ProductStatus.midCycle;
