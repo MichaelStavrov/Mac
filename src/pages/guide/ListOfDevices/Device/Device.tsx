@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import s from './device.module.css';
 import { IMacFamily } from "../../../../types/macs"
 import { imgs } from "../../utils/getImg";

@@ -8,7 +8,6 @@ import { macsArrayToDict } from "../utils/macsArrayToDict"
 import { getMacFamilyIds } from "../utils/getMacFamilyIds"
 import { getDates } from "../utils/getDates"
 import { IRootState } from "../../../store";
-import { macsModelSortByYear } from "../../MacsByYear/utils/macsModelSortByYear";
 
 type ProductCardProps = {
   macFamily: IMacFamily

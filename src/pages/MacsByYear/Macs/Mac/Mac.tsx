@@ -33,7 +33,7 @@ export function Mac({ name, arrayMacsSameYear }: MacProps) {
       </li>
       {visible && (
         <div className={s.param}>
-          <img src={img} className={s.img}/>
+          <img src={img} alt={img} className={s.img}/>
           <ul className={s.listParams}>
             <li><span>Intro:</span>{dateIntro}</li>
             <li><span>Disc:</span>{dateDisc}</li>
