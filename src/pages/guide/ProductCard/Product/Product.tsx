@@ -1,31 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import s from "./product.module.css";
-import { IMacModelDict, IMacModelId } from "../../../../types/macs";
+import { IMacFamily } from "../../../../types/macs";
 import { ProductColorStatus, ProductStatus } from "../../../../types/productStatus";
-import { releasesDateInfo } from "../utils/releasesDateInfo";
+import { IReleaseDateInfo } from "../utils/releasesDateInfo";
 import { getProductBuyStatus } from "../utils/getStatus";
 import { imgs } from "../../utils/getImg";
-import { useSelector } from "react-redux";
-import { IRootState } from "../../../../store";
-import { getDates } from "../../utils/getDates";
-import { getMacFamilyIds } from "../../utils/getMacFamilyIds";
-import { macsArrayToDict } from "../../utils/macsArrayToDict";
 
 const description =
   "The MacBook Air was updated on November 10, 2020, with a new M1 chip from Apple, integrating the CPU and graphics with a Neural Engine for machine learning capabilities all on a single chip.";
 
+type ProductPops = {
+  arrayDatesWithDiff: IReleaseDateInfo[];
+  status: ProductStatus;
+  macFamily: IMacFamily
+}
 
-export const Product = () => {
-  const status = useSelector((state: IRootState) => state.macs.status);
-  const macFamily = useSelector((state: IRootState) => state.macs.macFamily);
-  const macs = useSelector((state: IRootState) => state.macs.entities);
-  const macModelDict: IMacModelDict = macsArrayToDict(macs);
-  const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, macFamily);  
-  const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);
-  const arrayDatesWithDiff = releasesDateInfo(dates);
+export const Product = ({ arrayDatesWithDiff, status, macFamily  }: ProductPops) => {
   const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : ProductColorStatus[ProductStatus.neutral];
-
 
   return (
     <section className={s.product}>

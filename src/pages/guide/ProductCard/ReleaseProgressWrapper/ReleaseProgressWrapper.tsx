@@ -19,7 +19,7 @@ export const ReleaseProgressWrapper = ({
   max,
   status
 }: ReleaseProgressWrapperProps) => {
-
+  
   const color = status ? ProductColorStatus[status] : "inherit";
 
   
