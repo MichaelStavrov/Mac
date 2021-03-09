@@ -12,7 +12,7 @@ export function MainPage() {
       <p>This page is based on rumors and speculation and we provide no guarantee to its accuracy.</p>
       <nav className={s.nav}>
         <Link to="/guide">
-          <h2>Macs Releases</h2>
+          <h2>Mac Releases</h2>
         </Link>
         <Link to="/byYear">
           <h2>Macs by year</h2>

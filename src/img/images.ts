@@ -7,7 +7,7 @@ import MacBookPro16 from "./macbook_pro_16_372.png"
 import MacMini from "./mac_mini_320.png"
 import MacPro from "./mac_pro_2019_416.png"
 import MacBook from "./macbook1.png"
-import { IMacFamily } from "../types/macs";
+// import { IMacFamily } from "../types/macs";
 
 
 import img2020 from './macsByYear/2020.jpg'
@@ -34,11 +34,12 @@ import img2000 from './macsByYear/2000.jpg'
 import img1999 from './macsByYear/1999.jpg'
 import img1998 from './macsByYear/1998.jpg'
 
-export const imgs: { [key in IMacFamily]: string } = { 
+export const imgs: { [key in string]: string } = { 
   MacBook, 
   iMac, 
   "MacBook Air": MacBookAir, 
   "MacBook Pro 13": MacBookPro13, 
+  "MacBook Pro 15": MacBookPro13, 
   "MacBook Pro 16": MacBookPro16, 
   "Mac mini": MacMini, 
   "iMac Pro": iMacPro, 
