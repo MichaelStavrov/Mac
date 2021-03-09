@@ -1,0 +1,19 @@
+.title {
+  text-align: center;
+  font-size: 30px;
+}
+
+p {
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-decoration: underline;
+}

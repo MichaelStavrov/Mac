@@ -1,7 +1,7 @@
 // import React from 'react';
 import s from './device.module.css';
 import { IMacFamily, IMacModelDict, IMacModelId } from "../../../../types/macs"
-import { imgs } from "../../utils/getImg";
+import { imgs } from "../../../../img/images";
 import { useDispatch, useSelector } from 'react-redux';
 import { IRootState, setMacFamily, setStatus } from '../../../../store';
 import { ProductColorStatus, ProductStatus } from '../../../../types/productStatus';

@@ -5,7 +5,7 @@ import { IMacFamily } from "../../../../types/macs";
 import { ProductColorStatus, ProductStatus } from "../../../../types/productStatus";
 import { IReleaseDateInfo } from "../utils/releasesDateInfo";
 import { getProductBuyStatus } from "../utils/getStatus";
-import { imgs } from "../../utils/getImg";
+import { imgs } from "../../../../img/images";
 
 const description =
   "The MacBook Air was updated on November 10, 2020, with a new M1 chip from Apple, integrating the CPU and graphics with a Neural Engine for machine learning capabilities all on a single chip.";

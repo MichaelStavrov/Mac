@@ -5,6 +5,7 @@ import s from './macsByYear.module.css'
 import { macsModelSortByYear } from './utils/macsModelSortByYear'
 import img from '../../img/imac_300.png'
 import { Link } from 'react-router-dom';
+import { imgsMacsByYear } from '../../img/images'
 
 export function MacsByYear() {
   const macs = useSelector((state: IRootState) => state.macs.entities);
@@ -15,16 +16,16 @@ export function MacsByYear() {
     dispatch(selectedYear(year))
   }
   
-  
+
   return (
     <ul className={s.list}>
       {Object.keys(macsByYear).reverse().map(year => 
-        <li className={s.item} onClick={() => handleClick(year)} key={Math.random()}>
-          <Link to={`byYear/${year}`} className={s.link} >
-            <img src={img} alt={img} className={s.img}/>
-            <div>{year}</div>
-          </Link>
-        </li>
+         <li className={s.item} onClick={() => handleClick(year)} key={Math.random()}>
+         <Link to={`byYear/${year}`} className={s.link} >
+           <img src={imgsMacsByYear['img' + year]} alt={img} className={s.img}/>
+           <div className={s.year}>{year}</div>
+         </Link>
+       </li>
       )
     }
    </ul>

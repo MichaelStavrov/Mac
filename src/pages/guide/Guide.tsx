@@ -5,7 +5,7 @@ import { ProductCard } from "./ProductCard/ProductCard";
 import { ListOfDevices } from "./ListOfDevices//ListOfDevices"
 import {IRootState} from "../../store";
 
-export const Guide: React.FC = () => {
+export const Guide = () => {
   const status = useSelector((state: IRootState) => state.macs.loading);
 
 
@@ -15,7 +15,6 @@ export const Guide: React.FC = () => {
 
   return (
     <section className={s.guide}>
-      <h1>Byeyer's Guide</h1>
       <ListOfDevices />
       <ProductCard />
     </section>
