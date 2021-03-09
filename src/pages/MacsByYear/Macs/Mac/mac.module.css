@@ -1,9 +1,18 @@
 
 .item {
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   cursor: pointer;
   align-items: center;
+  text-decoration: underline;
+  color: #070779;
+  transition: all .3s;
+}
+
+.item:hover {
+  color: black;
+  transition: all .3s;
+
 }
 
 .arrowRight {

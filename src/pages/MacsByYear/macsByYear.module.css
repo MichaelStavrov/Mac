@@ -1,3 +1,8 @@
+.wrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
 .list {
   margin-top: 20px;
   display: flex;
@@ -21,4 +26,11 @@
 
 .year {
   text-decoration: underline;
+  color: #070779;
+  transition: all .3s;
+}
+
+.year:hover {
+  color: black;
+  transition: all .3s;
 }
