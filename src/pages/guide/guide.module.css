@@ -33,6 +33,10 @@
   transition: all .3s ease;
 }
 
+.white {
+  background-color: white;
+}
+
 /* Почему ? */
 .item:first-child {
   padding-top: 10px;
