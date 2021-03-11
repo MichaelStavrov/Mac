@@ -1,0 +1,33 @@
+.header {
+  background-color: #cddbe8;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.iconLogo {
+  max-width: 250px;
+  cursor: pointer;
+}
+
+.wrapperNav {
+  background-color: #102f54;
+  color: white;
+}
+
+.navigation {
+  padding-left: 15px;
+  font-size: 20px;
+  display: flex;
+}
+
+.link {
+  padding: 15px 20px;
+  margin-right: 20px;
+}
+
+.link:hover {
+  background-color: #224f85;
+}

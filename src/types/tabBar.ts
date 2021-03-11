@@ -12,6 +12,11 @@ export enum ProductCategory {
   Watch = 'Watch'
 };
 
+export interface IProductCategory {
+  name: ProductCategory
+  img: string
+}
+
 export const arrayProductCategory = [
   {
     name: ProductCategory.iPhone,

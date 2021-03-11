@@ -1,0 +1,43 @@
+
+
+
+.item {
+  padding: 10px 15px;
+  border: 1px solid #d7e2ef;
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all .3s ease;
+  background-color: #e7ebf0;
+
+}
+
+.item:hover {
+  background-color: #cad0d7;
+  transition: all .3s ease;
+}
+
+.white {
+  background-color: white;
+}
+
+/* Почему ? */
+.item:first-child {
+  padding-top: 10px;
+}
+.item:last-child {
+  border: 1px solid #d7e2ef;
+}
+
+.image {
+  margin-right: 10px;
+  max-width: 25px;
+  max-height: 25px;
+}
+
+.white {
+  background-color: white;
+}
