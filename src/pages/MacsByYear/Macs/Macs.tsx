@@ -21,7 +21,7 @@ export function Macs() {
 
   return (
     <section className={s.main}>
-      <h3 className={s.title}>Apple Mac</h3>
+      <p>Complete technical specifications for every Apple Mac released in {year} are listed below. For other years, see the main By Year page. Currently Shipping Macs additionally may be of interest.</p>
       <ul>
         {arrayOfMacNames.map((name) => 
           <Mac name={name} arrayMacsSameYear={arrayMacsSameYear} key={name}/>
