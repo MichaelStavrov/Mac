@@ -14,7 +14,7 @@ export const App = () => {
         <BrowserRouter>
           <Header/>
           <div className={s.wrapper}>
-            <Route path="/" exact component={App} />
+            <Route path="/" exact component={Guide} />
             <Route path="/guide" component={Guide} />
             <Route path="/byYear" exact component={MacsByYear} />
             <Route path="/byYear/:id" component={Macs} />

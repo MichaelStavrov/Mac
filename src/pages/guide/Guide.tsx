@@ -33,10 +33,7 @@ export const Guide = () => {
         ))}
       </ul>
       {tab === ProductCategory.iPhone && (
-        <React.Fragment>
-          <ListOfDevices />
-          <ProductCard />
-        </React.Fragment>
+       <div>IPhone</div>
       )}
       {tab === ProductCategory.Macs && (
         <React.Fragment>
@@ -45,16 +42,10 @@ export const Guide = () => {
         </React.Fragment>
       )}
       {tab === ProductCategory.Music && (
-        <React.Fragment>
-          <ListOfDevices />
-          <ProductCard />
-        </React.Fragment>
+       <div>Music</div>
       )}
       {tab === ProductCategory.Watch && (
-        <React.Fragment>
-          <ListOfDevices />
-          <ProductCard />
-        </React.Fragment>
+       <div>Watch</div>
       )}
     </div>
   );

@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+p {
+  font-size: 16px;
+}
+
 .list {
   margin-top: 20px;
   display: flex;

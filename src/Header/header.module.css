@@ -7,6 +7,25 @@
   max-width: 900px;
 }
 
+.wrapHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.iconSocial {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  stroke: red;
+}
+
 .iconLogo {
   max-width: 250px;
   cursor: pointer;
