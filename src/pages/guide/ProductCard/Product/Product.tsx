@@ -25,7 +25,7 @@ export const Product = ({ arrayDatesWithDiff, status, macFamily  }: ProductPops)
         <img src={imgs[macFamily]} className={s.image} alt={macFamily} />
       </div>
       <div className={s.productInfo}>
-        <Link to="/" className={s.title}>{macFamily}</Link>
+        <Link to={`/product/${macFamily}`} className={s.title}>{macFamily}</Link>
         <div className={s.status}>
           <div
             className={s.productBuyStatus}

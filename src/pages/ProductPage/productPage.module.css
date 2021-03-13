@@ -1,0 +1,25 @@
+.productPage {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  /* max-width: 750px; */
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.description {
+  margin-right: 20px;
+}
+
+.description p {
+  font-size: 24px;
+  color: #4d6c99;
+}

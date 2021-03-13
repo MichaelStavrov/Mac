@@ -7,6 +7,7 @@ import s from "./index.module.css";
 import { ByYear } from "./pages/ByYear/ByYear";
 import { ListByYear } from "./pages/ByYear/ListByYear/ListByYear";
 import { Header } from "./Header/Header";
+import { ProductPage } from "./pages/ProductPage/ProductPage";
 
 export const App = () => {
   return (
@@ -18,6 +19,7 @@ export const App = () => {
             <Route path="/guide" component={Guide} />
             <Route path="/byYear" exact  component={ByYear} />
             <Route path="/byYear/:id" component={ListByYear} />
+            <Route path="/product/:id" component={ProductPage} />
           </div>
 
         </BrowserRouter>

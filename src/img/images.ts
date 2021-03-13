@@ -6,8 +6,7 @@ import MacBookPro13 from "./macbook_pro_13_350.png"
 import MacBookPro16 from "./macbook_pro_16_372.png"
 import MacMini from "./mac_mini_320.png"
 import MacPro from "./mac_pro_2019_416.png"
-import MacBook from "./macbook1.png"
-// import { IMacFamily } from "../types/macs";
+import MacBook from "./macbook1.jpg"
 
 
 import img2020 from './macsByYear/2020.jpg'
