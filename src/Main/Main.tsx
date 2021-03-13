@@ -1,9 +1,9 @@
 import React from "react";
-import { Guide } from "../pages/guide/Guide";
+import { Guide } from "./pages/guide/Guide";
 import s from "./main.module.css";
-import { ByYear } from "../pages/ByYear/ByYear";
-import { ListByYear } from "../pages/ByYear/ListByYear/ListByYear";
-import { ProductPage } from "../pages/ProductPage/ProductPage";
+import { ByYear } from "./pages/ByYear/ByYear";
+import { ListByYear } from "./pages/ByYear/ListByYear/ListByYear";
+import { ProductPage } from "./pages/ProductPage/ProductPage";
 import { Route } from "react-router-dom";
 
 export function Main() {
