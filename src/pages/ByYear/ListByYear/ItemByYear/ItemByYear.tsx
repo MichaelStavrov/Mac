@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import cn from 'classnames'
-import s from "./mac.module.css";
+import s from "./itemByYear.module.css";
 import imgIMac from "../../../../img/imac_300.png";
 import { imgs } from "../../../../img/images"
 import { getMonthAndYearOfRelease } from "../../../guide/ProductCard/utils/getMonthAndYearOfRelease";
@@ -11,7 +11,7 @@ type MacProps = {
   arrayMacsSameYear: IMacModel[]
 };
 
-export function Mac({ name, arrayMacsSameYear }: MacProps) {
+export function ItemByYear({ name, arrayMacsSameYear }: MacProps) {
   const [visible, setVisible] = useState<boolean>(false);
   const macName = name.replace(/&quot;/g, '"');
   const nameForImg = Object.keys(imgs).filter(key => name.includes(key))

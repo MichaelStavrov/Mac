@@ -3,13 +3,13 @@ import { useSelector } from "react-redux";
 import { IRootState } from "../../../store";
 import { macsModelSortByYear } from "../utils/macsModelSortByYear";
 import { getArrayOfMacsNamesSameYear } from "../utils/getArrayOfMacsNamesSameYear";
-import { Mac } from "./Mac/Mac";
-import s from "./macs.module.css";
+import { ItemByYear } from "./ItemByYear/ItemByYear";
+import s from "./listByYear.module.css";
 
 
 
 
-export function Macs() {
+export function ListByYear() {
   const macs = useSelector((state: IRootState) => state.macs.entities);
   const year = useSelector((state: IRootState) => state.macs.year)
   const macsByYears = macsModelSortByYear(macs);
@@ -24,7 +24,7 @@ export function Macs() {
       <p>Complete technical specifications for every Apple Mac released in {year} are listed below. For other years, see the main By Year page. Currently Shipping Macs additionally may be of interest.</p>
       <ul className={s.list}>
         {arrayOfMacNames.map((name) => 
-          <Mac name={name} arrayMacsSameYear={arrayMacsSameYear} key={name}/>
+          <ItemByYear name={name} arrayMacsSameYear={arrayMacsSameYear} key={name}/>
         )}
       </ul>
     </section>

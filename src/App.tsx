@@ -4,8 +4,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { store } from "./store";
 import { Guide } from "./pages/guide/Guide";
 import s from "./index.module.css";
-import { MacsByYear } from "./pages/MacsByYear/MacsByYear";
-import { Macs } from "./pages/MacsByYear/Macs/Macs";
+import { ByYear } from "./pages/ByYear/ByYear";
+import { ListByYear } from "./pages/ByYear/ListByYear/ListByYear";
 import { Header } from "./Header/Header";
 
 export const App = () => {
@@ -16,8 +16,8 @@ export const App = () => {
           <div className={s.wrapper}>
             <Route path="/" exact component={Guide} />
             <Route path="/guide" component={Guide} />
-            <Route path="/byYear" exact component={MacsByYear} />
-            <Route path="/byYear/:id" component={Macs} />
+            <Route path="/byYear" exact  component={ByYear} />
+            <Route path="/byYear/:id" component={ListByYear} />
           </div>
 
         </BrowserRouter>
