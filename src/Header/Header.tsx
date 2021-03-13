@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import s from "./header.module.css";
 import iconLogo from "../img/logo/macrumors-simple-logo-light.svg";
-import iconInst from '../img/socials/icon-instagram.svg'
-import iconFacebook from '../img/socials/icon-facebook.svg'
-import iconTwitter from '../img/socials/icon-twitter.svg'
-import iconYoutube from '../img/socials/icon-youtube.svg'
-import iconNotification from '../img/socials/icon-notification.svg'
-import iconWifi from '../img/socials/icon-wifi.svg'
-import iconMessage from '../img/socials/icon-message.svg'
+import iconInst from '../img/socials/instagram.png'
+import iconFacebook from '../img/socials/facebook.png'
+import iconTwitter from '../img/socials/twitter.png'
+import iconYoutube from '../img/socials/youtube.png'
+import iconNotification from '../img/socials/notification.png'
+import iconWifi from '../img/socials/wifi.png'
+import iconMessage from '../img/socials/message.png'
 
 export function Header() {
   return (
@@ -33,7 +33,7 @@ export function Header() {
         <div className={s.wrapper}>
           <div className={s.navigation}>
             <Link to="/guide" className={s.link}>
-              <div>Releases</div>
+              <div>Buyer's Guide</div>
             </Link>
             <Link to="/byYear" className={s.link}>
               <div>Macs by year</div>

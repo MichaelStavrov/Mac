@@ -63,9 +63,7 @@ const macsSlice = createSlice({
 })
 
 
-const { actions } = macsSlice;
-export const { selectedYear, setMacFamily, setStatus } = actions;
-
+export const { selectedYear, setMacFamily, setStatus } = macsSlice.actions;
 
 
 // Later, dispatch the thunk as needed in the app
