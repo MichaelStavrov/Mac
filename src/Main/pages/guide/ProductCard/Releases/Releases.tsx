@@ -30,6 +30,7 @@ export const Releases = ({ status, dates  }: ProductPops) => {
             status={status}/>
         </div>
       </div>
+      {arrayDatesWithDiff.length === 0 && <p className={s.noReleases}>No more releases</p>}
       {arrayDatesWithDiff.length > 0 && (
         <React.Fragment>
           <div className={s.row}>

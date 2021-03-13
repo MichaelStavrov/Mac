@@ -32,10 +32,10 @@ export function Header() {
       <nav className={s.wrapperNav}>
         <div className={s.wrapper}>
           <div className={s.navigation}>
-            <Link to="/guide" className={s.link}>
+            <Link to="/guide" className={s.itemNav}>
               <div>Buyer's Guide</div>
             </Link>
-            <Link to="/byYear" className={s.link}>
+            <Link to="/byYear" className={s.itemNav}>
               <div>Macs by year</div>
             </Link>
           </div>

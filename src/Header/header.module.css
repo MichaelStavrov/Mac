@@ -41,11 +41,11 @@
   display: flex;
 }
 
-.link {
+.itemNav {
   padding: 15px 20px;
   margin-right: 20px;
 }
 
-.link:hover {
+.itemNav:hover {
   background-color: #224f85;
 }

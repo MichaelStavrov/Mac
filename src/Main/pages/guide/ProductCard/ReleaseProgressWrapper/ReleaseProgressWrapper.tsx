@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import cn from "classnames"
 import s from "./releaseProgressWrapper.module.css"
 import { ProgressLine } from "../ProgressLine/ProgressLine";
@@ -27,7 +26,7 @@ export const ReleaseProgressWrapper = ({
   return (
     <li className={s.releaseProgressWrapper}>
       <div className={s.left}>
-        {date && <Link to="/" className={s.date}>{getMonthAndYearOfRelease(date)}</Link>}
+        {date && <p className={s.date}>{getMonthAndYearOfRelease(date)}</p>}
         <ProgressLine
           days={days}
           max={max}
