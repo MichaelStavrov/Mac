@@ -47,7 +47,7 @@ export const Product = ({ arrayDatesWithDiff, status, macFamily  }: ProductPops)
           )}
         </div>
         <p className={s.descripton}>{description}</p>
-        <Link to="/" className={s.linkMore}>{macFamily} Roundup</Link>
+        <Link to={`/product/${macFamily}`} className={s.linkMore}>{macFamily} Roundup</Link>
       </div>
     </section>
   );
