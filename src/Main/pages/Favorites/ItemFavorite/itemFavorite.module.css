@@ -1,10 +1,11 @@
 .favoritesItem {
   position: relative;
   padding: 15px 25px;
+  padding-right: 80px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   box-shadow: 0 0 3px rgba(0,0,0,0.3);;
   border-radius: 5px;
 }
@@ -26,16 +27,20 @@
   max-width: 500px;
 }
 
+.wrapIcon {
+  margin-left: auto;
+  width: 80px;
+}
+
 .icon {
-  margin-right: 25px;
-  max-height: 90px;
-  max-width: 80px;
+  /* margin-right: 25px; */
+  max-width: 100%;
 }
 
 .close {
   position: absolute;
-  top: 35px;
-  right: 23px;
+  top: 35%;
+  right: 3%;
   width: 25px;
   height: 25px;
   background-color: rgb(228, 111, 111);

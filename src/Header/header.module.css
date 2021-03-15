@@ -74,6 +74,7 @@
 
 .countFavorites {
   position: absolute;
-  top: -9px;
-  right: 9px;
+  top: -11px;
+  right: 12px;
+  font-weight: 700;
 }

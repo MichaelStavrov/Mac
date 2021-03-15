@@ -22,7 +22,9 @@ export function ItemFavorite({ mac }: ItemFavoriteProps) {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
         possimus!
       </div>
-      <img src={imgs[mac]} className={s.icon} alt={mac} />
+      <div className={s.wrapIcon}>
+        <img src={imgs[mac]} className={s.icon} alt={mac} />
+      </div>
       <div
         className={s.close}
         onClick={handleRemoveFavoriteClick}

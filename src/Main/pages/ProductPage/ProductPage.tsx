@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./productPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, IRootState } from "../../../store";
@@ -9,15 +9,18 @@ export function ProductPage() {
   const mac = useSelector((state: IRootState) => state.macs.macFamily);
   const dispatch = useDispatch()
 
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   function handleAddToFavoritesClick() {
     dispatch(addToFavorites(mac))
   }
 
   return (
     <div className={s.productPage}>
-      <div onClick={handleAddToFavoritesClick}>
-        <img src={iconFavorite} className={s.iconHeart} alt="add-favorites" />
-      </div>
+      <img src={iconFavorite} className={s.iconHeart} onClick={handleAddToFavoritesClick} alt="add-favorites" />
       <div className={s.header}>
         <div className={s.description}>
           <h3 className={s.name}>{mac}</h3>

@@ -6,7 +6,7 @@ import { ProductColorStatus, ProductStatus } from "../../../../../types/productS
 import { IReleaseDateInfo } from "../utils/releasesDateInfo";
 import { getProductBuyStatus } from "../utils/getStatus";
 import { imgs } from "../../../../../img/images";
-import iconFavorite from "../../../../../img/favorite/heart.svg";
+import { ReactComponent as IconFavorite } from "../../../../../img/favorite/heart.svg";
 import { useDispatch } from "react-redux";
 import { addToFavorites } from "../../../../../store";
 
@@ -31,11 +31,9 @@ export const Product = ({ arrayDatesWithDiff, status, macFamily }: ProductPops) 
 
   return (
     <section className={s.product}>
-      <img
-        src={iconFavorite}
+      <IconFavorite
         className={s.iconHeart}
         onClick={handleAddToFavoritesClick}
-        alt="add-favorites"
       />
 
       <div className={s.productImage}>

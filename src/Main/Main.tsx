@@ -14,7 +14,7 @@ export function Main() {
       <Route path="/favorites" component={Favorites}/>
       <Route path="/guide" component={Guide} />
       <Route path="/byYear" exact component={ByYear} />
-      <Route path="/byYear/:id" component={ListByYear} />
+      <Route path="/byYear/:year" component={ListByYear} />
       <Route path="/product/:id" component={ProductPage} />
     </main>
   );

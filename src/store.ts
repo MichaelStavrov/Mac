@@ -3,9 +3,9 @@ import { fetchMacs } from './api'
 import { IMacFamily, IMacModel } from './types/macs'
 import { ProductStatus } from './types/productStatus';
 
-const fetchMacsThunk = createAsyncThunk(
+const fetchMacsThunk = createAsyncThunk<IMacModel[]>(
   'macs/fetch',
-  async (id, thunkAPI) => {
+  async () => {
     const response = await fetchMacs()
     return response;
   }
@@ -16,7 +16,6 @@ interface IMacsState {
   entities: IMacModel[],
   loading: 'idle' | 'loading' | 'loaded',
   favorites: IMacFamily[],
-  year: string,
   macFamily: IMacFamily,
   status: ProductStatus,
 }
@@ -25,21 +24,15 @@ const initialState: IMacsState = {
   entities: [],
   loading: 'idle',
   favorites: [],
-  year: '',
   macFamily: "MacBook Air",
   status: ProductStatus.buyNow,
 };
-
-
 
 
 const macsSlice = createSlice({
   name: 'macs',
   initialState,
   reducers: {
-    selectedYear(state, action) {
-      state.year = action.payload
-    },
     setMacFamily(state, action) {
       state.macFamily = action.payload
     },
@@ -58,36 +51,49 @@ const macsSlice = createSlice({
     }
     // standard reducer logic, with auto-generated action types per reducer
   },
-  extraReducers: {
+  extraReducers: builder => {
     // Add reducers for additional action types here, and handle loading state as needed
-    
-    // @ts-ignore
-    [fetchMacsThunk.pending]: (state, action) => {
+    builder.addCase(fetchMacsThunk.pending, (state, action) => {
       state.loading = 'loading';
       state.entities = [];
-    },
-    // @ts-ignore
-    [fetchMacsThunk.fulfilled]: (state, action) => {
+    });
+
+    builder.addCase(fetchMacsThunk.fulfilled, (state, action) => {
       // Add user to the state array
       state.loading = 'loaded';
       state.entities = action.payload;
-    }
+    });
   }
 })
 
 
-export const { selectedYear, setMacFamily, setStatus, addToFavorites, removeFavorite } = macsSlice.actions;
+export const { setMacFamily, setStatus, addToFavorites, removeFavorite } = macsSlice.actions;
 
 
 // Later, dispatch the thunk as needed in the app
 // dispatch(fetchUserById(123))
 
+// https://stackoverflow.com/questions/45339448/how-do-you-create-strongly-typed-redux-middleware-in-typescript-from-reduxs-typ
+
+// @ts-ignore
+const saveFavoritesToLocalStorage = ({getState}) => next => action => {
+  console.log(getState())
+  const result = next(action);
+
+  if ([addToFavorites, removeFavorite].map(String).includes(action.type)) {
+    const {macs} = getState();
+    localStorage.setItem("favorites", JSON.stringify(macs.favorites));
+  }
+
+  return result;
+}
 
 //==========================================
 export const store = configureStore({
   reducer: {
     macs: macsSlice.reducer,
-  }
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(saveFavoritesToLocalStorage),
 })
 
 

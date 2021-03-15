@@ -3,7 +3,6 @@
 }
 
 .header {
-  /* max-width: 750px; */
   display: flex;
   align-items: flex-start;
 }
@@ -23,10 +22,10 @@
 }
 
 .iconHeart {
-  padding: 2px;
-  width: 35px;
-  height: 35px;
-  border: 1px solid grey;
-  border-radius: 25%;
+  padding: 5px;
+  width: 38px;
+  height: 38px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+  border-radius: 10px;
   cursor: pointer;
 }
