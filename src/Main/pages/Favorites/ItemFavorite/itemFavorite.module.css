@@ -1,0 +1,73 @@
+.favoritesItem {
+  position: relative;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);;
+  border-radius: 5px;
+}
+
+.favoritesItem:first-child {
+  padding-top: 15px;
+}
+
+.name {
+  min-width: 150px;
+  margin-right: 20px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.description {
+  min-width: 450px;
+  margin-right: 10px;
+  max-width: 500px;
+}
+
+.icon {
+  margin-right: 25px;
+  max-height: 90px;
+  max-width: 80px;
+}
+
+.close {
+  position: absolute;
+  top: 35px;
+  right: 23px;
+  width: 25px;
+  height: 25px;
+  background-color: rgb(228, 111, 111);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.close:hover {
+  background-color: rgb(172, 44, 44);
+  transition: all .3s;
+
+}
+
+.stripClose1 {
+  position: absolute;
+  top: 12px;
+  right: 5px;
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  transform: rotate(45deg);
+
+}
+
+.stripClose2 {
+  position: absolute;
+  top: 12px;
+  right: 5px;
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  transform: rotate(-45deg);
+
+}

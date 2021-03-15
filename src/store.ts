@@ -15,7 +15,7 @@ const fetchMacsThunk = createAsyncThunk(
 interface IMacsState {
   entities: IMacModel[],
   loading: 'idle' | 'loading' | 'loaded',
-  favorites: string[],
+  favorites: IMacFamily[],
   year: string,
   macFamily: IMacFamily,
   status: ProductStatus,
@@ -52,6 +52,9 @@ const macsSlice = createSlice({
       } else {
         state.favorites = [...state.favorites, action.payload]
       }
+    },
+    removeFavorite(state, action) {
+      state.favorites = state.favorites.filter(mac => mac !== action.payload)
     }
     // standard reducer logic, with auto-generated action types per reducer
   },
@@ -73,7 +76,7 @@ const macsSlice = createSlice({
 })
 
 
-export const { selectedYear, setMacFamily, setStatus, addToFavorites } = macsSlice.actions;
+export const { selectedYear, setMacFamily, setStatus, addToFavorites, removeFavorite } = macsSlice.actions;
 
 
 // Later, dispatch the thunk as needed in the app
