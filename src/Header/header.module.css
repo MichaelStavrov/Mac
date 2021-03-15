@@ -1,5 +1,7 @@
 .header {
   background-color: #cddbe8;
+  position: sticky;
+  top: 0;
 }
 
 .wrapper {
@@ -8,8 +10,9 @@
 }
 
 .wrapHeader {
+  min-width: 900px;
   display: flex;
-  justify-content: space-between;
+  justify-content:flex-start;
   align-items: center;
 }
 
@@ -27,6 +30,7 @@
 }
 
 .iconLogo {
+  margin-right: 300px;
   max-width: 250px;
   cursor: pointer;
 }
@@ -48,4 +52,27 @@
 
 .itemNav:hover {
   background-color: #224f85;
+}
+
+.icons {
+  display: flex;
+  flex-grow: 1;
+}
+
+.icons__item {
+  margin-right: 20px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+
+}
+
+.linkFavorites {
+  position: relative;
+}
+
+.countFavorites {
+  position: absolute;
+  top: -9px;
+  right: 9px;
 }

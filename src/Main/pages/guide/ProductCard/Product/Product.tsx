@@ -6,26 +6,47 @@ import { ProductColorStatus, ProductStatus } from "../../../../../types/productS
 import { IReleaseDateInfo } from "../utils/releasesDateInfo";
 import { getProductBuyStatus } from "../utils/getStatus";
 import { imgs } from "../../../../../img/images";
+import iconFavorite from "../../../../../img/favorite/heart.svg";
+import { useDispatch } from "react-redux";
+import { addToFavorites } from "../../../../../store";
 
-const description =
-  "The MacBook Air was updated on November 10, 2020, with a new M1 chip from Apple, integrating the CPU and graphics with a Neural Engine for machine learning capabilities all on a single chip.";
 
 type ProductPops = {
   arrayDatesWithDiff: IReleaseDateInfo[];
   status: ProductStatus;
-  macFamily: IMacFamily
-}
+  macFamily: IMacFamily;
+};
 
-export const Product = ({ arrayDatesWithDiff, status, macFamily  }: ProductPops) => {
-  const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : ProductColorStatus[ProductStatus.neutral];
+export const Product = ({ arrayDatesWithDiff, status, macFamily }: ProductPops) => {
+  const dispatch = useDispatch()
+
+  const background =
+    arrayDatesWithDiff.length > 0
+      ? ProductColorStatus[status]
+      : ProductColorStatus[ProductStatus.neutral];
+
+  function handleAddToFavoritesClick() {
+    dispatch(addToFavorites(macFamily));
+  }
 
   return (
     <section className={s.product}>
+      <img
+        src={iconFavorite}
+        className={s.iconHeart}
+        onClick={handleAddToFavoritesClick}
+        alt="add-favorites"
+      />
+
       <div className={s.productImage}>
-        <img src={imgs[macFamily]} className={s.image} alt={macFamily} />
+        <Link to={`/product/${macFamily}`}>
+          <img src={imgs[macFamily]} className={s.image} alt={macFamily} />
+        </Link>
       </div>
       <div className={s.productInfo}>
-        <Link to={`/product/${macFamily}`} className={s.title}>{macFamily}</Link>
+        <Link to={`/product/${macFamily}`} className={s.title}>
+          {macFamily}
+        </Link>
         <div className={s.status}>
           <div
             className={s.productBuyStatus}
@@ -46,8 +67,10 @@ export const Product = ({ arrayDatesWithDiff, status, macFamily  }: ProductPops)
             </div>
           )}
         </div>
-        <p className={s.descripton}>{description}</p>
-        <Link to={`/product/${macFamily}`} className={s.linkMore}>{macFamily} Roundup</Link>
+        <p className={s.descripton}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates pariatur iusto ipsa nobis consequuntur repellat, libero, voluptatem, hic quisquam quibusdam numquam delectus. Laudantium non quo maiores fuga et, obcaecati similique?</p>
+        <Link to={`/product/${macFamily}`} className={s.linkMore}>
+          {macFamily} Roundup
+        </Link>
       </div>
     </section>
   );

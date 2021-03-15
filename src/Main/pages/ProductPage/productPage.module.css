@@ -1,13 +1,11 @@
 .productPage {
   padding-top: 100px;
-  display: flex;
-  justify-content: center;
 }
 
 .header {
   /* max-width: 750px; */
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .name {
@@ -22,4 +20,13 @@
 .description p {
   font-size: 24px;
   color: #4d6c99;
+}
+
+.iconHeart {
+  padding: 2px;
+  width: 35px;
+  height: 35px;
+  border: 1px solid grey;
+  border-radius: 25%;
+  cursor: pointer;
 }

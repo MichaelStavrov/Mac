@@ -30,6 +30,9 @@ const initialState: IMacsState = {
   status: ProductStatus.buyNow,
 };
 
+
+
+
 const macsSlice = createSlice({
   name: 'macs',
   initialState,
@@ -42,6 +45,13 @@ const macsSlice = createSlice({
     },
     setStatus(state, action) {
       state.status = action.payload
+    },
+    addToFavorites(state, action) {
+      if (state.favorites.includes(action.payload)) {
+        return;
+      } else {
+        state.favorites = [...state.favorites, action.payload]
+      }
     }
     // standard reducer logic, with auto-generated action types per reducer
   },
@@ -63,7 +73,7 @@ const macsSlice = createSlice({
 })
 
 
-export const { selectedYear, setMacFamily, setStatus } = macsSlice.actions;
+export const { selectedYear, setMacFamily, setStatus, addToFavorites } = macsSlice.actions;
 
 
 // Later, dispatch the thunk as needed in the app
