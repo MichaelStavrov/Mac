@@ -9,13 +9,16 @@ import iconYoutube from "../img/socials/youtube.png";
 import iconNotification from "../img/socials/notification.png";
 import iconWifi from "../img/socials/wifi.png";
 import iconMessage from "../img/socials/message.png";
-import iconFavorite from "../img/favorite/heart.svg";
+import { ReactComponent as IconFavorite } from "../img/favorite/heart.svg";
+import { ReactComponent as IconFavoriteFill } from "../img/favorite/heartFill.svg";
 import iconAuth from "../img/auth/auth.svg";
 import { useSelector } from "react-redux";
 import { IRootState } from "../store";
 
 export function Header() {
-  const countFavorites = useSelector((state: IRootState) => state.macs.favorites)
+  const countFavorites = useSelector(
+    (state: IRootState) => state.macs.favorites
+  );
 
   return (
     <header className={s.header}>
@@ -25,17 +28,19 @@ export function Header() {
             <img src={iconLogo} className={s.iconLogo} alt="logo" />
           </Link>
           <div className={s.icons}>
-            <img src={iconAuth} className={s.icons__item} alt="icon-favorite" />
+            <img src={iconAuth} className={s.iconAuth} alt="icon-favorite" />
             <Link to="/favorites" className={s.linkFavorites}>
-              <img
-                src={iconFavorite}
-                className={s.icons__item}
-                alt="icon-favorite"
-              />
-              {countFavorites.length > 0 && 
-                <span className={s.countFavorites}>{countFavorites.length}</span>
-              }
-             
+              {countFavorites.length > 0 ? (
+                <IconFavoriteFill className={s.iconHeart} />
+              ) : (
+                <IconFavorite className={s.iconHeart} />
+              )}
+
+              {countFavorites.length > 0 && (
+                <span className={s.countFavorites}>
+                  {countFavorites.length}
+                </span>
+              )}
             </Link>
           </div>
           <div className={s.socials}>

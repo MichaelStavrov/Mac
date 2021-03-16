@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import s from "./productPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addToFavorites, IRootState } from "../../../store";
+import { addToFavorites, IRootState, removeFavorite } from "../../../store";
 import { imgs } from "../../../img/images";
-import iconFavorite from "../../../img/favorite/heart.svg";
+import { ReactComponent as IconFavorite } from "../../../img/favorite/heart.svg";
+import { ReactComponent as IconFavoriteFill } from "../../../img/favorite/heartFill.svg";
 
 export function ProductPage() {
   const mac = useSelector((state: IRootState) => state.macs.macFamily);
+  const favorites = useSelector((state: IRootState) => state.macs.favorites);
   const dispatch = useDispatch()
 
   
@@ -14,13 +16,19 @@ export function ProductPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  function handleAddToFavoritesClick() {
-    dispatch(addToFavorites(mac))
+  function handleFavoritesClick() {
+    dispatch(addToFavorites(mac));
+    if (favorites.includes(mac)) {
+      dispatch(removeFavorite(mac));
+    }
   }
 
   return (
     <div className={s.productPage}>
-      <img src={iconFavorite} className={s.iconHeart} onClick={handleAddToFavoritesClick} alt="add-favorites" />
+      {favorites.includes(mac) ? (
+        <IconFavoriteFill className={s.iconHeart} onClick={handleFavoritesClick}/>
+      ) : <IconFavorite className={s.iconHeart} onClick={handleFavoritesClick} />}
+      
       <div className={s.header}>
         <div className={s.description}>
           <h3 className={s.name}>{mac}</h3>

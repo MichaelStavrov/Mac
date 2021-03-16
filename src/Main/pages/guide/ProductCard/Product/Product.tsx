@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import s from "./product.module.css";
 import { IMacFamily } from "../../../../../types/macs";
-import { ProductColorStatus, ProductStatus } from "../../../../../types/productStatus";
+import {
+  ProductColorStatus,
+  ProductStatus,
+} from "../../../../../types/productStatus";
 import { IReleaseDateInfo } from "../utils/releasesDateInfo";
 import { getProductBuyStatus } from "../utils/getStatus";
 import { imgs } from "../../../../../img/images";
 import { ReactComponent as IconFavorite } from "../../../../../img/favorite/heart.svg";
-import { useDispatch } from "react-redux";
-import { addToFavorites } from "../../../../../store";
-
+import { ReactComponent as IconFavoriteFill } from "../../../../../img/favorite/heartFill.svg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToFavorites,
+  IRootState,
+  removeFavorite,
+} from "../../../../../store";
 
 type ProductPops = {
   arrayDatesWithDiff: IReleaseDateInfo[];
@@ -18,24 +25,27 @@ type ProductPops = {
 };
 
 export const Product = ({ arrayDatesWithDiff, status, macFamily }: ProductPops) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const favorites = useSelector((state: IRootState) => state.macs.favorites);
 
   const background =
     arrayDatesWithDiff.length > 0
       ? ProductColorStatus[status]
       : ProductColorStatus[ProductStatus.neutral];
 
-  function handleAddToFavoritesClick() {
+  function handleFavoritesClick() {
     dispatch(addToFavorites(macFamily));
+    if (favorites.includes(macFamily)) {
+      dispatch(removeFavorite(macFamily));
+    }
   }
 
   return (
     <section className={s.product}>
-      <IconFavorite
-        className={s.iconHeart}
-        onClick={handleAddToFavoritesClick}
-      />
-
+      {favorites.includes(macFamily) && (
+        <IconFavoriteFill className={s.iconHeart} />
+      )}
+      <IconFavorite className={s.iconHeart} onClick={handleFavoritesClick} />
       <div className={s.productImage}>
         <Link to={`/product/${macFamily}`}>
           <img src={imgs[macFamily]} className={s.image} alt={macFamily} />
@@ -65,7 +75,12 @@ export const Product = ({ arrayDatesWithDiff, status, macFamily }: ProductPops) 
             </div>
           )}
         </div>
-        <p className={s.descripton}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates pariatur iusto ipsa nobis consequuntur repellat, libero, voluptatem, hic quisquam quibusdam numquam delectus. Laudantium non quo maiores fuga et, obcaecati similique?</p>
+        <p className={s.descripton}>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates
+          pariatur iusto ipsa nobis consequuntur repellat, libero, voluptatem,
+          hic quisquam quibusdam numquam delectus. Laudantium non quo maiores
+          fuga et, obcaecati similique?
+        </p>
         <Link to={`/product/${macFamily}`} className={s.linkMore}>
           {macFamily} Roundup
         </Link>

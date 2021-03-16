@@ -22,10 +22,11 @@
 }
 
 .iconHeart {
-  padding: 5px;
-  width: 38px;
-  height: 38px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, .3);
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+}
+
+.iconHeart :global .border {
+  fill: red;
 }
