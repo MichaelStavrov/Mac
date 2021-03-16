@@ -20,6 +20,8 @@ export function Header() {
     (state: IRootState) => state.macs.favorites
   );
 
+  
+
   return (
     <header className={s.header}>
       <div className={s.wrapper}>

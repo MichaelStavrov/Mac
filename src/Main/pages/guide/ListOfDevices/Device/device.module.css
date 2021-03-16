@@ -44,10 +44,6 @@
   font-weight: 400;
 }
 
-.device:hover .title {
-  font-weight: 700;
-}
-
 .status {
   padding-bottom: 10px;
   display: flex;
