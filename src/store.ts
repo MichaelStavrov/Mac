@@ -15,9 +15,13 @@ const fetchMacsThunk = createAsyncThunk<IMacModel[]>(
 function loadState () {
   const serializedState = localStorage.getItem('favorites');
   if (serializedState === null) {
-    return;
+    return [];
   }
-  return JSON.parse(serializedState);
+  try {
+    return JSON.parse(serializedState);
+  } catch {
+    return [];
+  }
 }
 
 interface IMacsState {

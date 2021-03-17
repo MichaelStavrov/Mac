@@ -13,32 +13,39 @@ import { ReactComponent as IconFavoriteFilled } from "../img/favorite/heartFill.
 import iconAuth from "../img/auth/auth.svg";
 import { useSelector } from "react-redux";
 import { IRootState } from "../store";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 export function Header() {
   const countFavorites = useSelector((state: IRootState) => state.macs.favorites);
-  // const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(true)
 
-  // function handleScroll(e: any) {
-  //   console.log('scrollTop', e.target.documentElement.scrollTop);
-  //   if (e.target.documentElement.scrollTop > 80) {
-  //     setVisible(false)
-  //   } else {
-  //     setVisible(true)
-  //   }
-  // }
+  const ref = useRef(null)
 
+  // console.log(ref);
+  
+
+  // const handleScroll = useCallback(
+  //    (e: any) => {
+  //     // console.log('scrollTop', e.target.documentElement.scrollTop);
+  //     if (e.target.documentElement.scrollTop > 80) {
+  //       setVisible(false)
+  //     } else {
+  //       setVisible(true)
+  //     }
+  //   }, [])
+
+  
   // useEffect(() => {
-  //   document.addEventListener('scroll', handleScroll)
+  //   window.addEventListener('scroll', handleScroll)
   //   return () => {
-  //     document.removeEventListener('scroll', handleScroll )
+  //     window.removeEventListener('scroll', handleScroll )
   //   }
-  // })
+  // }, [])
 
 
   return (
     <React.Fragment>
-    { <header id='header' className={s.header}  >
+    {visible && <header id='header' className={s.header} ref={ref}  >
       <div className={s.wrapper}>
         <div className={s.wrapHeader}>
           <Link to="/">
