@@ -22,7 +22,6 @@
 }
 
 .description {
-  min-width: 450px;
   margin-right: 10px;
   max-width: 500px;
 }
@@ -76,3 +75,21 @@
   transform: rotate(-45deg);
 
 }
+
+
+@media (max-width: 750px) {
+  .description {
+    width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .description {
+    width: 150px;
+  }
+}
+
+@media (max-width: 500px) {
+  .description {
+    display: none;  }
+  }

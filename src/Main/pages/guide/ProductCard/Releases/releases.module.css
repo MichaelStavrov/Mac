@@ -3,18 +3,6 @@ h3 {
   font-weight: 400;
 }
 
-li {
-  list-style-type: none; 
- }
-
- li:first-child {
-  padding-top: 0;
-}
-
-li:last-child {
-  border: none;
-}
-
  ul {
   margin: 0; 
   padding: 0; 

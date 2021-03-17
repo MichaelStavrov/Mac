@@ -11,3 +11,17 @@
   /* border-top: 1px solid #d7e2ef; */
   list-style: none;
 }
+
+@media (max-width: 900px) {
+  .listOfDevices {
+    width: 700px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 750px) {
+  .listOfDevices {
+    width: 500px;
+    justify-content: flex-start;
+  }
+}

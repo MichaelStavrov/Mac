@@ -6,6 +6,12 @@
   cursor: pointer;
   align-items: center;
   color: #070779;
+  list-style-type: none; 
+
+}
+
+.itemParam {
+  list-style-type: none;
 }
 
 .item:hover {

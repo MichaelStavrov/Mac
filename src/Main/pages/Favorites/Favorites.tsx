@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import s from "./favorites.module.css";
 import { IRootState } from "../../../store";

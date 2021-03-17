@@ -37,10 +37,10 @@ export function ItemByYear({ name, arrayMacsSameYear }: MacProps) {
         <div className={s.param}>
           <img src={img} alt={img} className={s.img}/>
           <ul className={s.listParams}>
-            <li><span>Intro:</span>{dateIntro}</li>
-            <li><span>Disc:</span>{dateDisc}</li>
-            <li><span>Model:</span>{model}</li>
-            <li><span>Family:</span>{familyWithQuotes}</li>
+            <li className={s.itemParam}><span>Intro:</span>{dateIntro}</li>
+            <li className={s.itemParam}><span>Disc:</span>{dateDisc}</li>
+            <li className={s.itemParam}><span>Model:</span>{model}</li>
+            <li className={s.itemParam}><span>Family:</span>{familyWithQuotes}</li>
           </ul>
         </div>
       )}

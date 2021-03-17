@@ -10,7 +10,7 @@
   margin-bottom: 50px;
 }
 
-.pageDescription h2 {
+.title {
   font-size: 40px;
   font-weight: 700;
 }
@@ -20,4 +20,26 @@
   display: flex;
   margin-bottom: 20px;
   border-bottom: 1px solid #d7e2ef;
+}
+
+
+@media (max-width: 900px) {
+  .guide {
+    padding-top: 30px;
+  }
+  .pageDescription {
+    margin-bottom: 30px;
+  }
+  .title {
+    font-size: 33px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 750px) {
+
+}
+
+@media (max-width: 500px) {
+
 }

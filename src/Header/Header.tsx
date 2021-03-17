@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import s from "./header.module.css";
 import iconLogo from "../img/logo/macrumors-simple-logo-light.svg";
@@ -10,20 +9,36 @@ import iconNotification from "../img/socials/notification.png";
 import iconWifi from "../img/socials/wifi.png";
 import iconMessage from "../img/socials/message.png";
 import { ReactComponent as IconFavorite } from "../img/favorite/heart.svg";
-import { ReactComponent as IconFavoriteFill } from "../img/favorite/heartFill.svg";
+import { ReactComponent as IconFavoriteFilled } from "../img/favorite/heartFill.svg";
 import iconAuth from "../img/auth/auth.svg";
 import { useSelector } from "react-redux";
 import { IRootState } from "../store";
+import React, { useEffect, useRef, useState } from "react";
 
 export function Header() {
-  const countFavorites = useSelector(
-    (state: IRootState) => state.macs.favorites
-  );
+  const countFavorites = useSelector((state: IRootState) => state.macs.favorites);
+  // const [visible, setVisible] = useState(true)
 
-  
+  // function handleScroll(e: any) {
+  //   console.log('scrollTop', e.target.documentElement.scrollTop);
+  //   if (e.target.documentElement.scrollTop > 80) {
+  //     setVisible(false)
+  //   } else {
+  //     setVisible(true)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   document.addEventListener('scroll', handleScroll)
+  //   return () => {
+  //     document.removeEventListener('scroll', handleScroll )
+  //   }
+  // })
+
 
   return (
-    <header className={s.header}>
+    <React.Fragment>
+    { <header id='header' className={s.header}  >
       <div className={s.wrapper}>
         <div className={s.wrapHeader}>
           <Link to="/">
@@ -33,7 +48,7 @@ export function Header() {
             <img src={iconAuth} className={s.iconAuth} alt="icon-favorite" />
             <Link to="/favorites" className={s.linkFavorites}>
               {countFavorites.length > 0 ? (
-                <IconFavoriteFill className={s.iconHeart} />
+                <IconFavoriteFilled className={s.iconHeart} />
               ) : (
                 <IconFavorite className={s.iconHeart} />
               )}
@@ -88,6 +103,7 @@ export function Header() {
           </div>
         </div>
       </nav>
-    </header>
+    </header>}
+    </React.Fragment>
   );
 }

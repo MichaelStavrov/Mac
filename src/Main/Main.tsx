@@ -1,4 +1,3 @@
-import React from "react";
 import { Guide } from "./pages/guide/Guide";
 import s from "./main.module.css";
 import { ByYear } from "./pages/ByYear/ByYear";

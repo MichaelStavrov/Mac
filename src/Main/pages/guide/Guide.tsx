@@ -19,7 +19,7 @@ export const Guide = () => {
   return (
     <div className={s.guide}>
       <div className={s.pageDescription}>
-        <h2>Buyer's Guide</h2>
+        <h2 className={s.title}>Buyer's Guide</h2>
         <p>This page provides a product summary for each Apple model. The intent is to provide our best recommendations regarding current product cycles, and to provide a summary of currently available rumors for each model.</p>
         <p>This page is based on rumors and speculation and we provide no guarantee to its accuracy.</p>
       </div>

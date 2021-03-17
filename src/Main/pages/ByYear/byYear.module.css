@@ -16,6 +16,8 @@ p {
 
 .item {
   margin: 20px;
+  list-style-type: none; 
+
 }
 
 .link {

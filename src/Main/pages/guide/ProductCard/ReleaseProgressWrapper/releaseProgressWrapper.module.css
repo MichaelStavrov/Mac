@@ -7,13 +7,20 @@
   border-bottom: 1px solid #d0eae9;
 }
 
+.releaseProgressWrapper:first-child {
+  padding-top: 0;
+}
+
+.releaseProgressWrapper:last-child {
+  border: none;
+}
+
 .left {
   width: 100%;
   margin-right: 15px;
 }
 
 .date {
-  /* display: inline-block; */
   margin-bottom: 3px;
   font-size: 14px;
 }

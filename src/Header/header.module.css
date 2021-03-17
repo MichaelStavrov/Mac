@@ -36,6 +36,11 @@
   cursor: pointer;
 }
 
+.icons {
+  display: flex;
+  margin-right: 50px;
+}
+
 .wrapperNav {
   background-color: #102f54;
   color: white;
@@ -55,10 +60,7 @@
   background-color: #224f85;
 }
 
-.icons {
-  display: flex;
-  flex-grow: 1;
-}
+
 
 .iconAuth {
   margin-right: 10px;
@@ -88,4 +90,48 @@
   top: -11px;
   right: -9px;
   font-weight: 700;
+}
+
+
+/* media================ */
+
+@media (max-width: 900px) {
+  .iconLogo {
+    margin-right: 100px;
+    max-width: 200px;
+  }
+
+  .icons {
+    margin-right: 150px;
+  }
+}
+
+@media (max-width: 750px) {
+  .iconLogo {
+    margin-right: 70px;
+    max-width: 130px;
+  }
+
+  .icons {
+    margin-right: 30px;
+  }
+
+  .navigation {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .iconLogo {
+    margin-right: 70px;
+    max-width: 130px;
+  }
+
+  .socials {
+    display: none;
+  }
+
+  .navigation {
+    font-size: 18px;
+  }
 }

@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { useParams, useLocation } from 'react-router-dom'
 import { IRootState } from "../../../../store";

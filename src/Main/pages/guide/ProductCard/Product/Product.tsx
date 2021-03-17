@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import s from "./product.module.css";
 import { IMacFamily } from "../../../../../types/macs";
@@ -10,7 +9,7 @@ import { IReleaseDateInfo } from "../utils/releasesDateInfo";
 import { getProductBuyStatus } from "../utils/getStatus";
 import { imgs } from "../../../../../img/images";
 import { ReactComponent as IconFavorite } from "../../../../../img/favorite/heart.svg";
-import { ReactComponent as IconFavoriteFill } from "../../../../../img/favorite/heartFill.svg";
+import { ReactComponent as IconFavoriteFilled } from "../../../../../img/favorite/heartFill.svg";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToFavorites,
@@ -43,7 +42,7 @@ export const Product = ({ arrayDatesWithDiff, status, macFamily }: ProductPops) 
   return (
     <section className={s.product}>
       {favorites.includes(macFamily) && (
-        <IconFavoriteFill className={s.iconHeart} />
+        <IconFavoriteFilled className={s.iconHeart} />
       )}
       <IconFavorite className={s.iconHeart} onClick={handleFavoritesClick} />
       <div className={s.productImage}>

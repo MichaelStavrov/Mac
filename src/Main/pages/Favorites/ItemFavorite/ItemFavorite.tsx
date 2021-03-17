@@ -1,4 +1,3 @@
-import React from "react";
 import { IMacFamily } from "../../../../types/macs";
 import s from "./itemFavorite.module.css";
 import { imgs } from "../../../../img/images";
