@@ -12,6 +12,14 @@ const fetchMacsThunk = createAsyncThunk<IMacModel[]>(
 );
 
 
+function loadState () {
+  const serializedState = localStorage.getItem('favorites');
+  if (serializedState === null) {
+    return;
+  }
+  return JSON.parse(serializedState);
+}
+
 interface IMacsState {
   entities: IMacModel[],
   loading: 'idle' | 'loading' | 'loaded',
@@ -23,7 +31,7 @@ interface IMacsState {
 const initialState: IMacsState = {
   entities: [],
   loading: 'idle',
-  favorites: [],
+  favorites: [...loadState()],
   macFamily: "MacBook Air",
   status: ProductStatus.buyNow,
 };
@@ -75,6 +83,8 @@ export const { setMacFamily, setStatus, addToFavorites, removeFavorite } = macsS
 
 // https://stackoverflow.com/questions/45339448/how-do-you-create-strongly-typed-redux-middleware-in-typescript-from-reduxs-typ
 
+
+
 // @ts-ignore
 const saveFavoritesToLocalStorage = ({getState}) => next => action => {
   // console.log(getState())
@@ -107,5 +117,6 @@ export const store = configureStore({
 store.dispatch(fetchMacsThunk());
 
 export type IRootState = ReturnType<typeof store.getState>
+
 
 
