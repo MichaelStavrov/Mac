@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import cn from "classnames";
 import s from "./product.module.css";
 import { IMacFamily } from "../../../../../types/macs";
 import {
@@ -9,7 +10,6 @@ import { IReleaseDateInfo } from "../utils/releasesDateInfo";
 import { getProductBuyStatus } from "../utils/getStatus";
 import { imgs } from "../../../../../img/images";
 import { ReactComponent as IconFavorite } from "../../../../../img/favorite/heart.svg";
-import { ReactComponent as IconFavoriteFilled } from "../../../../../img/favorite/heartFill.svg";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToFavorites,
@@ -23,7 +23,11 @@ type ProductPops = {
   macFamily: IMacFamily;
 };
 
-export const Product = ({ arrayDatesWithDiff, status, macFamily }: ProductPops) => {
+export const Product = ({
+  arrayDatesWithDiff,
+  status,
+  macFamily,
+}: ProductPops) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state: IRootState) => state.macs.favorites);
 
@@ -41,10 +45,13 @@ export const Product = ({ arrayDatesWithDiff, status, macFamily }: ProductPops) 
 
   return (
     <section className={s.product}>
-      {favorites.includes(macFamily) && (
-        <IconFavoriteFilled className={s.iconHeart} />
-      )}
-      <IconFavorite className={s.iconHeart} onClick={handleFavoritesClick} />
+      <IconFavorite
+        className={cn({
+          [s.iconHeart]: true,
+          [s.iconHeartFilled]: favorites.includes(macFamily),
+        })}
+        onClick={handleFavoritesClick}
+      />
       <div className={s.productImage}>
         <Link to={`/product/${macFamily}`}>
           <img src={imgs[macFamily]} className={s.image} alt={macFamily} />

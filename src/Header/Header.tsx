@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import cn from 'classnames'
+import cn from "classnames";
 import s from "./header.module.css";
 import iconLogo from "../img/logo/macrumors-simple-logo-light.svg";
 import iconInst from "../img/socials/instagram.png";
@@ -10,36 +10,37 @@ import iconNotification from "../img/socials/notification.png";
 import iconWifi from "../img/socials/wifi.png";
 import iconMessage from "../img/socials/message.png";
 import { ReactComponent as IconFavorite } from "../img/favorite/heart.svg";
-import { ReactComponent as IconFavoriteFilled } from "../img/favorite/heartFill.svg";
 import iconAuth from "../img/auth/auth.svg";
 import { useSelector } from "react-redux";
 import { IRootState } from "../store";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useState }from "react";
 import { useScrollPosition } from "../hooks/useScrollPosition";
 
 export function Header() {
-  const countFavorites = useSelector((state: IRootState) => state.macs.favorites);
-  const [visible, setVisible] = useState(false)
+  const countFavorites = useSelector(
+    (state: IRootState) => state.macs.favorites
+  );
+  const [visible, setVisible] = useState(false);
 
   useScrollPosition(
-    ({ prevPos, currPos }: any) => {      
-      const isShow = currPos.y < prevPos.y && window.scrollY > 100
+    ({ prevPos, currPos }: any) => {
+      const isShow = currPos.y < prevPos.y && window.scrollY > 100;
       if (isShow !== visible) {
-        setVisible(isShow)
+        setVisible(isShow);
       }
     },
     [visible]
-  )
+  );
 
   // if (window.scrollY < 150) {
   //   setVisible(false)
   // }
-  
-  return (  
-    <header  
+
+  return (
+    <header
       className={cn({
         [s.header]: true,
-        [s.hidden]: visible
+        [s.hidden]: visible,
       })}
     >
       <div className={s.wrapper}>
@@ -50,11 +51,12 @@ export function Header() {
           <div className={s.icons}>
             <img src={iconAuth} className={s.iconAuth} alt="icon-favorite" />
             <Link to="/favorites" className={s.linkFavorites}>
-              {countFavorites.length > 0 ? (
-                <IconFavoriteFilled className={s.iconHeart} />
-              ) : (
-                <IconFavorite className={s.iconHeart} />
-              )}
+              <IconFavorite
+                className={cn({
+                  [s.iconHeart]: true,
+                  [s.iconHeartFilled]: countFavorites.length > 0,
+                })}
+              />
 
               {countFavorites.length > 0 && (
                 <span className={s.countFavorites}>

@@ -81,9 +81,10 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
+  stroke: black;
 }
 
-.iconHeart :global .border {
+.iconHeartFilled {
   fill: black;
 }
 
