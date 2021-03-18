@@ -1,8 +1,15 @@
 .header {
-  background-color: #cddbe8;
   position: sticky;
+  background-color: #cddbe8;
   top: 0;
+  left: 0;
   z-index: 2;
+  transform: translateY(0);
+  transition: transform .3s ease-in;
+}
+
+.hidden {
+  transform: translateY(-100%);
 }
 
 .wrapper {
@@ -32,7 +39,7 @@
 
 .iconLogo {
   margin-right: 300px;
-  max-width: 250px;
+  max-width: 200px;
   cursor: pointer;
 }
 
@@ -52,7 +59,7 @@
 }
 
 .itemNav {
-  padding: 15px 20px;
+  padding: 8px 20px;
   margin-right: 20px;
 }
 

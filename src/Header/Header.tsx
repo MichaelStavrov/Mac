@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import cn from 'classnames'
 import s from "./header.module.css";
 import iconLogo from "../img/logo/macrumors-simple-logo-light.svg";
 import iconInst from "../img/socials/instagram.png";
@@ -14,38 +15,33 @@ import iconAuth from "../img/auth/auth.svg";
 import { useSelector } from "react-redux";
 import { IRootState } from "../store";
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useScrollPosition } from "../hooks/useScrollPosition";
 
 export function Header() {
   const countFavorites = useSelector((state: IRootState) => state.macs.favorites);
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
 
-  const ref = useRef(null)
+  useScrollPosition(
+    ({ prevPos, currPos }: any) => {      
+      const isShow = currPos.y < prevPos.y && window.scrollY > 100
+      if (isShow !== visible) {
+        setVisible(isShow)
+      }
+    },
+    [visible]
+  )
 
-  // console.log(ref);
+  // if (window.scrollY < 150) {
+  //   setVisible(false)
+  // }
   
-
-  // const handleScroll = useCallback(
-  //    (e: any) => {
-  //     // console.log('scrollTop', e.target.documentElement.scrollTop);
-  //     if (e.target.documentElement.scrollTop > 80) {
-  //       setVisible(false)
-  //     } else {
-  //       setVisible(true)
-  //     }
-  //   }, [])
-
-  
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll)
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll )
-  //   }
-  // }, [])
-
-
-  return (
-    <React.Fragment>
-    {visible && <header id='header' className={s.header} ref={ref}  >
+  return (  
+    <header  
+      className={cn({
+        [s.header]: true,
+        [s.hidden]: visible
+      })}
+    >
       <div className={s.wrapper}>
         <div className={s.wrapHeader}>
           <Link to="/">
@@ -110,7 +106,6 @@ export function Header() {
           </div>
         </div>
       </nav>
-    </header>}
-    </React.Fragment>
+    </header>
   );
 }
