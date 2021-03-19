@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import cn from "classnames";
 import s from "./productPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, IRootState, removeFavorite } from "../../../store";
@@ -28,19 +29,14 @@ export function ProductPage() {
         <div className={s.description}>
           <div>
             <h3 className={s.name}>{mac}</h3>
-            {favorites.includes(mac) ? (
-              <IconFavoriteFilled
-                className={s.iconHeart}
-                onClick={handleFavoritesClick}
-              />
-            ) : (
-              <IconFavorite
-                className={s.iconHeart}
-                onClick={handleFavoritesClick}
-              />
-            )}
+            <IconFavorite
+              className={cn({
+                [s.iconHeart]: true,
+                [s.iconHeartFilled]: favorites.includes(mac),
+              })}
+              onClick={handleFavoritesClick}
+            />
           </div>
-
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
             enim consequuntur rem ducimus, officia itaque consequatur dolores

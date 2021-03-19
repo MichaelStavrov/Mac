@@ -27,8 +27,9 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
+  stroke: red;
 }
 
-.iconHeart :global .border {
+.iconHeartFilled {
   fill: red;
 }

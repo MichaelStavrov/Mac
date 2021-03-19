@@ -15,9 +15,15 @@ p {
 }
 
 .item {
-  margin: 20px;
+  padding: 5px 10px;
+  margin: 10px;
   list-style-type: none; 
+  box-shadow: 0 0 3px rgb(0, 0, 0, .4);
+  border-radius: 7px;
+}
 
+.item:hover {
+  background-color: cornsilk;
 }
 
 .link {
@@ -28,11 +34,12 @@ p {
   margin-bottom: 7px;
   width: 80px;
   height: 80px;
+  border-radius: 6px;
 }
 
 .year {
-  text-decoration: underline;
   color: #070779;
+  font-weight: 700;
   transition: all .3s;
 }
 
