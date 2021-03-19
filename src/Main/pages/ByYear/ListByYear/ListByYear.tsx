@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { IRootState } from "../../../../store";
 import { macsModelSortByYear } from "../utils/macsModelSortByYear";
 import { getArrayOfMacsNamesSameYear } from "../utils/getArrayOfMacsNamesSameYear";
@@ -11,10 +11,7 @@ export function ListByYear() {
   const macs = useSelector((state: IRootState) => state.macs.entities);
   const {year} = useParams<{year: string}>();
   const macsByYears = macsModelSortByYear(macs);  
-    
-  // console.log(useLocation());
-  
-  // FIX
+
   const arrayMacsSameYear = macsByYears[year] ?? [];
 
   const arrayOfMacNames = getArrayOfMacsNamesSameYear(arrayMacsSameYear);

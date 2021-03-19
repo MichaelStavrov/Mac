@@ -16,14 +16,14 @@ p {
 
 .item {
   padding: 5px 10px;
-  margin: 10px;
+  margin: 7px;
   list-style-type: none; 
   box-shadow: 0 0 3px rgb(0, 0, 0, .4);
   border-radius: 7px;
 }
 
 .item:hover {
-  background-color: cornsilk;
+  box-shadow: 0 0 10px rgb(0, 0, 0, .4);
 }
 
 .link {

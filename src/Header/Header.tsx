@@ -2,19 +2,13 @@ import { Link } from "react-router-dom";
 import cn from "classnames";
 import s from "./header.module.css";
 import iconLogo from "../img/logo/macrumors-simple-logo-light.svg";
-import iconInst from "../img/socials/instagram.png";
-import iconFacebook from "../img/socials/facebook.png";
-import iconTwitter from "../img/socials/twitter.png";
-import iconYoutube from "../img/socials/youtube.png";
-import iconNotification from "../img/socials/notification.png";
-import iconWifi from "../img/socials/wifi.png";
-import iconMessage from "../img/socials/message.png";
 import { ReactComponent as IconFavorite } from "../img/favorite/heart.svg";
-import iconAuth from "../img/auth/auth.svg";
 import { useSelector } from "react-redux";
 import { IRootState } from "../store";
-import { useState }from "react";
+import { useState } from "react";
 import { useScrollPosition } from "../hooks/useScrollPosition";
+import { socialIcons } from "../img/socials/socialIcons";
+import { IPositions } from "../types/coordinates";
 
 export function Header() {
   const countFavorites = useSelector(
@@ -23,7 +17,7 @@ export function Header() {
   const [visible, setVisible] = useState(false);
 
   useScrollPosition(
-    ({ prevPos, currPos }: any) => {
+    ({ prevPos, currPos }: IPositions) => {
       const isShow = currPos.y < prevPos.y && window.scrollY > 100;
       if (isShow !== visible) {
         setVisible(isShow);
@@ -31,10 +25,6 @@ export function Header() {
     },
     [visible]
   );
-
-  // if (window.scrollY < 150) {
-  //   setVisible(false)
-  // }
 
   return (
     <header
@@ -48,51 +38,31 @@ export function Header() {
           <Link to="/">
             <img src={iconLogo} className={s.iconLogo} alt="logo" />
           </Link>
-          <div className={s.icons}>
-            <img src={iconAuth} className={s.iconAuth} alt="icon-favorite" />
-            <Link to="/favorites" className={s.linkFavorites}>
-              <IconFavorite
-                className={cn({
-                  [s.iconHeart]: true,
-                  [s.iconHeartFilled]: countFavorites.length > 0,
-                })}
-              />
-
-              {countFavorites.length > 0 && (
-                <span className={s.countFavorites}>
-                  {countFavorites.length}
-                </span>
-              )}
-            </Link>
-          </div>
           <div className={s.socials}>
-            <img src={iconInst} className={s.iconSocial} alt="icon-instagram" />
-            <img
-              src={iconFacebook}
-              className={s.iconSocial}
-              alt="icon-facebook"
-            />
-            <img
-              src={iconTwitter}
-              className={s.iconSocial}
-              alt="icon-twitter"
-            />
-            <img
-              src={iconYoutube}
-              className={s.iconSocial}
-              alt="icon-youtube"
-            />
-            <img
-              src={iconNotification}
-              className={s.iconSocial}
-              alt="icon-notification"
-            />
-            <img src={iconWifi} className={s.iconSocial} alt="icon-wifi" />
-            <img
-              src={iconMessage}
-              className={s.iconSocial}
-              alt="icon-message"
-            />
+            <div className={s.wrapIconFavorites}>
+              <Link to="/favorites" className={s.linkFavorites}>
+                <IconFavorite
+                  className={cn({
+                    [s.iconHeart]: true,
+                    [s.iconHeartFilled]: countFavorites.length > 0,
+                  })}
+                />
+                {countFavorites.length > 0 && (
+                  <span className={s.countFavorites}>
+                    {countFavorites.length}
+                  </span>
+                )}
+              </Link>
+            </div>
+
+            {socialIcons.map((icon) => (
+              <img
+                src={icon}
+                className={s.iconSocial}
+                alt="icon-social"
+                key={icon}
+              />
+            ))}
           </div>
         </div>
       </div>

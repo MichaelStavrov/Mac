@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, IRootState, removeFavorite } from "../../../store";
 import { imgs } from "../../../img/images";
 import { ReactComponent as IconFavorite } from "../../../img/favorite/heart.svg";
-import { ReactComponent as IconFavoriteFilled } from "../../../img/favorite/heartFill.svg";
 
 export function ProductPage() {
   const mac = useSelector((state: IRootState) => state.macs.macFamily);
