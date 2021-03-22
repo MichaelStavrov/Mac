@@ -11,9 +11,7 @@ import { macsArrayToDict } from "../utils/macsArrayToDict";
 import { releasesDateInfo } from "./utils/releasesDateInfo";
 
 export const ProductCard = () => {  
-  const status = useSelector((state: IRootState) => state.macs.status);
-  const macFamily = useSelector((state: IRootState) => state.macs.macFamily);
-  const macs = useSelector((state: IRootState) => state.macs.entities);
+  const {status, macFamily, entities: macs } = useSelector((state: IRootState) => state.macs);
   const macModelDict: IMacModelDict = macsArrayToDict(macs);
   const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, macFamily);  
   const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);

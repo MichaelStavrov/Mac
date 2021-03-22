@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './device.module.css';
-import { IMacFamily, IMacModelDict, IMacModelId } from "../../../../../types/macs"
+import { IMacFamily } from "../../../../../types/macs"
 import { imgs } from "../../../../../img/images";
 import { useDispatch, useSelector } from 'react-redux';
 import { IRootState, setMacFamily, setStatus } from '../../../../../store';
@@ -20,13 +20,12 @@ type DeviceProps = {
 export const Device = ({ mac }: DeviceProps) => {
   const macs = useSelector((state: IRootState) => state.macs.entities);
   const dispatch = useDispatch()
-  const macModelDict: IMacModelDict = macsArrayToDict(macs);
-  const macModelIds: IMacModelId[] = getMacFamilyIds(macModelDict, mac);  
-  const dates: Date[] = getDates(macModelIds, macModelDict).slice(0, 7);
+  const macModelDict = macsArrayToDict(macs);
+  const macModelIds = getMacFamilyIds(macModelDict, mac);  
+  const dates = getDates(macModelIds, macModelDict).slice(0, 7);
   const daysSinceLastRelease = getDaysSinceLastRelease(dates[0]);
   const arrayDatesWithDiff = releasesDateInfo(dates);
   const { max } = getDatesMeta(arrayDatesWithDiff);
-  
   const status = arrayDatesWithDiff.length > 0 ? getStatus(daysSinceLastRelease, max) : ProductStatus.neutral;
   const background = arrayDatesWithDiff.length > 0 ? ProductColorStatus[status] : ProductColorStatus[ProductStatus.neutral];
   

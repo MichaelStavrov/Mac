@@ -7,8 +7,7 @@ import { imgs } from "../../../img/images";
 import { ReactComponent as IconFavorite } from "../../../img/favorite/heart.svg";
 
 export function ProductPage() {
-  const mac = useSelector((state: IRootState) => state.macs.macFamily);
-  const favorites = useSelector((state: IRootState) => state.macs.favorites);
+  const {macFamily: mac, favorites} = useSelector((state: IRootState) => state.macs);
   const dispatch = useDispatch();
 
   useEffect(() => {
