@@ -8,6 +8,7 @@ import { IRootState } from "../../store";
 import { useState } from "react";
 import { useScrollPosition } from "../../hooks/useScrollPosition";
 import { socialIcons } from "../../img/socials/socialIcons";
+import  IconAuth  from '../../img/auth/auth.svg'
 import { IPositions } from "../../types/coordinates";
 
 export function Header() {
@@ -40,6 +41,9 @@ export function Header() {
           </Link>
           <div className={s.socials}>
             <div className={s.wrapIconFavorites}>
+              <Link className={s.wrapIconAuth} to='/auth'>
+                <img className={s.iconAuth} src={IconAuth} alt='auth'/>
+              </Link>
               <Link to="/favorites" className={s.linkFavorites}>
                 <IconFavorite
                   className={cn({

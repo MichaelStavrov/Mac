@@ -4,7 +4,7 @@ import s from "./guide.module.css";
 import { ProductCard } from "./ProductCard/ProductCard";
 import { ListOfDevices } from "./ListOfDevices//ListOfDevices";
 import { IRootState } from "../../../../store";
-import { arrayProductCategory, ProductCategory } from "../../../../types/tabBar";
+import { arrayProductCategories, ProductCategory } from "../../../../types/tabBar";
 import { CategoryTabs } from "./CategoryTabs/CategotyTabs";
 
 export const Guide = () => {
@@ -24,7 +24,7 @@ export const Guide = () => {
         <p>This page is based on rumors and speculation and we provide no guarantee to its accuracy.</p>
       </div>
       <ul className={s.tabBar}>
-        {arrayProductCategory.map((category) => (
+        {arrayProductCategories.map((category) => (
           <CategoryTabs
             onChangeTab={setTab}
             category={category}

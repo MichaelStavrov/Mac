@@ -30,10 +30,8 @@ h3 {
   border-bottom: 1px solid #d0eae9;
 }
 
-
-
 .title {
-  font-size: 22px;
+  font-size: 1.5rem;
   margin-right: 45px;
 }
 
@@ -43,4 +41,8 @@ h3 {
 
 
 
-
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.3rem;;
+  }
+}

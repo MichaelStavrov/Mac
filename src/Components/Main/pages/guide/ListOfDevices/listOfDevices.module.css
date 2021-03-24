@@ -1,15 +1,53 @@
 
 .listOfDevices {
-  width: 100%;
+  max-width: 100%;
   margin: 0;
-  margin-bottom: 10px;
   padding: 0;
+  transition: all .4s ease-out;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  /* border-top: 1px solid #d7e2ef; */
   list-style: none;
+}
+
+.wrapList {
+  position: relative;
+  max-width: 900px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border-left: 5px solid #d7e2ef;
+  border-right: 5px solid #d7e2ef;
+  border-bottom: 1px solid #d7e2ef;
+}
+
+.buttonSliderBack, .buttonSliderForward {
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  padding: 8px;
+  border: none;
+  opacity: 0.2;
+  outline: none;
+  background-color: #e7ebf0;
+  transition: all .3s ease-out;
+  cursor: pointer;
+}
+
+.buttonSliderBack:hover, .buttonSliderForward:hover {
+  opacity: .6;
+  transition: all .3s ease-out;
+
+}
+
+.buttonSliderBack {
+  top: 0;
+  left: 0;
+}
+
+.buttonSliderForward {
+  top: 0;
+  right: 0;
 }
 
 @media (max-width: 900px) {
@@ -19,9 +57,16 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 769px) {
+  .wrapList {
+    width: 600px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 426px) {
   .listOfDevices {
-    width: 500px;
-    justify-content: flex-start;
+    width: 100%;
+    
   }
 }

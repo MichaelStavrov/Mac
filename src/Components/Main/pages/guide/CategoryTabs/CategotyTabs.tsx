@@ -8,16 +8,16 @@ type CategoryTabsProps = {
 };
 
 export function CategoryTabs({ onChangeTab, category }: CategoryTabsProps) {
-  
 
   function handleClick(e: React.MouseEvent<HTMLLIElement, MouseEvent>) {
     const { item } = e.currentTarget.dataset;
+    
     onChangeTab(item);
-  }
+  }  
 
   return (
     <li
-      className={s.item}
+      className={s.item} 
       data-item={category.name}
       onClick={(e) => handleClick(e)}
     >

@@ -17,7 +17,8 @@ export interface IProductCategory {
   img: string
 }
 
-export const arrayProductCategory = [
+
+export const arrayProductCategories = [
   {
     name: ProductCategory.iPhone,
     img: iconIPhone

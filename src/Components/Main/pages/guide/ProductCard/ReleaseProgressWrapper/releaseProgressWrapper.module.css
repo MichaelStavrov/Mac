@@ -26,9 +26,28 @@
 }
 
 .days {
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 .fz40 {
-  font-size: 40px;
+  font-size: 2.5rem;
+}
+
+
+@media (max-width: 768px) {
+  .days {
+    font-size: 1.7rem;
+  }
+
+  .fz40 {
+    font-size: 2.2rem;
+  }
+
+  .date {
+    margin: 0;
+  }
+
+  .releaseProgressWrapper {
+    padding: 5px 0;
+  }
 }

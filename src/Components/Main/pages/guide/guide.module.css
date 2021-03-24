@@ -8,18 +8,18 @@
 
 .pageDescription {
   margin-bottom: 30px;
+  font-size: 1rem;
 }
 
 .title {
   margin: 0;
-  font-size: 40px;
+  font-size: 3rem;
   font-weight: 700;
 }
 
 .tabBar {
   width: 100%;
   display: flex;
-  margin-bottom: 20px;
   border-bottom: 1px solid #d7e2ef;
 }
 
@@ -31,14 +31,20 @@
   .pageDescription {
     margin-bottom: 30px;
   }
-  .title {
-    font-size: 33px;
-    font-weight: 700;
-  }
 }
 
-@media (max-width: 750px) {
-
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .pageDescription p {
+    font-size: .9rem;
+  }
+  .tabBar {
+   justify-content: center;
+   border: none;
+  }
 }
 
 @media (max-width: 500px) {

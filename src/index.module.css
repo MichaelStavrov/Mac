@@ -28,3 +28,15 @@ code {
   margin: 0 auto;
   max-width: 900px;
 } 
+
+@media (max-width: 769px) {
+  .wrapper {
+    max-width: 700px;
+  } 
+}
+
+@media (max-width: 426px) {
+  .wrapper {
+    max-width: 400px;
+  } 
+}
