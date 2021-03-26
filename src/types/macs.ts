@@ -7,7 +7,7 @@ export const MAC_FAMILIES = <const>[
   'iMac',
   'iMac Pro',
   'Mac mini',
-  'Mac Pro'
+  'Mac Pro',
 ];
 
 export type IMacFamily = typeof MAC_FAMILIES[number];

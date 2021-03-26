@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import s from './device.module.css';
 import { IMacFamily } from "../../../../../../types/macs"
 import { imgs } from "../../../../../../img/images";
@@ -35,6 +35,7 @@ export const Device = ({ mac }: DeviceProps) => {
   }
 
  
+
   return (
     <li className={s.device} >
       <div className={s.link} onClick={handleClick}>

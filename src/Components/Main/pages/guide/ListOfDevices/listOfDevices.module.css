@@ -50,23 +50,31 @@
   right: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px) and (min-width: 770px) {
   .listOfDevices {
     width: 700px;
     justify-content: flex-start;
+    border-top: 1px solid #d7e2ef;
   }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 769px) and (min-width: 427px) {
   .wrapList {
     width: 600px;
     overflow: hidden;
+    
+
   }
 }
 
 @media (max-width: 426px) {
   .listOfDevices {
-    width: 100%;
-    
+    max-width: 400px;
+  }
+  .wrapper {
+    max-width: 400px;
+  }
+  .wrapList {
+    width: 397px;
   }
 }

@@ -23,17 +23,26 @@
   border-bottom: 1px solid #d7e2ef;
 }
 
+@media (max-width: 900px) and (min-width: 770px) {
 
-@media (max-width: 900px) {
+ 
+
   .guide {
     padding-top: 30px;
   }
+
   .pageDescription {
     margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .tabBar {
+    justify-content: center;
+    border: none;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .title {
     font-size: 2rem;
     text-align: center;
@@ -45,8 +54,4 @@
    justify-content: center;
    border: none;
   }
-}
-
-@media (max-width: 500px) {
-
 }

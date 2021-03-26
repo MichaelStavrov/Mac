@@ -11,6 +11,14 @@ import { socialIcons } from "../../img/socials/socialIcons";
 import  IconAuth  from '../../img/auth/auth.svg'
 import { IPositions } from "../../types/coordinates";
 
+const sections = [
+  {title: "Buyer's Guide", path: 'guide'}, 
+  {title: 'Macs by year', path: 'byYear'}, 
+  {title: 'How Tos', path: 'howTos'}, 
+  {title: 'Reviews', path: 'reviews'}, 
+  {title: 'Forums', path: 'forums'}
+]
+
 export function Header() {
   const countFavorites = useSelector(
     (state: IRootState) => state.macs.favorites
@@ -72,14 +80,13 @@ export function Header() {
       </div>
       <nav className={s.wrapperNav}>
         <div className={s.wrapper}>
-          <div className={s.navigation}>
-            <Link to="/guide" className={s.itemNav}>
-              <div>Buyer's Guide</div>
-            </Link>
-            <Link to="/byYear" className={s.itemNav}>
-              <div>Macs by year</div>
-            </Link>
-          </div>
+          <ul className={s.navigation}>
+            {sections.map((section) => 
+               <Link to={`/${section.path}`} className={s.itemNav}>
+               <li className={s.sectionTitle}>{section.title}</li>
+             </Link>
+            )}
+          </ul>
         </div>
       </nav>
     </header>
