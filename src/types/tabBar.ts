@@ -1,38 +1,35 @@
-
-
-import iconMacbook from '../img/tabBar/icon-13macbook.png'
-import iconIPhone from '../img/tabBar/icon-iphone.png'
-import iconMusic from '../img/tabBar/icon-music.png'
-import iconWatch from '../img/tabBar/icon-watch.png'
+import iconMacbook from "../img/tabBar/icon-13macbook.png";
+import iconIPhone from "../img/tabBar/icon-iphone.png";
+import iconMusic from "../img/tabBar/icon-music.png";
+import iconWatch from "../img/tabBar/icon-watch.png";
 
 export enum ProductCategory {
-  iPhone = 'iPhone/iPad',
-  Macs = 'Macs',
-  Music = 'Music',
-  Watch = 'Watch'
-};
-
-export interface IProductCategory {
-  name: ProductCategory
-  img: string
+  iPhone = "iPhone/iPad",
+  Macs = "Macs",
+  Music = "Music",
+  Watch = "Watch",
 }
 
+export interface IProductCategory {
+  name: ProductCategory;
+  img: string;
+}
 
 export const arrayProductCategories = [
   {
     name: ProductCategory.iPhone,
-    img: iconIPhone
+    img: iconIPhone,
   },
   {
     name: ProductCategory.Macs,
-    img: iconMacbook
+    img: iconMacbook,
   },
   {
     name: ProductCategory.Music,
-    img: iconMusic
+    img: iconMusic,
   },
   {
     name: ProductCategory.Watch,
-    img: iconWatch
-  }
-]
+    img: iconWatch,
+  },
+];

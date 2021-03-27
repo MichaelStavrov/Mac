@@ -2,8 +2,8 @@ import s from "./listOfDevices.module.css";
 import { Device } from "./Device/Device";
 import { MAC_FAMILIES } from "../../../../../types/macs";
 import { useState } from "react";
-import arrowBack from '../../../../../img/arrows/back.svg'
-import arrowNext from '../../../../../img/arrows/next.svg'
+import arrowBack from "../../../../../img/arrows/back.svg";
+import arrowNext from "../../../../../img/arrows/next.svg";
 
 export const ListOfDevices = () => {
   const [width, setWidth] = useState(0);
@@ -28,14 +28,14 @@ export const ListOfDevices = () => {
         type="button"
         onClick={() => setWidth((prev) => prev + 360)}
       >
-        <img src={arrowBack} alt='back'/>
+        <img src={arrowBack} alt="back" />
       </button>
       <button
         className={s.buttonSliderForward}
         type="button"
         onClick={() => setWidth((prev) => prev - 360)}
       >
-        <img src={arrowNext} alt='next'/>
+        <img src={arrowNext} alt="next" />
       </button>
     </div>
   );

@@ -24,9 +24,6 @@
 }
 
 @media (max-width: 900px) and (min-width: 770px) {
-
- 
-
   .guide {
     padding-top: 30px;
   }
@@ -48,10 +45,10 @@
     text-align: center;
   }
   .pageDescription p {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
   .tabBar {
-   justify-content: center;
-   border: none;
+    justify-content: center;
+    border: none;
   }
 }

@@ -29,11 +29,7 @@ code {
   max-width: 900px;
 } 
 
-/* @media (max-width: 900px) and (min-width: 770px) {
-  .wrapper {
-    padding-left: 20px;
-  }
-} */
+
 
 @media (max-width: 769px) {
   .wrapper {
@@ -41,8 +37,20 @@ code {
   } 
 }
 
-@media (max-width: 426px) {
+@media (max-width: 650px) and (min-width: 525px)  {
+  .wrapper {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 524px) and (min-width: 426px) {
   .wrapper {
     max-width: 400px;
+  } 
+}
+
+@media (max-width: 425px) {
+  .wrapper {
+    max-width: 280px;
   } 
 }

@@ -2,10 +2,6 @@ import s from "./footer.module.css";
 import iconLogo from "../../img/logo/macrumors-simple-logo-light.svg";
 import { Link } from "react-router-dom";
 import { socialIcons } from "../../img/socials/socialIcons";
-import { useState, useEffect } from "react";
-import { MAC_FAMILIES } from "../../types/macs";
-import { imgs } from "../../img/images";
-import cn from "classnames";
 
 export function Footer() {
   return (

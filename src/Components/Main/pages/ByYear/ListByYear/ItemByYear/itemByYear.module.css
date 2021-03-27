@@ -1,13 +1,10 @@
-
 .item {
-  
   position: relative;
   margin-bottom: 15px;
   cursor: pointer;
   align-items: center;
   color: #070779;
-  list-style-type: none; 
-
+  list-style-type: none;
 }
 
 .itemParam {
@@ -15,11 +12,10 @@
 }
 
 .item:hover {
-  font-weight: 700;
+  color: #090947;
 }
 
 .arrowRight {
-  position: absolute;
   left: -18px;
   top: 8px;
   border: solid black;
@@ -28,13 +24,13 @@
   padding: 3px;
   transform: rotate(-45deg);
   margin-right: 7px;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .arrowDown {
   top: 6px;
   transform: rotate(45deg);
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .img {
@@ -51,7 +47,7 @@
 .listParams li {
   margin-bottom: 3px;
   font-size: 14px;
-  border-bottom: 1px solid rgba(126, 123, 123, .5);
+  border-bottom: 1px solid rgba(126, 123, 123, 0.5);
 }
 
 .param li span {

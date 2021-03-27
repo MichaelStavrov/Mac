@@ -1,9 +1,8 @@
-
 .listOfDevices {
   max-width: 100%;
   margin: 0;
   padding: 0;
-  transition: all .4s ease-out;
+  transition: all 0.4s ease-out;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -21,7 +20,8 @@
   border-bottom: 1px solid #d7e2ef;
 }
 
-.buttonSliderBack, .buttonSliderForward {
+.buttonSliderBack,
+.buttonSliderForward {
   position: absolute;
   width: 30px;
   height: 100%;
@@ -30,14 +30,14 @@
   opacity: 0.2;
   outline: none;
   background-color: #e7ebf0;
-  transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
   cursor: pointer;
 }
 
-.buttonSliderBack:hover, .buttonSliderForward:hover {
-  opacity: .6;
-  transition: all .3s ease-out;
-
+.buttonSliderBack:hover,
+.buttonSliderForward:hover {
+  opacity: 0.6;
+  transition: all 0.3s ease-out;
 }
 
 .buttonSliderBack {
@@ -58,23 +58,27 @@
   }
 }
 
-@media (max-width: 769px) and (min-width: 427px) {
+@media (max-width: 769px) and (min-width: 650px) {
   .wrapList {
     width: 600px;
     overflow: hidden;
-    
+  }
+}
 
+@media (max-width: 649px) and (min-width: 520px) {
+  .wrapList {
+    width: 500px;
+  }
+}
+
+@media (max-width: 519px) and (min-width: 427px) {
+  .wrapList {
+    width: 400px;
   }
 }
 
 @media (max-width: 426px) {
-  .listOfDevices {
-    max-width: 400px;
-  }
-  .wrapper {
-    max-width: 400px;
-  }
   .wrapList {
-    width: 397px;
+    width: 300px;
   }
 }
