@@ -1,0 +1,21 @@
+.input {
+  height: 40px;
+  width: 250px;
+  padding: 0 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: white;
+  border-width: 3px;
+  border-style: solid;
+  border-color: rgb(128, 128, 128, .3);
+  outline: none;
+}
+
+.input:focus {
+  border-color: rgb(128, 128, 128, .8);
+}
+
+.error {
+  color: red;
+}

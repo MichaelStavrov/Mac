@@ -1,13 +1,12 @@
-
 export const MAC_FAMILIES = <const>[
-  'MacBook',
-  'MacBook Air',
-  'MacBook Pro 13',
-  'MacBook Pro 16',
-  'iMac',
-  'iMac Pro',
-  'Mac mini',
-  'Mac Pro',
+  "MacBook",
+  "MacBook Air",
+  "MacBook Pro 13",
+  "MacBook Pro 16",
+  "iMac",
+  "iMac Pro",
+  "Mac mini",
+  "Mac Pro",
 ];
 
 export type IMacFamily = typeof MAC_FAMILIES[number];
@@ -21,15 +20,6 @@ export interface IMacModel {
   titles: string[];
 }
 
-export type IMacModelDict = { [key in IMacModelId]: IMacModel }
+export type IMacModelDict = { [key in IMacModelId]: IMacModel };
 
-
-export type IMacModelSortByYear = { [key in string]: IMacModel[] }
-
-
-
-
-
-
-
-
+export type IMacModelSortByYear = { [key in string]: IMacModel[] };

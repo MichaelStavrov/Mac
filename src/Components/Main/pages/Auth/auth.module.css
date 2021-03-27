@@ -1,9 +1,59 @@
 .auth {
+  max-width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 3px rgb(0, 0, 0, .5);
+  border-radius: 5px;
 }
 
-.logIn {
+.title {
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: 1px solid rgb(128, 128, 128, .5);
+  
+}
+
+.buttonLogIn, .buttonSignUp, .buttonSubmit {
+  padding: 0;
+  font-size: 2.5rem;
+  margin-right: 15px;
+  border: none;
+  color: #5b5050;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.buttonSignUp {
+  margin-left: 15px;
+  margin-right: 0;
+  color: rgb(226, 136, 19);
+}
+
+.buttonSubmit {
+  padding: 5px 10px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  box-shadow: 0 0 4px rgb(0, 0, 0, .5);
+  border-radius: 5px;
+  color: #5b5050;
+  background-color: rgb(226, 136, 19);
+}
+
+.or {
+  color:rgb(128, 128, 128, .5)
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

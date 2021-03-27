@@ -1,17 +1,28 @@
-import { useField } from 'formik'
 import React from 'react';
+import { useField } from 'formik';
+import s from './inputText.module.css'
 
-// @ts-ignore
-export function InputText({ label, ...props }) {
+
+type InputTextProps = {
+  [key in string]: string
+
+}
+
+
+export function InputText({ label, ...props }: InputTextProps) {
+
   // @ts-ignore
   const [field, meta] = useField(props);
+ 
+
   return (
     <React.Fragment>
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <input className="text-input" {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
+      {meta.touched && meta.error && (
+        <div className={s.error}>{meta.error}</div>
+      )}
+      <label htmlFor={props.id || props.name}>
+        <input className={s.input} {...field} {...props} />
+      </label>
     </React.Fragment>
   );
 }

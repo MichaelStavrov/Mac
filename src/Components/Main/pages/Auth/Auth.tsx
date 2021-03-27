@@ -4,54 +4,53 @@ import s from "./auth.module.css";
 import { InputText } from "../../../Form/InputText";
 
 export function Auth() {
+
   return (
     <div className={s.auth}>
-      <div className={s.logIn}>Log in</div>
+      <div className={s.title}>
+        <button type='button' className={s.buttonLogIn}>
+          <span className={s.buttonContent}>Log in</span>
+        </button>
+        <span className={s.or}>or</span>
+        <button type='button' className={s.buttonSignUp}>Sign up</button>
+      </div>
       <Formik
-        initialValues={{ firstName: "", lastName: "", email: "" }}
+        initialValues={{ password: "", email: "" }}
         validationSchema={Yup.object({
-          firstName: Yup.string()
-            .max(15, "Must be 15 characters or less")
-            .required("Required"),
-          lastName: Yup.string()
-            .max(20, "Must be 20 characters or less")
+          password: Yup.string()
+            .min(8, "Must be 8 characters or more")
+            .max(16, "Must be 16 characters or less")
             .required("Required"),
           email: Yup.string()
             .email("Invalid email address")
             .required("Required"),
         })}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            console.log(JSON.stringify(values, null, 2));
+            resetForm();
             setSubmitting(false);
           }, 400);
         }}
       >
-        <Form>
+        <Form  className={s.form}>
           <InputText
-            label="First Name"
-            name="firstName"
-            type="text"
-            placeholder="firstName"
-          />
-
-          <InputText
-            label="Last Name"
-            name="lastName"
-            type="text"
-            placeholder="lastName"
-          />
-
-          <InputText
-            label="Email"
+            label="email"
             name="email"
             type="text"
-            placeholder="email"
+            placeholder="Email"
           />
 
-          <button type="submit">Submit</button>
+          <InputText
+            label="password"
+            name="password"
+            type="text"
+            placeholder="Password"
+          />
+          <button type='submit' className={s.buttonSubmit}>Log in</button>
         </Form>
       </Formik>
     </div>
   );
 }
+

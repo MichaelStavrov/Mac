@@ -17,6 +17,7 @@ export function Favorites() {
   
   return (
     <section className={s.favorites}>
+      <h3 className={s.title}>Favorites</h3>
       {favoriteMacs.length === 0 && (
         <p className={s.noMoreFavorites}>No more favorites</p>
       )}
