@@ -1,10 +1,10 @@
 .header {
   max-width: 100%;
   position: sticky;
-  background-color: #cddbe8;
   top: 0;
   left: 0;
   z-index: 2;
+  background-color: #cddbe8;
   transform: translateY(0);
   transition: transform .3s ease-in;
 }
@@ -50,6 +50,7 @@
 }
 
 .navigation {
+  
   display: flex;
 }
 
@@ -103,7 +104,9 @@
   font-weight: 700;
 }
 
-
+.burgerMenu {
+  display: none;
+}
 /* media================ */
 
 @media (max-width: 900px) and (min-width: 770px) {
@@ -142,36 +145,142 @@
   }
 }
 
-@media (max-width: 650px) and (min-width: 427px)  {
+@media (max-width: 650px) and (min-width: 465px)  {
   .wrapper {
-    max-width: 600px;
+    max-width: 500px;
   }
+
+  .wrapIconFavorites {
+    margin-right: 10px;
+  }
+
   .iconLogo {
     margin-right: 20px;
-    max-width: 200px;
+    max-width: 150px;
   }
 
   .iconSocial {
     margin-right: 8px;
     width: 14px;
     height: 14px;
-  }  
+  }
 
+ 
+
+  .navigation {
+    flex-direction: column;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .titleMenu {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .strip {
+    border-bottom: 2px solid white;
+    width: 100%;
+  }
+  .header {
+    max-height: 46px;
+  }
+
+  .wrapperNav {
+    position: absolute;
+    top: 0;
+    width: 360px;
+    left: -100%;
+    transition: all .3s ease-out;
+  }
+
+  .wrapperNavVisible {
+    left: 0;
+    transition: all .3s ease-out;
+
+  }
+
+ 
+
+  .itemNav {
+    padding: 0;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+
+  }
+
+
+
+  .burgerMenu {
+    display: block;
+    margin-right: 30px;
+    transition: all .3s ease-out;
+    outline: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .burgerMenuActive {
+    transition: all .3s ease-out;
+    transition-delay: .08s;
+  }
+
+  .top, .down, .middle {
+    width: 30px;
+    border-top: 3.5px solid black;
+    margin: 6px 0;
+    border-radius: 2px;
+    transition: all .3s ease-out;
+    opacity: 1;
+  }
+
+  .topActive {
+    transform: translateY(9px) rotate(45deg);
+    border-color: white;
+    transition: all .3s ease-out;
+  }
+
+  .middleActive {
+    opacity: 0;
+    border-color: white;
+    transition: all .3s ease-out;
+  }
+
+  .downActive {
+    transform: translateY(-9.5px) rotate(-45deg);
+    border-color: white;
+    transition: all .3s ease-out;
+  }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 465px) {
   .wrapper {
     max-width: 400px;
   }
 
   .iconLogo {
-    margin-right: 45px;
+    margin-right: 20px;
     max-width: 140px;
   }
 
   .iconSocial {
     display: none;
   }
+
+  
 
   .wrapIconAuth {
     width: 23px;
@@ -190,5 +299,103 @@
     font-size: .8rem;
     padding: 4px 10px;
     margin-right: 10px;
+  }
+
+  .navigation {
+    flex-direction: column;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .titleMenu {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .strip {
+    border-bottom: 2px solid white;
+    width: 100%;
+  }
+  .header {
+    max-height: 46px;
+  }
+
+  .wrapperNav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: -100%;
+    transition: all .3s ease-out;
+  }
+
+  .wrapperNavVisible {
+    left: 0;
+    transition: all .3s ease-out;
+
+  }
+
+ 
+
+  .itemNav {
+    padding: 0;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+
+  }
+
+
+
+  .burgerMenu {
+    display: block;
+    margin-right: 30px;
+    transition: all .3s ease-out;
+    outline: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .burgerMenuActive {
+    transition: all .3s ease-out;
+    transition-delay: .08s;
+  }
+
+  .top, .down, .middle {
+    width: 30px;
+    border-top: 3.5px solid black;
+    margin: 6px 0;
+    border-radius: 2px;
+    transition: all .3s ease-out;
+    opacity: 1;
+  }
+
+  .topActive {
+    transform: translateY(9px) rotate(45deg);
+    border-color: white;
+    transition: all .3s ease-out;
+  }
+
+  .middleActive {
+    opacity: 0;
+    border-color: white;
+    transition: all .3s ease-out;
+  }
+
+  .downActive {
+    transform: translateY(-9.5px) rotate(-45deg);
+    border-color: white;
+    transition: all .3s ease-out;
   }
 }
