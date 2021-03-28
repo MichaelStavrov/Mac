@@ -36,37 +36,29 @@ export function Auth() {
             setStatus({});
             setTimeout(() => {
               resetForm();
-            }, 2000);
+            }, 1000);
           }, 400);
         }}
       >
-        {({ status }) =>
-          status ? (
-            <React.Fragment>
-              <div className={s.blackout}></div>
-              <Spinner/>
-              
-            </React.Fragment>
-          ) : (
-            <Form className={s.form}>
-              <InputText
-                label="email"
-                name="email"
-                type="text"
-                placeholder="Email"
-              />
-              <InputText
-                label="password"
-                name="password"
-                type="text"
-                placeholder="Password"
-              />
-              <button type="submit" className={s.buttonSubmit}>
-                Log in
-              </button>
-            </Form>
-          )
-        }
+        {({ status }) => (
+          <Form className={s.form}>
+            <InputText
+              label="email"
+              name="email"
+              type="text"
+              placeholder="Email"
+            />
+            <InputText
+              label="password"
+              name="password"
+              type="text"
+              placeholder="Password"
+            />
+            <button type="submit" className={s.buttonSubmit}>
+              Log in
+            </button>
+          </Form>
+        )}
       </Formik>
     </div>
   );
