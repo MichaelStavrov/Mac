@@ -45,6 +45,7 @@ export const Product = ({
 
   return (
     <section className={s.product}>
+      <div className={s.wrapFavoriteIcon}>
       <IconFavorite
         className={cn({
           [s.iconHeart]: true,
@@ -52,6 +53,7 @@ export const Product = ({
         })}
         onClick={handleFavoritesClick}
       />
+      </div>
       <div className={s.productImage}>
         <Link to={`/product/${macFamily}`}>
           <img src={imgs[macFamily]} className={s.image} alt={macFamily} />
