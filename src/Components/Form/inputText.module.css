@@ -16,6 +16,11 @@
   border-color: rgb(128, 128, 128, .8);
 }
 
+.inputError {
+  border-color: red;
+
+}
+
 .error {
   color: red;
 }

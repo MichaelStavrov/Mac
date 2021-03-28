@@ -1,27 +1,31 @@
 import React from 'react';
+import cn from 'classnames'
 import { useField } from 'formik';
 import s from './inputText.module.css'
 
 
 type InputTextProps = {
-  [key in string]: string
-
+  type: string
+  placeholder: string
+  name: string
+  label: string
+  id?: string
 }
 
 
 export function InputText({ label, ...props }: InputTextProps) {
-
-  // @ts-ignore
-  const [field, meta] = useField(props);
- 
-
+  const [field, {error, touched}] = useField(props);  
+  
   return (
     <React.Fragment>
-      {meta.touched && meta.error && (
-        <div className={s.error}>{meta.error}</div>
+      {touched && error && (
+        <div className={s.error}>{error}</div>
       )}
       <label htmlFor={props.id || props.name}>
-        <input className={s.input} {...field} {...props} />
+        <input className={cn({
+          [s.input]: true,
+          [s.inputError]: error && touched
+        })} {...field} {...props} />
       </label>
     </React.Fragment>
   );

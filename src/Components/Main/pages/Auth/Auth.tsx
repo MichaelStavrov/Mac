@@ -2,17 +2,20 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import s from "./auth.module.css";
 import { InputText } from "../../../Form/InputText";
+import React from "react";
+import { Spinner } from "../../../Spinner/Spinner";
 
 export function Auth() {
-
   return (
     <div className={s.auth}>
       <div className={s.title}>
-        <button type='button' className={s.buttonLogIn}>
+        <button type="button" className={s.buttonLogIn}>
           <span className={s.buttonContent}>Log in</span>
         </button>
         <span className={s.or}>or</span>
-        <button type='button' className={s.buttonSignUp}>Sign up</button>
+        <button type="button" className={s.buttonSignUp}>
+          Sign up
+        </button>
       </div>
       <Formik
         initialValues={{ password: "", email: "" }}
@@ -25,32 +28,44 @@ export function Auth() {
             .email("Invalid email address")
             .required("Required"),
         })}
-        onSubmit={(values, { setSubmitting, resetForm }) => {
+        onSubmit={(values, { setSubmitting, resetForm, setStatus }) => {
           setTimeout(() => {
             console.log(JSON.stringify(values, null, 2));
-            resetForm();
             setSubmitting(false);
+            setStatus({});
+            setTimeout(() => {
+              resetForm();
+            }, 2000);
           }, 400);
         }}
       >
-        <Form  className={s.form}>
-          <InputText
-            label="email"
-            name="email"
-            type="text"
-            placeholder="Email"
-          />
-
-          <InputText
-            label="password"
-            name="password"
-            type="text"
-            placeholder="Password"
-          />
-          <button type='submit' className={s.buttonSubmit}>Log in</button>
-        </Form>
+        {({ status }) =>
+          status ? (
+            <React.Fragment>
+              <div className={s.blackout}></div>
+              <Spinner/>
+            </React.Fragment>
+          ) : (
+            <Form className={s.form}>
+              <InputText
+                label="email"
+                name="email"
+                type="text"
+                placeholder="Email"
+              />
+              <InputText
+                label="password"
+                name="password"
+                type="text"
+                placeholder="Password"
+              />
+              <button type="submit" className={s.buttonSubmit}>
+                Log in
+              </button>
+            </Form>
+          )
+        }
       </Formik>
     </div>
   );
 }
-
