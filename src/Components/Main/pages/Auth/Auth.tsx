@@ -4,6 +4,7 @@ import s from "./auth.module.css";
 import { InputText } from "../../../Form/InputText";
 import React from "react";
 import { Spinner } from "../../../Spinner/Spinner";
+import { Link } from "react-router-dom";
 
 export function Auth() {
   return (
@@ -44,6 +45,7 @@ export function Auth() {
             <React.Fragment>
               <div className={s.blackout}></div>
               <Spinner/>
+              
             </React.Fragment>
           ) : (
             <Form className={s.form}>
