@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1f886e72.chunk.css",
+    "main.js": "/static/js/main.f92d708c.chunk.js",
+    "main.js.map": "/static/js/main.f92d708c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4928ae5d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4928ae5d.js.map",
+    "static/js/2.7deab457.chunk.js": "/static/js/2.7deab457.chunk.js",
+    "static/js/2.7deab457.chunk.js.map": "/static/js/2.7deab457.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.1f886e72.chunk.css.map": "/static/css/main.1f886e72.chunk.css.map",
+    "static/js/2.7deab457.chunk.js.LICENSE.txt": "/static/js/2.7deab457.chunk.js.LICENSE.txt",
+    "static/media/auth.35ab9609.svg": "/static/media/auth.35ab9609.svg",
+    "static/media/back.a98e70f8.svg": "/static/media/back.a98e70f8.svg",
+    "static/media/facebook.8d51a556.png": "/static/media/facebook.8d51a556.png",
+    "static/media/heart.aed73a33.svg": "/static/media/heart.aed73a33.svg",
+    "static/media/imac_300.c5ba2d93.png": "/static/media/imac_300.c5ba2d93.png",
+    "static/media/imac_pro_380.2b963d4d.png": "/static/media/imac_pro_380.2b963d4d.png",
+    "static/media/instagram.edb90ecc.png": "/static/media/instagram.edb90ecc.png",
+    "static/media/mac_mini_320.3b3b169d.png": "/static/media/mac_mini_320.3b3b169d.png",
+    "static/media/mac_pro_2019_416.a109de14.png": "/static/media/mac_pro_2019_416.a109de14.png",
+    "static/media/macbook_air_470.26a71305.png": "/static/media/macbook_air_470.26a71305.png",
+    "static/media/macbook_pro_13_350.7c586efb.png": "/static/media/macbook_pro_13_350.7c586efb.png",
+    "static/media/macbook_pro_16_372.bc8220ee.png": "/static/media/macbook_pro_16_372.bc8220ee.png",
+    "static/media/macrumors-simple-logo-light.4c9003f4.svg": "/static/media/macrumors-simple-logo-light.4c9003f4.svg",
+    "static/media/next.7568cec3.svg": "/static/media/next.7568cec3.svg",
+    "static/media/twitter.8e65601e.png": "/static/media/twitter.8e65601e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4928ae5d.js",
+    "static/js/2.7deab457.chunk.js",
+    "static/css/main.1f886e72.chunk.css",
+    "static/js/main.f92d708c.chunk.js"
+  ]
+}
