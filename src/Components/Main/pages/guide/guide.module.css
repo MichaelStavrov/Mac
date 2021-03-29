@@ -40,6 +40,9 @@
 }
 
 @media (max-width: 769px) {
+  .pageDescription {
+    max-width: 600px;
+  }
   .title {
     font-size: 2rem;
     text-align: center;

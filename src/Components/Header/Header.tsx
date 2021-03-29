@@ -53,42 +53,76 @@ export function Header() {
 
   return (
     <React.Fragment>
-      {isActive && <div className={s.substrate}></div>}
       <header
         className={cn({
           [s.header]: true,
           [s.hidden]: visible,
         })}
       >
+        <div
+          className={cn({
+            [s.menu]: true,
+            [s.menuActive]: isActive,
+          })}
+        >
+          <button
+            className={cn({
+              [s.burgerMenu]: true,
+              [s.burgerMenuActive]: isActive,
+            })}
+            type="button"
+            onClick={handleMenuClick}
+          >
+            <div
+              className={cn({
+                [s.top]: true,
+                [s.topActive]: isActive,
+              })}
+            />
+            <div
+              className={cn({
+                [s.middle]: true,
+                [s.middleActive]: isActive,
+              })}
+            />
+            <div
+              className={cn({
+                [s.down]: true,
+                [s.downActive]: isActive,
+              })}
+            />
+          </button>
+          {isActive && (
+            <ul className={s.burgerNavigation}>
+              {sections.map((section) => (
+                <Link
+                  to={`/${section.path}`}
+                  className={s.itemNav}
+                  onClick={() => setIsActive(false)}
+                  key={section.title}
+                >
+                  <li className={s.sectionTitle}>{section.title}</li>
+                </Link>
+              ))}
+            </ul>
+          )}
+        </div>
         <div className={s.wrapper}>
           <div className={s.wrapHeader}>
-            <button
-              className={cn({
-                [s.burgerMenu]: true,
-                [s.burgerMenuActive]: isActive,
-              })}
-              type="button"
-              onClick={handleMenuClick}
-            >
-              <div
+            {!isActive && (
+              <button
                 className={cn({
-                  [s.top]: true,
-                  [s.topActive]: isActive,
+                  [s.burgerMenu]: true,
                 })}
-              />
-              <div
-                className={cn({
-                  [s.middle]: true,
-                  [s.middleActive]: isActive,
-                })}
-              />
-              <div
-                className={cn({
-                  [s.down]: true,
-                  [s.downActive]: isActive,
-                })}
-              />
-            </button>
+                type="button"
+                onClick={handleMenuClick}
+              >
+                <div className={s.top} />
+                <div className={s.middle} />
+                <div className={s.down} />
+              </button>
+            )}
+
             <Link to="/">
               <img src={iconLogo} className={s.iconLogo} alt="logo" />
             </Link>
@@ -123,24 +157,12 @@ export function Header() {
             </div>
           </div>
         </div>
-        <nav
-          className={cn({
-            [s.wrapperNav]: true,
-            [s.wrapperNavVisible]: isActive,
-          })}
-        >
+        <nav className={s.wrapperNav}>
           <div className={s.wrapper}>
             <ul className={s.navigation}>
-              {isActive && (
-                <React.Fragment>
-                  <div className={s.titleMenu}>Menu</div>
-                  <div className={s.strip} />
-                </React.Fragment>
-              )}
               {sections.map((section) => (
                 <Link
                   to={`/${section.path}`}
-                  className={s.itemNav}
                   onClick={() => setIsActive(false)}
                   key={section.title}
                 >
