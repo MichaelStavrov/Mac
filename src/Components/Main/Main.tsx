@@ -12,9 +12,9 @@ export function Main() {
     <div className={s.wrapper}>
       <main className={s.main}>
         <Route path="/" exact component={Guide} />
+        {/* <Route path="/guide" component={Guide} /> */}
         <Route path="/favorites" component={Favorites} />
         <Route path="/auth" component={Auth} />
-        <Route path="/guide" component={Guide} />
         <Route path="/byYear" exact component={ByYear} />
         <Route path="/byYear/:year" component={ListByYear} />
         <Route path="/product/:id" component={ProductPage} />

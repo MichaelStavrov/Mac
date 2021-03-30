@@ -61,17 +61,14 @@ const macsSlice = createSlice({
     removeFavorite(state, action) {
       state.favorites = state.favorites.filter(mac => mac !== action.payload)
     }
-    // standard reducer logic, with auto-generated action types per reducer
   },
   extraReducers: builder => {
-    // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchMacsThunk.pending, (state, action) => {
       state.loading = 'loading';
       state.entities = [];
     });
 
     builder.addCase(fetchMacsThunk.fulfilled, (state, action) => {
-      // Add user to the state array
       state.loading = 'loaded';
       state.entities = action.payload;
     });

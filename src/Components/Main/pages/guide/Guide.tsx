@@ -15,7 +15,7 @@ export const Guide = () => {
   const status = useSelector((state: IRootState) => state.macs.loading);
 
   if (["loading", "idle"].includes(status)) {
-    return <div>Loading</div>;
+    return <div>loading</div>;
   }
 
   return (
