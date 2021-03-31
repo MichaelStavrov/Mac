@@ -7,6 +7,8 @@ const fetchMacsThunk = createAsyncThunk<IMacModel[]>(
   'macs/fetch',
   async () => {
     const response = await fetchMacs()
+    console.log(response);
+    
     return response;
   }
 );
@@ -88,11 +90,12 @@ export const { setMacFamily, setStatus, addToFavorites, removeFavorite } = macsS
 
 // @ts-ignore
 const saveFavoritesToLocalStorage = ({getState}) => next => action => {
-  // console.log(getState())
   const result = next(action);
 
   if ([addToFavorites, removeFavorite].map(String).includes(action.type)) {
     const {macs} = getState();
+ 
+    
     localStorage.setItem("favorites", JSON.stringify(macs.favorites));
   }
 

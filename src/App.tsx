@@ -9,7 +9,7 @@ import { Main } from "./Components/Main/Main";
 export const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Header />
           <Main />
         <Footer />
