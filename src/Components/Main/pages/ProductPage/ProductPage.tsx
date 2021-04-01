@@ -25,8 +25,9 @@ export function ProductPage() {
     <div className={s.productPage}>
       <div className={s.header}>
         <div className={s.description}>
-          <div>
+         
             <h3 className={s.name}>{mac}</h3>
+            <div className={s.wrapFavoriteIcon  }>
             <IconFavorite
               className={cn({
                 [s.iconHeart]: true,
@@ -34,15 +35,22 @@ export function ProductPage() {
               })}
               onClick={handleFavoritesClick}
             />
-          </div>
+            </div>
+          
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
             enim consequuntur rem ducimus, officia itaque consequatur dolores
             expedita deserunt facere!
           </p>
         </div>
-        <div className={s.image}>
-          <img src={imgs[mac]} alt={mac} />
+        
+        <div className={s.subtitle}>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+            enim consequuntur rem ducimus, officia itaque consequatur dolores
+            expedita deserunt facere!
+          </p>
+          <img className={s.image} src={imgs[mac]} alt={mac} />
         </div>
       </div>
     </div>

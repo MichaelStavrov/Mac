@@ -32,7 +32,6 @@
 }
 
 .icon {
-  /* margin-right: 25px; */
   max-width: 100%;
 }
 
@@ -89,7 +88,35 @@
   }
 }
 
-@media (max-width: 500px) {
-  .description {
-    display: none;  }
+@media (max-width: 526px) {
+  .favoritesItem {
+    padding-right: 0;
+    padding-left: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+  .wrapIcon {
+    margin: 0;
+  }
+  .description {
+    margin-bottom: 20px;
+    order: 1;
+  }
+
+  .name {
+    margin-bottom: 20px;
+  }
+  }
+
+  @media (max-width: 450px) {
+      .favoritesItem {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .wrapIcon {
+        margin: 0;
+      }
+
+    }

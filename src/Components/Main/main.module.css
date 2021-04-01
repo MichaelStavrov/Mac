@@ -1,5 +1,6 @@
 .main {
   min-height: 100vh;
+  padding: 0 20px;
 }
 
 .wrapper {
@@ -15,20 +16,16 @@
   } 
 }
 
-@media (max-width: 650px) and (min-width: 525px)  {
+@media (max-width: 650px)  {
   .wrapper {
     max-width: 500px;
   }
 }
 
-@media (max-width: 524px) and (min-width: 426px) {
+@media (max-width: 524px) {
   .wrapper {
+
     max-width: 400px;
   } 
 }
 
-@media (max-width: 425px) {
-  .wrapper {
-    max-width: 280px;
-  } 
-}

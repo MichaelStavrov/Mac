@@ -11,7 +11,7 @@ export function Footer() {
           <img src={iconLogo} className={s.iconLogo} alt="logo" />
         </Link>
         <small className={s.copyright}>
-          Copyright © 2000-2021 MacRumors.com, LLC.{" "}
+          Copyright © 2000-2021 MacRumors.com, LLC.
         </small>
         <div className={s.socials}>
           {socialIcons.map((icon) => (

@@ -14,9 +14,7 @@ import { IPositions } from "../../types/coordinates";
 const sections = [
   { title: "Buyer's Guide", path: "guide" },
   { title: "Macs by year", path: "byYear" },
-  { title: "How Tos", path: "" },
-  { title: "Reviews", path: "" },
-  { title: "Forums", path: "" },
+
 ];
 
 export function Header() {

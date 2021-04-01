@@ -12,7 +12,10 @@ import { CategoryTabs } from "./CategoryTabs/CategotyTabs";
 
 export const Guide = () => {
   const [tab, setTab] = useState<string | undefined>("Macs");
+  const [active, setActive] = useState(false)
   const status = useSelector((state: IRootState) => state.macs.loading);
+
+ 
 
   if (["loading", "idle"].includes(status)) {
     return <div>loading</div>;
@@ -38,6 +41,8 @@ export const Guide = () => {
           <CategoryTabs
             onChangeTab={setTab}
             category={category}
+            active={active}
+            onChangeActive={setActive}
             key={category.name}
           />
         ))}

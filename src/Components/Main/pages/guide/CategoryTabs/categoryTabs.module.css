@@ -20,10 +20,6 @@
   background-color: white;
 }
 
-.item:last-child {
-  border: 1px solid #d7e2ef;
-}
-
 .image {
   margin-right: 10px;
   max-width: 25px;

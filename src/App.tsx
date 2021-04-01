@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import "./index.module.css";
+import "./index.css";
 import { store } from "./store";
 import { Header } from "./Components/Header/Header";
 import { Footer } from "./Components/Footer/Footer";

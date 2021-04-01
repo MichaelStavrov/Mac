@@ -2,9 +2,6 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import s from "./auth.module.css";
 import { InputText } from "../../../Form/InputText";
-import React from "react";
-import { Spinner } from "../../../Spinner/Spinner";
-import { Link } from "react-router-dom";
 
 export function Auth() {
   return (

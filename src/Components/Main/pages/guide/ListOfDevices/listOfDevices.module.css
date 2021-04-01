@@ -12,7 +12,7 @@
 
 .wrapList {
   position: relative;
-  max-width: 900px;
+  max-width: 860px;
   margin-bottom: 15px;
   overflow: hidden;
   border-left: 5px solid #d7e2ef;
@@ -50,7 +50,7 @@
   right: 0;
 }
 
-@media (max-width: 900px) and (min-width: 770px) {
+@media (max-width: 900px) {
   .listOfDevices {
     width: 700px;
     justify-content: flex-start;
@@ -58,20 +58,20 @@
   }
 }
 
-@media (max-width: 769px) and (min-width: 650px) {
+@media (max-width: 769px) {
   .wrapList {
     width: 600px;
     overflow: hidden;
   }
 }
 
-@media (max-width: 649px) and (min-width: 520px) {
+@media (max-width: 649px) {
   .wrapList {
     width: 500px;
   }
 }
 
-@media (max-width: 519px) and (min-width: 427px) {
+@media (max-width: 519px) {
   .wrapList {
     width: 400px;
   }
