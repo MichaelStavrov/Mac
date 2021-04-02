@@ -6,9 +6,7 @@ import { ProductStatus } from './types/productStatus';
 const fetchMacsThunk = createAsyncThunk<IMacModel[]>(
   'macs/fetch',
   async () => {
-    const response = await fetchMacs()
-    console.log(response);
-    
+    const response = await fetchMacs()    
     return response;
   }
 );

@@ -15,7 +15,6 @@ export function ListByYear() {
   const arrayMacsSameYear = macsByYears[year] ?? [];
 
   const arrayOfMacNames = getArrayOfMacsNamesSameYear(arrayMacsSameYear);
-  console.log(arrayOfMacNames);
   
 
   return (
