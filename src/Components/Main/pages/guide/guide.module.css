@@ -22,8 +22,31 @@
   display: flex;
   border-bottom: 1px solid #d7e2ef;
 }
+.item {
+  padding: 10px 15px;
+  border: 1px solid #d7e2ef;
+  font-size: 1.1rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #e7ebf0;
+}
 
-@media (max-width: 900px) and (min-width: 770px) {
+.backgroundWhite {
+  background-color: white;
+  transition: all 0.3s ease-out;
+}
+
+.image {
+  margin-right: 10px;
+  max-width: 25px;
+  max-height: 25px;
+}
+
+@media (max-width: 900px) {
   .guide {
     padding-top: 30px;
   }
@@ -53,5 +76,22 @@
   .tabBar {
     justify-content: center;
     border: none;
+  }
+  .item {
+    padding: 7px 11px;
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 523px) {
+  .item {
+    padding: 4px 7px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .item {
+    padding: 2px 4px;
+    font-size: 0.8rem;
   }
 }

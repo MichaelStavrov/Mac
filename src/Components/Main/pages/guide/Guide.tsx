@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import cn from "classnames";
 import s from "./guide.module.css";
 import { ProductCard } from "./ProductCard/ProductCard";
 import { ListOfDevices } from "./ListOfDevices//ListOfDevices";
@@ -8,14 +9,10 @@ import {
   arrayProductCategories,
   ProductCategory,
 } from "../../../../types/tabBar";
-import { CategoryTabs } from "./CategoryTabs/CategotyTabs";
 
 export const Guide = () => {
-  const [tab, setTab] = useState<string | undefined>("Macs");
-  const [active, setActive] = useState(false)
+  const [category, setCategory] = useState("Macs");
   const status = useSelector((state: IRootState) => state.macs.loading);
-
- 
 
   if (["loading", "idle"].includes(status)) {
     return <div>loading</div>;
@@ -37,25 +34,29 @@ export const Guide = () => {
         </p>
       </div>
       <ul className={s.tabBar}>
-        {arrayProductCategories.map((category) => (
-          <CategoryTabs
-            onChangeTab={setTab}
-            category={category}
-            active={active}
-            onChangeActive={setActive}
-            key={category.name}
-          />
+        {arrayProductCategories.map((section) => (
+          <li
+            className={cn({
+              [s.item]: true,
+              [s.backgroundWhite]: section.name === category,
+            })}
+            onClick={() => setCategory(section.name)}
+            key={section.name}
+          >
+            <img src={section.img} className={s.image} alt={section.img} />
+            {section.name}
+          </li>
         ))}
       </ul>
-      {tab === ProductCategory.iPhone && <div>IPhone</div>}
-      {tab === ProductCategory.Macs && (
+      {category === ProductCategory.iPhone && <div>IPhone</div>}
+      {category === ProductCategory.Macs && (
         <React.Fragment>
           <ListOfDevices />
           <ProductCard />
         </React.Fragment>
       )}
-      {tab === ProductCategory.Music && <div>Music</div>}
-      {tab === ProductCategory.Watch && <div>Watch</div>}
+      {category === ProductCategory.Music && <div>Music</div>}
+      {category === ProductCategory.Watch && <div>Watch</div>}
     </div>
   );
 };
