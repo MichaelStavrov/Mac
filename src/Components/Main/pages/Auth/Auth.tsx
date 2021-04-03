@@ -1,62 +1,69 @@
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
+
 import s from "./auth.module.css";
-import { InputText } from "../../../Form/InputText";
+import React, { useState } from "react";
+import { LogIn } from "../../../Form/LogIn/LogIn";
+import { SignUp } from "../../../Form/SignUp/SignUp";
 
 export function Auth() {
+  const [auth, setAuth] = useState("logIn");
+
+  function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    const auth = e.currentTarget.name;
+    setAuth(auth);
+  }
+
   return (
     <div className={s.auth}>
       <div className={s.title}>
-        <button type="button" className={s.buttonLogIn}>
+        <button
+          type="button"
+          className={s.buttonLogIn}
+          name="logIn"
+          onClick={(e) => handleClick(e)}
+        >
           <span className={s.buttonContent}>Log in</span>
         </button>
         <span className={s.or}>or</span>
-        <button type="button" className={s.buttonSignUp}>
+        <button
+          type="button"
+          className={s.buttonSignUp}
+          name="signUp"
+          onClick={(e) => handleClick(e)}
+        >
           Sign up
-        </button>
+          </button>
       </div>
-      <Formik
-        initialValues={{ password: "", email: "" }}
-        validationSchema={Yup.object({
-          password: Yup.string()
-            .min(8, "Must be 8 characters or more")
-            .max(16, "Must be 16 characters or less")
-            .required("Required"),
-          email: Yup.string()
-            .email("Invalid email address")
-            .required("Required"),
-        })}
-        onSubmit={(values, { setSubmitting, resetForm, setStatus }) => {
-          setTimeout(() => {
-            console.log(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-            setStatus({});
-            setTimeout(() => {
-              resetForm();
-            }, 1000);
-          }, 400);
-        }}
-      >
-        {({ status }) => (
-          <Form className={s.form}>
-            <InputText
-              label="email"
-              name="email"
-              type="text"
-              placeholder="Email"
-            />
-            <InputText
-              label="password"
-              name="password"
-              type="text"
-              placeholder="Password"
-            />
-            <button type="submit" className={s.buttonSubmit}>
-              Log in
-            </button>
-          </Form>
-        )}
-      </Formik>
+      {auth === 'logIn' &&
+        <div className={s.wrapLogInOrSignUp}>
+          <LogIn/>
+          <button
+            type="button"
+            className={s.buttonToSignUp}
+            name="signUp"
+            onClick={(e) => handleClick(e)}
+          >
+            Sign up
+          </button>
+        </div>
+ 
+      }
+      {auth === 'signUp' &&
+        <div className={s.wrapLogInOrSignUp}>
+          <SignUp/>     
+          <button
+            type="button"
+            className={s.buttonToSignUp}
+            name="logIn"
+            onClick={(e) => handleClick(e)}
+          >
+            Log in
+          </button>
+        </div>
+      
+
+      }
+     
+
     </div>
   );
 }

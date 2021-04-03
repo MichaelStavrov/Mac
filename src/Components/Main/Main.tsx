@@ -6,6 +6,7 @@ import { ProductPage } from "./pages/ProductPage/ProductPage";
 import { Route } from "react-router-dom";
 import { Favorites } from "./pages/Favorites/Favorites";
 import { Auth } from "./pages/Auth/Auth";
+import { SignUp } from "../Form/SignUp/SignUp";
 
 export function Main() {
   return (
@@ -14,7 +15,7 @@ export function Main() {
         <Route path="/" exact component={Guide} />
         <Route path="/guide" component={Guide} />
         <Route path="/favorites" component={Favorites} />
-        <Route path="/auth" component={Auth} />
+        <Route path="/auth" exact component={Auth} />
         <Route path="/byYear" exact component={ByYear} />
         <Route path="/byYear/:year" component={ListByYear} />
         <Route path="/product/:id" component={ProductPage} />

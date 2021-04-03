@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames'
 import { useField } from 'formik';
 import s from './inputText.module.css'
-
 
 type InputTextProps = {
   type: string
@@ -12,16 +11,15 @@ type InputTextProps = {
   id?: string
 }
 
-
 export function InputText({ label, ...props }: InputTextProps) {
-  const [field, {error, touched}] = useField(props);  
-  
+  const [field, {error, touched}] = useField(props); 
+
   return (
     <React.Fragment>
       {touched && error && (
         <div className={s.error}>{error}</div>
       )}
-      <label htmlFor={props.id || props.name}>
+      <label className={s.label} htmlFor={props.id || props.name}>
         <input className={cn({
           [s.input]: true,
           [s.inputError]: error && touched

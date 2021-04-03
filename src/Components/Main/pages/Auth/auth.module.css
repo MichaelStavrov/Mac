@@ -58,6 +58,22 @@
   align-items: center;
 }
 
+.wrapLogInOrSignUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonToSignUp {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  text-decoration: underline;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 /* 
 .blackout {
   width: 100vw;

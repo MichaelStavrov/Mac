@@ -14,6 +14,9 @@ import { IPositions } from "../../types/coordinates";
 const sections = [
   { title: "Buyer's Guide", path: "guide" },
   { title: "Macs by year", path: "byYear" },
+  { title: "Reviews", path: "" },
+  { title: "How Tos", path: "" },
+  { title: "Forums", path: "" },
 
 ];
 
@@ -95,7 +98,7 @@ export function Header() {
               {sections.map((section) => (
                 <Link
                   to={`/${section.path}`}
-                  className={s.itemNav}
+                  className={s.sectionTitle}
                   onClick={() => setIsActive(false)}
                   key={section.title}
                 >
