@@ -71,6 +71,12 @@
   }
 }
 
+@media (max-width: 550px) {
+  .wrapList {
+    display: none;
+  }
+}
+
 @media (max-width: 519px) {
   .wrapList {
     width: 400px;

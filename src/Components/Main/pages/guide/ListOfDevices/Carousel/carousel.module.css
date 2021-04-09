@@ -1,0 +1,93 @@
+
+
+.carouselWrapper {
+  max-width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-left: 5px solid #d7e2ef;
+  border-right: 5px solid #d7e2ef;
+  border-bottom: 1px solid #d7e2ef;
+}
+
+.isHidden {
+  display: none;
+}
+
+  .arrowButton {
+    cursor: pointer;
+    align-self: center;
+    outline: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .iconArrow {
+    width: 20px;
+    height: 20px;
+  }
+
+  .carousel {
+    display: flex;
+    overflow: hidden;
+    transform: translateX(100%);
+  }
+  
+  .isReversing {
+      transform: translateX(-100%)
+    }
+
+    .isSet {
+      transform: none;
+      transition: all 0.5s ease-out;
+    }
+
+    .item {
+      display: flex;
+      font-size: 30px;
+      justify-content: center;
+      align-items: center;
+      min-width: 146px;
+      margin: 10px
+    }
+
+
+    @media (max-width: 550px) {
+      .isHidden {
+        display: flex;
+      }
+      .item {
+        min-width: 117px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .item {
+        min-width: 108px;
+      }
+    }
+
+    @media (max-width: 426px) {
+      .item {
+        min-width: 90px;
+      }
+    }
+ 
+
+    @media(max-width: 376px){
+      .item {
+        min-width: 75px;
+      }
+    }
+
+    @media(max-width: 320px){
+      .item {
+        min-width: 70px;
+      }
+    }
+ 
+
+
+
