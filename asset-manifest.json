@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Macs/static/css/main.3f5cab5f.chunk.css",
-    "main.js": "/Macs/static/js/main.955f3212.chunk.js",
-    "main.js.map": "/Macs/static/js/main.955f3212.chunk.js.map",
+    "main.css": "/Macs/static/css/main.9589f0a9.chunk.css",
+    "main.js": "/Macs/static/js/main.969b4a68.chunk.js",
+    "main.js.map": "/Macs/static/js/main.969b4a68.chunk.js.map",
     "runtime-main.js": "/Macs/static/js/runtime-main.56f89885.js",
     "runtime-main.js.map": "/Macs/static/js/runtime-main.56f89885.js.map",
-    "static/js/2.0d20bd2a.chunk.js": "/Macs/static/js/2.0d20bd2a.chunk.js",
-    "static/js/2.0d20bd2a.chunk.js.map": "/Macs/static/js/2.0d20bd2a.chunk.js.map",
+    "static/js/2.3095fe80.chunk.js": "/Macs/static/js/2.3095fe80.chunk.js",
+    "static/js/2.3095fe80.chunk.js.map": "/Macs/static/js/2.3095fe80.chunk.js.map",
     "index.html": "/Macs/index.html",
-    "static/css/main.3f5cab5f.chunk.css.map": "/Macs/static/css/main.3f5cab5f.chunk.css.map",
-    "static/js/2.0d20bd2a.chunk.js.LICENSE.txt": "/Macs/static/js/2.0d20bd2a.chunk.js.LICENSE.txt",
+    "static/css/main.9589f0a9.chunk.css.map": "/Macs/static/css/main.9589f0a9.chunk.css.map",
+    "static/js/2.3095fe80.chunk.js.LICENSE.txt": "/Macs/static/js/2.3095fe80.chunk.js.LICENSE.txt",
     "static/media/auth.35ab9609.svg": "/Macs/static/media/auth.35ab9609.svg",
     "static/media/back.a98e70f8.svg": "/Macs/static/media/back.a98e70f8.svg",
     "static/media/facebook.8d51a556.png": "/Macs/static/media/facebook.8d51a556.png",
@@ -29,8 +29,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.56f89885.js",
-    "static/js/2.0d20bd2a.chunk.js",
-    "static/css/main.3f5cab5f.chunk.css",
-    "static/js/main.955f3212.chunk.js"
+    "static/js/2.3095fe80.chunk.js",
+    "static/css/main.9589f0a9.chunk.css",
+    "static/js/main.969b4a68.chunk.js"
   ]
 }
